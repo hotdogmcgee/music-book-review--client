@@ -1,6 +1,5 @@
 {
     "version": 2,
-    "alias": "KR-music-book-review-app",
     "name": "music-book-review-app",
     "routes": [
         {
