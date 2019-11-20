@@ -29,7 +29,7 @@ class App extends React.Component {
             <Route path={"*"} component={NotFoundPage}/>
           </Switch>
         </main>
-        <div class="ReactModalPortal"></div>
+        <div className="ReactModalPortal"></div>
       </div>
     );
   }

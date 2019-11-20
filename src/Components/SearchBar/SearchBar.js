@@ -3,11 +3,62 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./SearchBar.css";
 
 export default class SearchBar extends React.Component {
-    //on click hide or grey out other buttons so search field takes up more space
-  state = {
-    initialItems: [],
-    items: []
+  //on click hide or grey out other buttons so search field takes up more space
+  constructor(props) {
+    super(props);
+    this.state = {
+      initialItems: [],
+      items: [],
+      searchValue: "",
+      mouseOverBoolean: false,
+      isHovered: false
+    };
+    this.handleHover = this.handleHover.bind(this);
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+  }
+
+  //doesnt work because function has been defined before state?
+  //   log(e) {
+  //       e.preventDefault()
+  //     const thing = this.state.searchValue
+  //     console.log(thing);
+  //   }
+
+  handleInput = e => {
+    e.preventDefault();
+    const value = e.target.value;
+    this.setState({
+      searchValue: value
+    });
+    console.log(this.state.searchValue);
+    // this.props.onSearchChange(searchValue);
   };
+
+  //   handleToggle() {
+  //       const newVal = !this.state.mouseOverBoolean
+  //       this.setState({
+  //           mouseOverBoolean: newVal
+  //       })
+  //       console.log('toggle');
+  //   }
+
+  handleMouseOver() {
+    if (this.state.mouseOverBoolean) {
+      return;
+    } else {
+      this.setState({
+        mouseOverBoolean: true
+      });
+      this.props.onSearchBarFocus();
+    }
+  }
+
+  handleHover() {
+    this.setState(prevState => ({
+      isHovered: !prevState.isHovered
+    }))
+    this.props.onSearchBarFocus(this.state.isHovered);
+  }
 
   // filterList = (event) => {
   //   let items = this.state.initialItems;
@@ -26,7 +77,15 @@ export default class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className="searchBox">
+      //   <form id="searchForm" onSubmit={this.log}>
+      <div
+        className="searchBox"
+        onChange={this.handleInput}
+        // onMouseOver={this.handleMouseOver}
+        onMouseEnter={this.handleHover}
+        onMouseLeave={this.handleHover}
+      >
+        
         <input
           className="searchInput"
           type="text"
@@ -41,6 +100,7 @@ export default class SearchBar extends React.Component {
           />
         </button>
       </div>
+      //   </form>
     );
   }
 }

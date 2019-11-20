@@ -5,6 +5,21 @@ import SearchBar from '../SearchBar/SearchBar'
 import "./Header.css";
 
 export default class Header extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      hideElements: false
+    }
+    this.handleSearchBarFocus = this.handleSearchBarFocus.bind(this)
+  }
+
+  handleSearchBarFocus(bool) {
+
+
+    this.setState({
+      hideElements: !bool
+    })
+  }
 //   handleLogoutClick = () => {
 //     TokenService.clearAuthToken();
 //     TokenService.clearUserId();
@@ -35,10 +50,10 @@ export default class Header extends React.Component {
     return (
       <>
       <nav className="Header">
-                <p>Log In/Register</p>
-                <p>Browse</p>
+                <p style={{ display: !this.state.hideElements ? 'block' : 'none'}}>Log In/Register</p>
+                <p style={{ display: !this.state.hideElements ? 'block' : 'none'}}>Browse</p>
                 <Link to="/">Music Book Review</Link>
-                <SearchBar />
+                <SearchBar onSearchBarFocus={this.handleSearchBarFocus} />
             </nav>
         {/* <nav className="Header">
           <h1>
