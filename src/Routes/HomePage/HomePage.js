@@ -13,11 +13,11 @@ function HomePage() {
     
         <section>
             <h2>Instrument select</h2>
-            <div class="select-boxes">
-                <div class="select-box">Piano</div>
-                <div class="select-box">Guitar</div>
-                <div class="select-box">Violin</div>
-                <div class="select-box">Clarinet</div>
+            <div className="select-boxes">
+                <div className="select-box">Piano</div>
+                <div className="select-box">Guitar</div>
+                <div className="select-box">Violin</div>
+                <div className="select-box">Clarinet</div>
     
     
             </div>

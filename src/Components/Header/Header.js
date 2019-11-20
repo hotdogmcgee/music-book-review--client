@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SearchBar from '../SearchBar/SearchBar'
 // import TokenService from "../../services/token-service";
 import "./Header.css";
 
@@ -37,7 +38,7 @@ export default class Header extends React.Component {
                 <p>Log In/Register</p>
                 <p>Browse</p>
                 <Link to="/">Music Book Review</Link>
-                <div>search icon</div>
+                <SearchBar />
             </nav>
         {/* <nav className="Header">
           <h1>
