@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import SearchBar from '../SearchBar/SearchBar'
+// import { Link } from "react-router-dom";
+import SearchBar from './SearchBar/SearchBar'
+import BrowseDropdown from './BrowseDropdown/BrowseDropdown.js'
 // import TokenService from "../../services/token-service";
 import "./Header.css";
 
@@ -50,9 +51,9 @@ export default class Header extends React.Component {
     return (
       <>
       <nav className="Header">
-                <p style={{ display: !this.state.hideElements ? 'block' : 'none'}}>Log In/Register</p>
-                <p style={{ display: !this.state.hideElements ? 'block' : 'none'}}>Browse</p>
-                <Link to="/">Music Book Review</Link>
+                <p >Log In/Register</p>
+                <div ><BrowseDropdown /></div>
+                
                 <SearchBar onSearchBarFocus={this.handleSearchBarFocus} />
             </nav>
         {/* <nav className="Header">

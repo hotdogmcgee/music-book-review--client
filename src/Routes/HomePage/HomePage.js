@@ -1,5 +1,6 @@
 import React from 'react'
 import './HomePage.css'
+import { Link } from 'react-router-dom'
 import { Section } from '../../Components/Utils/Utils'
 
 function HomePage() {
@@ -7,7 +8,7 @@ function HomePage() {
         <Section className="HomePage">
 
     
-        <section>HERO</section>
+        <section><Link to="/">Music Book Review</Link></section>
     
         <section>ABOUT</section>
     
