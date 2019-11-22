@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import BookList from "../../Components/BookList/BookList";
 import FilterSortBar from '../../Components/FilterSortBar/FilterSortBar'
 import { Section } from "../../Components/Utils/Utils";
+import {STORE} from '../../store.js'
 import "./CategoryPage.css";
 
 export default class CategoryPage extends React.Component {
@@ -27,7 +28,7 @@ export default class CategoryPage extends React.Component {
 
           <FilterSortBar />
 
-        <BookList list={this.props.list} />
+        <BookList list={STORE.bookList} />
       </>
     );
   }

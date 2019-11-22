@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookList component renders the UI as expected, 1`] = `
+<section
+  className="Section"
+>
+  <ul
+    id="book-list"
+  >
+    <li>
+      <div>
+        <p>
+          an image
+        </p>
+        <div
+          className="book-info"
+        >
+          <h3>
+            where the red fern grows
+          </h3>
+          <p>
+            i forgot
+          </p>
+          <p>
+            two dogs in a very sad tale
+          </p>
+        </div>
+        <div
+          className="ratings-container"
+        >
+          <span>
+            4
+          </span>
+          <span>
+            Based on 
+            10
+             reviews
+          </span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div>
+        <p>
+          another image
+        </p>
+        <div
+          className="book-info"
+        >
+          <h3>
+            Harry Potter and the Goblet of Fire
+          </h3>
+          <p>
+            JK Rowling
+          </p>
+          <p>
+            everyone knows it by now
+          </p>
+        </div>
+        <div
+          className="ratings-container"
+        >
+          <span>
+            3
+          </span>
+          <span>
+            Based on 
+            3
+             reviews
+          </span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+`;

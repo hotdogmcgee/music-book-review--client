@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookList component renders the UI as expected, 1`] = `
+<div>
+  <p>
+    an image
+  </p>
+  <div
+    className="book-info"
+  >
+    <h3>
+      where the red fern grows
+    </h3>
+    <p>
+      i forgot
+    </p>
+    <p>
+      two dogs in a very sad tale
+    </p>
+  </div>
+  <div
+    className="ratings-container"
+  >
+    <span>
+      4
+    </span>
+    <span>
+      Based on 
+      10
+       reviews
+    </span>
+  </div>
+</div>
+`;

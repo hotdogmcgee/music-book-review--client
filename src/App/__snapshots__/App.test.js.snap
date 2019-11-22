@@ -1,0 +1,161 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders the UI as expected 1`] = `
+<div
+  className="App"
+>
+  <header
+    className="App__header"
+  >
+    <nav
+      className="Header"
+    >
+      <p>
+        Log In/Register
+      </p>
+      <div>
+        <div
+          className="dropdown"
+          style={
+            Object {
+              "background": "red",
+              "width": "200px",
+            }
+          }
+        >
+          <div
+            className="button"
+            onClick={[Function]}
+          >
+            Browse
+          </div>
+        </div>
+      </div>
+      <div
+        className="searchBox"
+        onChange={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      >
+        <input
+          className="searchInput"
+          name=""
+          placeholder="Search"
+          type="text"
+        />
+        <button
+          className="searchButton"
+          href="#"
+        />
+      </div>
+    </nav>
+  </header>
+  <main
+    className="App__main"
+  >
+    <section
+      className="Section HomePage"
+    >
+      <section>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Music Book Review
+        </a>
+      </section>
+      <section>
+        ABOUT
+      </section>
+      <section>
+        <h2>
+          Instrument select
+        </h2>
+        <div
+          className="select-boxes"
+        >
+          <div
+            className="select-box"
+          >
+            <a
+              href="/category/instrument/piano"
+              onClick={[Function]}
+            >
+              <div
+                className="InstrumentCard_[object Object]"
+              >
+                <h2>
+                  piano
+                </h2>
+                <p>
+                  a piano
+                </p>
+              </div>
+            </a>
+          </div>
+          <div
+            className="select-box"
+          >
+            <a
+              href="/category/instrument/guitar"
+              onClick={[Function]}
+            >
+              <div
+                className="InstrumentCard_[object Object]"
+              >
+                <h2>
+                  guitar
+                </h2>
+                <p>
+                  a guitar
+                </p>
+              </div>
+            </a>
+          </div>
+          <div
+            className="select-box"
+          >
+            <a
+              href="/category/instrument/violin"
+              onClick={[Function]}
+            >
+              <div
+                className="InstrumentCard_[object Object]"
+              >
+                <h2>
+                  violin
+                </h2>
+                <p>
+                  a violin
+                </p>
+              </div>
+            </a>
+          </div>
+          <div
+            className="select-box"
+          >
+            <a
+              href="/category/instrument/clarinet"
+              onClick={[Function]}
+            >
+              <div
+                className="InstrumentCard_[object Object]"
+              >
+                <h2>
+                  clarinet
+                </h2>
+                <p>
+                  a clarinet
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <div
+    className="ReactModalPortal"
+  />
+</div>
+`;

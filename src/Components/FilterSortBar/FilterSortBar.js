@@ -40,9 +40,9 @@ export default class FilterSortBar extends React.Component {
   renderOptionsList(list = []) {
     list = this.state.list;
     return (
-      <ul>
+      <ul className="options-list">
         {list.map((item, index) => {
-          return <li key={index}>{item}</li>;
+          return <li className="option-list-item" key={index}>{item}</li>;
         })}
       </ul>
     );

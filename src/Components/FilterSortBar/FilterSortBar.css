@@ -3,3 +3,13 @@
     flex-direction: row;
     justify-content: space-evenly;
 }
+
+.options-list {
+    list-style: none;
+    padding: 0 20vw
+}
+
+.option-list-item {
+    border: 1px solid black;
+    padding: 5px
+}
