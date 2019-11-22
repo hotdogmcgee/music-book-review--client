@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import HomePage from '../Routes/HomePage/HomePage'
 import Header from "../Components/Header/Header.js";
+import CategoryPage from '../Routes/CategoryPage/CategoryPage.js'
 import "./App.css";
 import NotFoundPage from "../Routes/NotFoundPage/NotFoundPage";
 
@@ -26,6 +27,7 @@ class App extends React.Component {
         <main className="App__main">
           <Switch>
             <Route exact path={"/"} component={HomePage}/>
+            <Route path={"/category/:type"} component={CategoryPage}/>
             <Route path={"*"} component={NotFoundPage}/>
           </Switch>
         </main>

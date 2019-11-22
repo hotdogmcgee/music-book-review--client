@@ -39,20 +39,20 @@ export default class BrowseDropdown extends React.Component {
         {this.state.displayMenu ? (
           <ul>
             <li>
-              <Link className="active" to="/instrument">
+              <Link className="active" to="/category/instrument">
 
                 Instrument
 
               </Link>
             </li>
             <li>
-              <Link to="/author">Author</Link>
+              <Link to="/category/author">Author</Link>
             </li>
             <li>
-              <Link to="/publisher">Publisher</Link>
+              <Link to="/category/publisher">Publisher</Link>
             </li>
             <li>
-              <Link to="/average-rating">Average Rating</Link>
+              <Link to="/category/average-rating">Average Rating</Link>
             </li>
 
           </ul>

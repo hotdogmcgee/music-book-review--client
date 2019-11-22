@@ -12,7 +12,7 @@ section {
 .select-boxes {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .select-box {
