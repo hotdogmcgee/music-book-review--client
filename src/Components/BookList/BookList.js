@@ -4,8 +4,9 @@ import BookListItem from '../BookListItem/BookListItem'
 import './BookList.css'
 
 export default function BookList(props) {
-  const displayList = props.list.length
-    ? props.list.map((item, index) => {
+  console.log(props);
+  const displayList = props.bookList
+    ? props.bookList.map((item, index) => {
         return (
           <li key={index} >
               <BookListItem {...item}/>

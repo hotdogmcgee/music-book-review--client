@@ -10,26 +10,17 @@ export default class FilterSortBar extends React.Component {
 
     this.state = {
       displayOptions: false,
-      list: []
+      list: [],
     };
 
-    this.handleShowOptions = this.handleShowOptions.bind(this);
-    this.handleHideOptions = this.handleHideOptions.bind(this);
     this.handleSetOptions = this.handleSetOptions.bind(this);
+    this.handleSortOptionClick = this.handleSortOptionClick.bind(this)
   }
 
-  handleShowOptions() {
-    // event.preventDefault();
 
-    this.setState({ displayOptions: true }, () => {
-      document.addEventListener("click", this.handleHideOptions);
-    });
-  }
-
-  handleHideOptions() {
-    this.setState({ displayOptions: false }, () => {
-      document.removeEventListener("click", this.handleHideOptions);
-    });
+  toggleShowOptions = () => {
+    const bool = !this.state.displayOptions
+    this.setState({ displayOptions: bool})
   }
 
   handleSetOptions(list) {
@@ -37,12 +28,20 @@ export default class FilterSortBar extends React.Component {
       list
     });
   }
+
+handleSortOptionClick(sortValue) {
+  this.props.onSortOptionClick(sortValue)
+}
   renderOptionsList(list = []) {
     list = this.state.list;
     return (
       <ul className="options-list">
         {list.map((item, index) => {
-          return <li className="option-list-item" key={index}>{item}</li>;
+          return (
+            <li className="option-list-item" key={index} onClick={() => this.handleSortOptionClick(item)}>
+              {item}
+            </li>
+          );
         })}
       </ul>
     );
@@ -52,11 +51,11 @@ export default class FilterSortBar extends React.Component {
       <Section id="filter-sort-bar">
         <div className="filter-sort-buttons">
           <FilterButton
-            showOptions={this.handleShowOptions}
+            toggleShowOptions={this.toggleShowOptions}
             setOptions={this.handleSetOptions}
           />
           <SortButton
-            showOptions={this.handleShowOptions}
+            toggleShowOptions={this.toggleShowOptions}
             setOptions={this.handleSetOptions}
           />
         </div>

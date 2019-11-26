@@ -1,32 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BookList component renders the UI as expected, 1`] = `
+exports[`BookList component renders a BookListItem by default 1`] = `
 <div>
-  <p>
-    an image
-  </p>
+  <p />
   <div
     className="book-info"
   >
-    <h3>
-      where the red fern grows
-    </h3>
-    <p>
-      i forgot
-    </p>
-    <p>
-      two dogs in a very sad tale
-    </p>
+    <Link
+      to="/book/undefined"
+    >
+      <h3 />
+    </Link>
+    <p />
+    <p />
   </div>
   <div
     className="ratings-container"
   >
-    <span>
-      4
-    </span>
+    <span />
     <span>
       Based on 
-      10
+       reviews
+    </span>
+  </div>
+</div>
+`;
+
+exports[`BookList component renders the BookListItem given props 1`] = `
+<div>
+  <p />
+  <div
+    className="book-info"
+  >
+    <Link
+      to="/book/undefined"
+    >
+      <h3 />
+    </Link>
+    <p />
+    <p />
+  </div>
+  <div
+    className="ratings-container"
+  >
+    <span />
+    <span>
+      Based on 
        reviews
     </span>
   </div>

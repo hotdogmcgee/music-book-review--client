@@ -9,12 +9,13 @@ export default class FilterButton extends React.Component {
 
   static defaultProps = {
     setOptions: () => {},
-    showOptions: () => {}
+    showOptions: () => {},
+    toggleShowOptions: () => {}
   };
   handleClick() {
     const list = ['new', 'cool', 'wow']
     this.props.setOptions(list)
-    this.props.showOptions()
+    this.props.toggleShowOptions()
   }
 
   render() {

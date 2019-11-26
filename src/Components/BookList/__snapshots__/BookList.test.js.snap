@@ -1,76 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`BookList component renders the UI as expected, 1`] = `
-<section
-  className="Section"
->
+exports[`BookList component renders a BookList by default 1`] = `
+<Section>
   <ul
     id="book-list"
   >
-    <li>
-      <div>
-        <p>
-          an image
-        </p>
-        <div
-          className="book-info"
-        >
-          <h3>
-            where the red fern grows
-          </h3>
-          <p>
-            i forgot
-          </p>
-          <p>
-            two dogs in a very sad tale
-          </p>
-        </div>
-        <div
-          className="ratings-container"
-        >
-          <span>
-            4
-          </span>
-          <span>
-            Based on 
-            10
-             reviews
-          </span>
-        </div>
-      </div>
+    error!
+  </ul>
+</Section>
+`;
+
+exports[`BookList component renders the BookList given props 1`] = `
+<Section>
+  <ul
+    id="book-list"
+  >
+    <li
+      key="0"
+    >
+      <BookListItem
+        author="i forgot"
+        description="two dogs in a very sad tale"
+        id={1}
+        image="an image"
+        numReviews={10}
+        rating={4}
+        reviews={
+          Array [
+            Object {
+              "id": 1,
+              "rating": 3,
+              "text": "it was pretty good",
+              "user": Object {
+                "full_name": "dave bones",
+              },
+            },
+          ]
+        }
+        title="where the red fern grows"
+      />
     </li>
-    <li>
-      <div>
-        <p>
-          another image
-        </p>
-        <div
-          className="book-info"
-        >
-          <h3>
-            Harry Potter and the Goblet of Fire
-          </h3>
-          <p>
-            JK Rowling
-          </p>
-          <p>
-            everyone knows it by now
-          </p>
-        </div>
-        <div
-          className="ratings-container"
-        >
-          <span>
-            3
-          </span>
-          <span>
-            Based on 
-            3
-             reviews
-          </span>
-        </div>
-      </div>
+    <li
+      key="1"
+    >
+      <BookListItem
+        author="JK Rowling"
+        description="everyone knows it by now"
+        id={2}
+        image="another image"
+        numReviews={3}
+        rating={3}
+        title="Harry Potter and the Goblet of Fire"
+      />
     </li>
   </ul>
-</section>
+</Section>
 `;

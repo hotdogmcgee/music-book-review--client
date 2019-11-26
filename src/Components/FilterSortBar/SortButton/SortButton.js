@@ -8,13 +8,14 @@ export default class SortButton extends React.Component {
   }
   static defaultProps = {
     setOptions: () => {},
-    showOptions: () => {}
+    showOptions: () => {},
+    toggleShowOptions: () => {}
   };
 
   handleClick() {
-    const list = ["yo", "hey", "thing"];
+    const list = ["id", "title", "rating"];
     this.props.setOptions(list);
-    this.props.showOptions();
+    this.props.toggleShowOptions()
   }
 
   render() {

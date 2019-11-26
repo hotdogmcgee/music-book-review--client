@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import HomePage from '../Routes/HomePage/HomePage'
 import Header from "../Components/Header/Header.js";
 import CategoryPage from '../Routes/CategoryPage/CategoryPage.js'
+import BookPage from '../Routes/BookPage/BookPage'
 import "./App.css";
 import NotFoundPage from "../Routes/NotFoundPage/NotFoundPage";
 
@@ -28,7 +29,9 @@ class App extends React.Component {
           <Switch>
             <Route exact path={"/"} component={HomePage}/>
             <Route path={"/category/:type"} component={CategoryPage}/>
+            <Route path={"/book/:bookId"} component={BookPage} />
             <Route path={"*"} component={NotFoundPage}/>
+            
           </Switch>
         </main>
         <div className="ReactModalPortal"></div>
