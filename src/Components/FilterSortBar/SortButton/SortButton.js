@@ -9,11 +9,13 @@ export default class SortButton extends React.Component {
   static defaultProps = {
     setOptions: () => {},
     showOptions: () => {},
-    toggleShowOptions: () => {}
+    toggleShowOptions: () => {},
+    toggleFilterOrSort: () => {}
   };
 
   handleClick() {
     const list = ["id", "title", "rating"];
+    this.props.toggleFilterOrSort('sort')
     this.props.setOptions(list);
     this.props.toggleShowOptions()
   }

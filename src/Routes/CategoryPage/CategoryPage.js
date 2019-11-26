@@ -1,25 +1,60 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BookList from "../../Components/BookList/BookList";
-import FilterSortBar from '../../Components/FilterSortBar/FilterSortBar'
+import FilterSortBar from "../../Components/FilterSortBar/FilterSortBar";
 import { Section } from "../../Components/Utils/Utils";
-import {STORE} from '../../store.js'
+import { STORE } from "../../store.js";
 import "./CategoryPage.css";
 
 export default class CategoryPage extends React.Component {
   constructor(props) {
-      super(props)
-      this.state = {
-        bookList: []
-      }
-this.handleSortOption = this.handleSortOption.bind(this)
-      
+    super(props);
+    this.state = {
+      bookList: [],
+      browseTrue: false
+    };
+    this.handleSortOption = this.handleSortOption.bind(this);
   }
 
   componentDidMount() {
-    this.setState({
-      bookList: STORE.bookList
-    })
+
+    if (!this.state.browseTrue) {
+      this.setState({
+        bookList: STORE.bookList
+      })
+     } 
+     else {
+       console.log('did mount else');
+
+        if (this.props.match.params.type) {
+          const sortValue = this.props.match.params.type;
+          const sortFunc = function(a, b) {
+            console.log(a[sortValue], b[sortValue]);
+            var thingA = a[sortValue].toUpperCase(); // ignore upper and lowercase
+            var thingB = b[sortValue].toUpperCase(); // ignore upper and lowercase
+            if (thingA < thingB) {
+              return -1;
+            }
+            if (thingA > thingB) {
+              return 1;
+            }
+          
+            // titles must be equal
+            return 0;
+          }
+      
+
+          // this.handleSortOption(category);
+          const newList = this.state.bookList.sort(sortFunc)
+          this.setState({
+            browseTrue: true,
+            bookList: newList
+          })
+        } else
+        return 
+      }
+
+    //load list in app and do a cb func?
   }
 
   //use context to access data
@@ -30,41 +65,79 @@ this.handleSortOption = this.handleSortOption.bind(this)
   //   list: []
   // };
 
-
   handleSortOption(sortValue) {
-    const list = this.state.bookList
+    console.log('sortValue: ', sortValue);
+
+    const list = this.state.bookList ? this.state.bookList : STORE.bookList
+
+    const sortFunc = function(a, b) {
+      console.log(a[sortValue], b[sortValue]);
+      var thingA = a[sortValue].toUpperCase(); // ignore upper and lowercase
+      var thingB = b[sortValue].toUpperCase(); // ignore upper and lowercase
+      if (thingA < thingB) {
+        return -1;
+      }
+      if (thingA > thingB) {
+        return 1;
+      }
+    
+      // titles must be equal
+      return 0;
+    }
+
 
     let newList;
     switch (sortValue) {
+      case "instrument":
+        console.log("instrument sort");
+        newList = list.sort(sortFunc);
+
+        break;
       case "id":
         newList = list.sort((a, b) => {
           return a.id - b.id;
         });
-        break
+        break;
       case "title":
-        console.log('title sort');
-          newList = list.sort(function(a, b) {
-            var titleA = a.title.toUpperCase(); // ignore upper and lowercase
-            var titleB = b.title.toUpperCase(); // ignore upper and lowercase
-            if (titleA < titleB) {
-              return -1;
-            }
-            if (titleA > titleB) {
-              return 1;
-            }
-          
-            // titles must be equal
-            return 0;
-          })
-          break
-      default: 
-      console.log('yo');
-  }
+        console.log("title sort");
+        newList = list.sort(sortFunc);
+        break;
+      default:
+        console.log("yo");
+    }
 
     this.setState({
       bookList: newList
-    })
-}
+    });
+  }
+
+  handleFilterOption = (filterValue) => {
+    console.log('filterValue: ', filterValue);
+
+    const list = this.state.bookList ? this.state.bookList : STORE.bookList
+
+    let newList;
+    switch (filterValue) {
+      case "recent":
+          newList = list.filter(item => item.published_year > 2000)
+
+        break;
+      case "old books":
+          newList = list.filter(item => item.published_year <= 2000)
+        ;
+        break;
+      case "under 25 dollars":
+        console.log("under 25 dollars filter");
+        newList = list.filter(item => item.cost < 25)
+        break;
+      default:
+        console.log("yo");
+    }
+
+    this.setState({
+      bookList: newList
+    });
+  }
 
   render() {
     return (
@@ -73,10 +146,11 @@ this.handleSortOption = this.handleSortOption.bind(this)
           <Link to="/">Music Book Review</Link>
         </Section>
 
-          <FilterSortBar onSortOptionClick={this.handleSortOption}/>
+        <FilterSortBar onSortOptionClick={this.handleSortOption} onFilterOptionClick={this.handleFilterOption} />
 
         <BookList bookList={this.state.bookList} />
       </>
     );
   }
+
 }

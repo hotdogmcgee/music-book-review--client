@@ -9,12 +9,13 @@ import './BookPage.css'
 import { STORE } from '../../store'
 
 export default class BookPage extends React.Component {
-  //use context?
+  
   static defaultProps = {
     match: { params: {} },
   }
     
   
+  //use api fetch with param id, or should i just call everything in App.js and it will live in state?
 
   renderBook() { 
     const id = this.props.match.params.bookId
@@ -58,7 +59,7 @@ function BookReviews({ reviews = [] }) {
         <li key={review.id} className='BookPage__review'>
           <p className='BookPage__review-text'>
             <FontAwesomeIcon
-              size='md'
+              size='sm'
               icon='quote-left'
               className='BookPage__review-icon blue'
             />
