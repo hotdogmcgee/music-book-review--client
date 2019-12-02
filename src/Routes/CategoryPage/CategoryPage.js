@@ -17,42 +17,38 @@ export default class CategoryPage extends React.Component {
   }
 
   componentDidMount() {
-
     if (!this.state.browseTrue) {
       this.setState({
         bookList: STORE.bookList
-      })
-     } 
-     else {
-       console.log('did mount else');
+      });
+    } else {
+      console.log("did mount else");
 
-        if (this.props.match.params.type) {
-          const sortValue = this.props.match.params.type;
-          const sortFunc = function(a, b) {
-            console.log(a[sortValue], b[sortValue]);
-            var thingA = a[sortValue].toUpperCase(); // ignore upper and lowercase
-            var thingB = b[sortValue].toUpperCase(); // ignore upper and lowercase
-            if (thingA < thingB) {
-              return -1;
-            }
-            if (thingA > thingB) {
-              return 1;
-            }
-          
-            // titles must be equal
-            return 0;
+      if (this.props.match.params.type) {
+        const sortValue = this.props.match.params.type;
+        const sortFunc = function(a, b) {
+          console.log(a[sortValue], b[sortValue]);
+          var thingA = a[sortValue].toUpperCase(); // ignore upper and lowercase
+          var thingB = b[sortValue].toUpperCase(); // ignore upper and lowercase
+          if (thingA < thingB) {
+            return -1;
           }
-      
+          if (thingA > thingB) {
+            return 1;
+          }
 
-          // this.handleSortOption(category);
-          const newList = this.state.bookList.sort(sortFunc)
-          this.setState({
-            browseTrue: true,
-            bookList: newList
-          })
-        } else
-        return 
-      }
+          // titles must be equal
+          return 0;
+        };
+
+        // this.handleSortOption(category);
+        const newList = this.state.bookList.sort(sortFunc);
+        this.setState({
+          browseTrue: true,
+          bookList: newList
+        });
+      } else return;
+    }
 
     //load list in app and do a cb func?
   }
@@ -66,9 +62,9 @@ export default class CategoryPage extends React.Component {
   // };
 
   handleSortOption(sortValue) {
-    console.log('sortValue: ', sortValue);
+    console.log("sortValue: ", sortValue);
 
-    const list = this.state.bookList ? this.state.bookList : STORE.bookList
+    const list = this.state.bookList ? this.state.bookList : STORE.bookList;
 
     const sortFunc = function(a, b) {
       console.log(a[sortValue], b[sortValue]);
@@ -80,11 +76,10 @@ export default class CategoryPage extends React.Component {
       if (thingA > thingB) {
         return 1;
       }
-    
+
       // titles must be equal
       return 0;
-    }
-
+    };
 
     let newList;
     switch (sortValue) {
@@ -111,33 +106,80 @@ export default class CategoryPage extends React.Component {
     });
   }
 
-  handleFilterOption = (filterValue) => {
-    console.log('filterValue: ', filterValue);
+  // handleFilterOption = (filterValue, applyFilter) => {
+  handleFilterOption = (filters) => {
+    debugger
+    console.log("filters: ", filters);
 
-    const list = this.state.bookList ? this.state.bookList : STORE.bookList
+    // const list = this.state.bookList ? this.state.bookList : STORE.bookList
+    const list = STORE.bookList;
 
     let newList;
-    switch (filterValue) {
-      case "recent":
-          newList = list.filter(item => item.published_year > 2000)
+    // switch (filterValue, applyFilter) {
+    //   case "recent", true:
+    //       newList = list.filter(item => item.published_year > 2000)
 
-        break;
-      case "old books":
-          newList = list.filter(item => item.published_year <= 2000)
-        ;
-        break;
-      case "under 25 dollars":
-        console.log("under 25 dollars filter");
-        newList = list.filter(item => item.cost < 25)
-        break;
-      default:
-        console.log("yo");
-    }
+    //     break;
+    //   case "old books":
+    //       newList = list.filter(item => item.published_year <= 2000)
+    //     ;
+    //     break;
+    //   case "under 25 dollars":
+    //     console.log("under 25 dollars filter");
+    //     newList = list.filter(item => item.cost < 25)
+    //     break;
+    //   default:
+    //     console.log("yo");
+    // }
+
+    // if (!applyFilter) {
+
+    //     for (let i= 0; i < filters.length; i++) {
+    //       list.filter(item => filters[i]
+    //     }
+    //       )})
+
+    // }
+
+    // if (applyFilter) {
+    // for (let i = 0; i < filters.length; i++) {
+      // list.filter(item => filters[i]);
+
+      // const filterValue = filters[i]
+
+      if (!filters.includes('old books')) {
+        newList = list.filter(item => item.published_year <= 2000);
+      } else {
+        newList = list
+      }
+      // switch ((filterValue)) {
+      //   case ("recent"):
+      //     newList = list.filter(item => item.published_year > 2000);
+
+      //     break;
+      //   case "old books":
+      //     newList = list.filter(item => item.published_year <= 2000);
+      //     break;
+      //   case "under 25 dollars":
+      //     console.log("under 25 dollars filter");
+      //     newList = list.filter(item => item.cost < 25);
+      //     break;
+      //   default:
+      //     console.log("yo");
+      // }
+    // }
+
+
+    // console.log(list);
+    // newList = list;
+    // } else {
+    //   return list
+    // }
 
     this.setState({
       bookList: newList
     });
-  }
+  };
 
   render() {
     return (
@@ -146,11 +188,13 @@ export default class CategoryPage extends React.Component {
           <Link to="/">Music Book Review</Link>
         </Section>
 
-        <FilterSortBar onSortOptionClick={this.handleSortOption} onFilterOptionClick={this.handleFilterOption} />
+        <FilterSortBar
+          onSortOptionClick={this.handleSortOption}
+          onFilterOptionClick={this.handleFilterOption}
+        />
 
         <BookList bookList={this.state.bookList} />
       </>
     );
   }
-
 }

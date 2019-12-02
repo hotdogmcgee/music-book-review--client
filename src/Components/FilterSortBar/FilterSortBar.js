@@ -11,6 +11,7 @@ export default class FilterSortBar extends React.Component {
     this.state = {
       displayOptions: false,
       list: [],
+      filters: ["under 25 dollars", "old books", "recent"],
       filterOrSort: null
     };
 
@@ -24,7 +25,7 @@ export default class FilterSortBar extends React.Component {
   };
 
   setFilterOrSort = value => {
-    console.log('ran');
+    console.log("ran");
     this.setState({
       filterOrSort: value
     });
@@ -45,8 +46,31 @@ export default class FilterSortBar extends React.Component {
       return;
     }
   }
-  handleFilterOptionClick(filterValue) {
-    this.props.onFilterOptionClick(filterValue);
+  // handleFilterOptionClick(filterValue) {
+  //   this.props.onFilterOptionClick(filterValue);
+  // }
+
+  handleFilterOptionClick(value) {
+    const filters = this.state.filters;
+    let newFilters;
+    if (filters.includes(value)) {
+      debugger;
+
+      newFilters = filters.filter(item => item !== value);
+      this.setState({
+        filters: newFilters
+      });
+    } else {
+
+      filters.push(value);
+      newFilters = filters
+      this.setState({
+        filters: newFilters
+      });
+    }
+
+    console.log(newFilters);
+    this.props.onFilterOptionClick(newFilters);
   }
 
   handleSortOptionClick(sortValue) {
