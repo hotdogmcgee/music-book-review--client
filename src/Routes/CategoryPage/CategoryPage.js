@@ -114,44 +114,19 @@ export default class CategoryPage extends React.Component {
     // const list = this.state.bookList ? this.state.bookList : STORE.bookList
     const list = STORE.bookList;
 
-    let newList;
-    // switch (filterValue, applyFilter) {
-    //   case "recent", true:
-    //       newList = list.filter(item => item.published_year > 2000)
+    let newList = list
 
-    //     break;
-    //   case "old books":
-    //       newList = list.filter(item => item.published_year <= 2000)
-    //     ;
-    //     break;
-    //   case "under 25 dollars":
-    //     console.log("under 25 dollars filter");
-    //     newList = list.filter(item => item.cost < 25)
-    //     break;
-    //   default:
-    //     console.log("yo");
-    // }
-
-    // if (!applyFilter) {
-
-    //     for (let i= 0; i < filters.length; i++) {
-    //       list.filter(item => filters[i]
-    //     }
-    //       )})
-
-    // }
-
-    // if (applyFilter) {
-    // for (let i = 0; i < filters.length; i++) {
-      // list.filter(item => filters[i]);
-
-      // const filterValue = filters[i]
 
       if (!filters.includes('old books')) {
-        newList = list.filter(item => item.published_year <= 2000);
-      } else {
-        newList = list
+        newList = newList.filter(item => item.published_year <= 2000);
       }
+      
+      if (!filters.includes('under 25 dollars')) {
+        newList = newList.filter(item => item.cost < 25);
+      } 
+      if (!filters.includes('recent')) {
+        newList = newList.filter(item => item.published_year > 2000);
+      } 
       // switch ((filterValue)) {
       //   case ("recent"):
       //     newList = list.filter(item => item.published_year > 2000);

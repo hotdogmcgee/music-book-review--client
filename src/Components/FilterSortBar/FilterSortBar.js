@@ -12,7 +12,12 @@ export default class FilterSortBar extends React.Component {
       displayOptions: false,
       list: [],
       filters: ["under 25 dollars", "old books", "recent"],
-      filterOrSort: null
+      filterOrSort: null,
+      activeFilters: {
+        'under 25 dollars': true,
+        'old books': true,
+        'recent': true
+      }
     };
 
     this.handleSetOptions = this.handleSetOptions.bind(this);
@@ -25,11 +30,32 @@ export default class FilterSortBar extends React.Component {
   };
 
   setFilterOrSort = value => {
-    console.log("ran");
     this.setState({
       filterOrSort: value
     });
   };
+
+  toggleClass = (value) => {
+    console.log('toggle class', this.state.activeFilters, value);
+
+
+    // console.log(this.state.activeFilters[value]);
+    // this.setState({ [value] : !value
+      
+    // })
+    const activeFilters = {...this.state.activeFilters}
+    activeFilters[value] = !this.state.activeFilters[value]
+  // const obj = {}
+  // obj[value] = !this.state.activeFilters[value]
+  // console.log(obj);
+  this.setState({ activeFilters })
+  }
+
+//   inputChangeHandler : function (event) {
+//     this.setState({ [event.target.id]: event.target.value });
+//     // alternatively using template strings for strings
+//     // this.setState({ [`key${event.target.id}`]: event.target.value });
+// }
 
   handleSetOptions(list) {
     this.setState({
@@ -39,6 +65,7 @@ export default class FilterSortBar extends React.Component {
 
   handleOptionClick(value) {
     if (this.state.filterOrSort === "filter") {
+      this.toggleClass(value)
       this.handleFilterOptionClick(value);
     } else if (this.state.filterOrSort === "sort") {
       this.handleSortOptionClick(value);
@@ -80,11 +107,12 @@ export default class FilterSortBar extends React.Component {
     list = this.state.list;
 
     return (
-      <ul className="options-list">
+      <ul className="options-list" >
         {list.map((item, index) => {
           return (
             <li
-              className="option-list-item"
+              className={`option-list-item ${(this.state.activeFilters[item]) ? 'filter-highlight' : 'no-filter-highlight'}`}
+              // className={(this.state.filterOptionActive) ? 'non-active' : 'active'}
               key={index}
               // onClick={() => this.handleSortOptionClick(item)}
               onClick={() => this.handleOptionClick(item)}
