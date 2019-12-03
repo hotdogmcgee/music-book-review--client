@@ -11,47 +11,35 @@ export default class CategoryPage extends React.Component {
     super(props);
     this.state = {
       bookList: [],
-      browseTrue: false
+      browseTrue: false,
+      listSorted: false,
+      sortVal: null
     };
     this.handleSortOption = this.handleSortOption.bind(this);
   }
 
   componentDidMount() {
-    if (!this.state.browseTrue) {
-      this.setState({
+    console.log(this.props.match.params);
+    this.setState(
+      {
         bookList: STORE.bookList
-      });
-    } else {
-      console.log("did mount else");
+      },
+      () => {
+        //still need to include instrument filters, put this cb in a separate method
 
-      if (this.props.match.params.type) {
-        const sortValue = this.props.match.params.type;
-        const sortFunc = function(a, b) {
-          console.log(a[sortValue], b[sortValue]);
-          var thingA = a[sortValue].toUpperCase(); // ignore upper and lowercase
-          var thingB = b[sortValue].toUpperCase(); // ignore upper and lowercase
-          if (thingA < thingB) {
-            return -1;
-          }
-          if (thingA > thingB) {
-            return 1;
-          }
-
-          // titles must be equal
-          return 0;
-        };
-
-        // this.handleSortOption(category);
-        const newList = this.state.bookList.sort(sortFunc);
-        this.setState({
-          browseTrue: true,
-          bookList: newList
-        });
-      } else return;
-    }
-
-    //load list in app and do a cb func?
+        // const instrument = this.props.match.params.instrument;
+        // if (instrument) {
+        //   this.handleSortOption(instrument);
+        // }
+        const type = this.props.match.params.type;
+        if (type) {
+          this.handleSortOption(type);
+        }
+      }
+    );
   }
+
+  //load list in app and do a cb func?
 
   //use context to access data
   //take conditional path as prop to determine what to show
@@ -61,15 +49,18 @@ export default class CategoryPage extends React.Component {
   //   list: []
   // };
 
+  // handleInstrumentCategory = () => {
+  //   if (this.props.match.)
+  // }
+
   handleSortOption(sortValue) {
     console.log("sortValue: ", sortValue);
 
     const list = this.state.bookList ? this.state.bookList : STORE.bookList;
 
     const sortFunc = function(a, b) {
-      console.log(a[sortValue], b[sortValue]);
-      var thingA = a[sortValue].toUpperCase(); // ignore upper and lowercase
-      var thingB = b[sortValue].toUpperCase(); // ignore upper and lowercase
+      var thingA = a[sortValue].toUpperCase();
+      var thingB = b[sortValue].toUpperCase();
       if (thingA < thingB) {
         return -1;
       }
@@ -77,79 +68,70 @@ export default class CategoryPage extends React.Component {
         return 1;
       }
 
-      // titles must be equal
       return 0;
     };
 
     let newList;
-    switch (sortValue) {
-      case "instrument":
-        console.log("instrument sort");
-        newList = list.sort(sortFunc);
 
-        break;
-      case "id":
-        newList = list.sort((a, b) => {
-          return a.id - b.id;
-        });
-        break;
-      case "title":
-        console.log("title sort");
-        newList = list.sort(sortFunc);
-        break;
-      default:
-        console.log("yo");
+    if (sortValue !== this.state.sortVal) {
+      switch (sortValue) {
+        case "instrument":
+          newList = list.sort(sortFunc);
+
+          break;
+        case "author":
+          console.log("author");
+          newList = list.sort(sortFunc);
+          break;
+        case "id":
+          newList = list.sort((a, b) => {
+            return a.id - b.id;
+          });
+          break;
+        case "title":
+          newList = list.sort(sortFunc);
+          break;
+        case "rating":
+          newList = list.sort((a, b) => {
+            return b.rating - a.rating;
+          });
+          break;
+        default:
+          console.log("yo");
+      }
+
+      this.setState({
+        bookList: newList,
+        listSorted: true,
+        sortVal: sortValue
+      });
+    } else if (this.state.listSorted) {
+      newList = list.reverse();
+
+      this.setState({
+        bookList: newList
+      });
     }
-
-    this.setState({
-      bookList: newList
-    });
   }
 
-  // handleFilterOption = (filterValue, applyFilter) => {
-  handleFilterOption = (filters) => {
-    debugger
-    console.log("filters: ", filters);
-
+  handleFilterOption = filters => {
+    //store big list in context
+    //is it better to just hide an element based on filter?
     // const list = this.state.bookList ? this.state.bookList : STORE.bookList
     const list = STORE.bookList;
 
-    let newList = list
+    let newList = list;
 
+    if (!filters.includes("old books")) {
+      newList = newList.filter(item => item.published_year <= 2000);
+    }
 
-      if (!filters.includes('old books')) {
-        newList = newList.filter(item => item.published_year <= 2000);
-      }
-      
-      if (!filters.includes('under 25 dollars')) {
-        newList = newList.filter(item => item.cost < 25);
-      } 
-      if (!filters.includes('recent')) {
-        newList = newList.filter(item => item.published_year > 2000);
-      } 
-      // switch ((filterValue)) {
-      //   case ("recent"):
-      //     newList = list.filter(item => item.published_year > 2000);
-
-      //     break;
-      //   case "old books":
-      //     newList = list.filter(item => item.published_year <= 2000);
-      //     break;
-      //   case "under 25 dollars":
-      //     console.log("under 25 dollars filter");
-      //     newList = list.filter(item => item.cost < 25);
-      //     break;
-      //   default:
-      //     console.log("yo");
-      // }
-    // }
-
-
-    // console.log(list);
-    // newList = list;
-    // } else {
-    //   return list
-    // }
+    if (!filters.includes("under 25 dollars")) {
+      newList = newList.filter(item => item.cost < 25);
+    }
+    if (!filters.includes("recent")) {
+      newList = newList.filter(item => item.published_year > 2000);
+    }
 
     this.setState({
       bookList: newList

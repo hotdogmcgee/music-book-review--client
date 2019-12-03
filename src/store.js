@@ -33,6 +33,30 @@ export const STORE = {
             cost: 20,
             published_year: 1990,
             id: 2
+        },
+        {
+            instrument: 'guitar',
+            image: 'image',
+            title: 'Harry Potter and the Chamber of Secrets',
+            author: 'JK Rowling',
+            description: 'not my fav',
+            rating: 2,
+            numReviews: 4,
+            cost: 15,
+            published_year: 1988,
+            id: 3
+        },
+        {
+            instrument: 'clarinet',
+            image: 'image fun!',
+            title: 'The Only Way to Learn Clarinet',
+            author: 'Sally Reed',
+            description: 'the best ever',
+            rating: 5,
+            numReviews: 100,
+            cost: 30,
+            published_year: 2002,
+            id: 4
         }
     ]
 }

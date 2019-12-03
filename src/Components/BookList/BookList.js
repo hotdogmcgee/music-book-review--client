@@ -4,7 +4,6 @@ import BookListItem from '../BookListItem/BookListItem'
 import './BookList.css'
 
 export default function BookList(props) {
-  console.log(props);
   const displayList = props.bookList
     ? props.bookList.map((item, index) => {
         return (

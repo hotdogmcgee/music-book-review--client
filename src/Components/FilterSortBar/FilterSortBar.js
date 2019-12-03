@@ -14,8 +14,8 @@ export default class FilterSortBar extends React.Component {
       filters: ["under 25 dollars", "old books", "recent"],
       filterOrSort: null,
       activeFilters: {
-        'under 25 dollars': true,
-        'old books': true,
+        "under 25 dollars": true,
+        "old books": true,
         'recent': true
       }
     };
@@ -35,27 +35,11 @@ export default class FilterSortBar extends React.Component {
     });
   };
 
-  toggleClass = (value) => {
-    console.log('toggle class', this.state.activeFilters, value);
-
-
-    // console.log(this.state.activeFilters[value]);
-    // this.setState({ [value] : !value
-      
-    // })
-    const activeFilters = {...this.state.activeFilters}
-    activeFilters[value] = !this.state.activeFilters[value]
-  // const obj = {}
-  // obj[value] = !this.state.activeFilters[value]
-  // console.log(obj);
-  this.setState({ activeFilters })
-  }
-
-//   inputChangeHandler : function (event) {
-//     this.setState({ [event.target.id]: event.target.value });
-//     // alternatively using template strings for strings
-//     // this.setState({ [`key${event.target.id}`]: event.target.value });
-// }
+  toggleClass = value => {
+    const activeFilters = { ...this.state.activeFilters };
+    activeFilters[value] = !this.state.activeFilters[value];
+    this.setState({ activeFilters });
+  };
 
   handleSetOptions(list) {
     this.setState({
@@ -65,7 +49,7 @@ export default class FilterSortBar extends React.Component {
 
   handleOptionClick(value) {
     if (this.state.filterOrSort === "filter") {
-      this.toggleClass(value)
+      this.toggleClass(value);
       this.handleFilterOptionClick(value);
     } else if (this.state.filterOrSort === "sort") {
       this.handleSortOptionClick(value);
@@ -88,15 +72,13 @@ export default class FilterSortBar extends React.Component {
         filters: newFilters
       });
     } else {
-
       filters.push(value);
-      newFilters = filters
+      newFilters = filters;
       this.setState({
         filters: newFilters
       });
     }
 
-    console.log(newFilters);
     this.props.onFilterOptionClick(newFilters);
   }
 
@@ -107,14 +89,16 @@ export default class FilterSortBar extends React.Component {
     list = this.state.list;
 
     return (
-      <ul className="options-list" >
+      <ul className="options-list">
         {list.map((item, index) => {
           return (
             <li
-              className={`option-list-item ${(this.state.activeFilters[item]) ? 'filter-highlight' : 'no-filter-highlight'}`}
-              // className={(this.state.filterOptionActive) ? 'non-active' : 'active'}
+              className={`option-list-item ${
+                this.state.activeFilters[item]
+                  ? "filter-highlight"
+                  : "no-filter-highlight"
+              }`}
               key={index}
-              // onClick={() => this.handleSortOptionClick(item)}
               onClick={() => this.handleOptionClick(item)}
             >
               {item}

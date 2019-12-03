@@ -28,7 +28,8 @@ class App extends React.Component {
         <main className="App__main">
           <Switch>
             <Route exact path={"/"} component={HomePage}/>
-            <Route path={"/category/:type"} component={CategoryPage}/>
+            <Route exact path={"/category/:type"} component={CategoryPage}/>
+            <Route path={"/category/instrument/:instrument"} component={CategoryPage}/>
             <Route path={"/book/:bookId"} component={BookPage} />
             <Route path={"*"} component={NotFoundPage}/>
             

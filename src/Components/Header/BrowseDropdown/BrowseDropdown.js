@@ -52,7 +52,7 @@ export default class BrowseDropdown extends React.Component {
               <Link to="/category/publisher">Publisher</Link>
             </li>
             <li>
-              <Link to="/category/average-rating">Average Rating</Link>
+              <Link to="/category/rating">Average Rating</Link>
             </li>
 
           </ul>
