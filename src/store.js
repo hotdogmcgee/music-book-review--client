@@ -2,7 +2,7 @@ export const STORE = {
     bookList: [
         {
             instrument: 'piano',
-            image: 'an image',
+            image: 'image',
             title: 'where the red fern grows',
             author: 'zi forgot',
             description: 'two dogs in a very sad tale',
@@ -24,7 +24,7 @@ export const STORE = {
         },
         {
             instrument: 'guitar',
-            image: 'another image',
+            image: 'image',
             title: 'Harry Potter and the Goblet of Fire',
             author: 'JK Rowling',
             description: 'everyone knows it by now',
@@ -48,7 +48,7 @@ export const STORE = {
         },
         {
             instrument: 'clarinet',
-            image: 'image fun!',
+            image: 'image',
             title: 'The Only Way to Learn Clarinet',
             author: 'Sally Reed',
             description: 'the best ever',

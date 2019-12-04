@@ -35,11 +35,11 @@ class SignUpModal extends React.Component {
           </div>
             : 
             <div className="beta-form__container">
-              <h3 className="beta-form__heading">Lucidity Beta Register</h3>
-              <p className="beta-form__text u-margin-bottom-small">Lucidity is currently in beta before its upcoming public release. Sign up below to request access and we'll notify you when your account is ready.</p>
+              <h3 className="beta-form__heading">Sign In</h3>
+              <p className="beta-form__text u-margin-bottom-small">Hope this works</p>
               <input type="email" className="beta-form__input u-margin-bottom-small" placeholder="Your e-mail" required />
               <button className="beta-form__button">
-                <i className="fab fa-telegram-plane"></i> Send Request
+ Send Request
               </button>
             </div>
           }      

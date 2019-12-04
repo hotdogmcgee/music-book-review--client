@@ -24,13 +24,12 @@ export default class CategoryPage extends React.Component {
       {
         bookList: STORE.bookList
       },
+      //does it make sense/matter to put these const vars outside of cb function scope?
       () => {
-        //still need to include instrument filters, put this cb in a separate method
-
-        // const instrument = this.props.match.params.instrument;
-        // if (instrument) {
-        //   this.handleSortOption(instrument);
-        // }
+        const instrument = this.props.match.params.instrument;
+        if (instrument) {
+          this.handleFilterInstrument(instrument);
+        }
         const type = this.props.match.params.type;
         if (type) {
           this.handleSortOption(type);
@@ -112,6 +111,18 @@ export default class CategoryPage extends React.Component {
         bookList: newList
       });
     }
+  }
+
+  handleFilterInstrument = (instrument) => {
+    const list = this.state.bookList
+
+    let newList
+
+    newList = list.filter(item => item.instrument === instrument)
+
+    this.setState({
+      bookList: newList
+    })
   }
 
   handleFilterOption = filters => {

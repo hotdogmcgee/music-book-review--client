@@ -25,8 +25,9 @@ export default class FilterSortBar extends React.Component {
   }
 
   toggleShowOptions = () => {
-    const bool = !this.state.displayOptions;
-    this.setState({ displayOptions: bool });
+    this.setState({
+      displayOptions: !this.state.displayOptions
+    })
   };
 
   setFilterOrSort = value => {
