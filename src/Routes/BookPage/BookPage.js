@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Section, Hyph } from "../../Components/Utils/Utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BookStarRating } from "../../Components/BookStarRating/BookStarRating";
+import BookContext from '../../Contexts/BookContext'
 import SaveBook from "../../Components/SaveBook/SaveBook";
 import ReviewForm from "../../Components/ReviewForm/ReviewForm";
 import "./BookPage.css";
@@ -13,7 +14,25 @@ export default class BookPage extends React.Component {
     match: { params: {} }
   };
 
+  static contextType = BookContext
   //use api fetch with param id, or should i just call everything in App.js and it will live in state?
+
+  componentDidMount() {
+    const { bookId } = this.props.match.params;
+    this.context.clearError();
+    // WoodApiService.getWood(bookId)
+    //   .then(this.context.setWood)
+    //   .catch(this.context.setError);
+    // WoodApiService.getWoodSubmissions(bookId)
+    //   .then(this.context.setSubmissions)
+    //   .catch(this.context.setError);
+    this.context.setBook(STORE.bookList[bookId - 1])
+  }
+
+  componentWillUnmount() {
+    this.context.clearBook();
+  }
+
 
   renderBook() {
     const id = this.props.match.params.bookId;
@@ -23,6 +42,17 @@ export default class BookPage extends React.Component {
       return "error!";
     }
     // const { title, author, rating, description, image, numReviews, reviews } = this.props;
+    // const {
+    //   title,
+    //   author,
+    //   instrument,
+    //   rating,
+    //   description,
+    //   image,
+    //   numReviews,
+    //   reviews
+    // } = STORE.bookList[id - 1];
+
     const {
       title,
       author,
@@ -32,7 +62,7 @@ export default class BookPage extends React.Component {
       image,
       numReviews,
       reviews
-    } = STORE.bookList[id - 1];
+    } = this.context.book
 
     return (
       <Section id="book">

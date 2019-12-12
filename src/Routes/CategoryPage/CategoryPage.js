@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import BookList from "../../Components/BookList/BookList";
 import FilterSortBar from "../../Components/FilterSortBar/FilterSortBar";
 import { Section } from "../../Components/Utils/Utils";
-import { STORE } from "../../store.js";
+import BookListContext from '../../Contexts/BookListContext'
 import "./CategoryPage.css";
 
 export default class CategoryPage extends React.Component {
@@ -13,16 +13,18 @@ export default class CategoryPage extends React.Component {
       bookList: [],
       browseTrue: false,
       listSorted: false,
-      sortVal: null
+      sortVal: null,
     };
     this.handleSortOption = this.handleSortOption.bind(this);
   }
+
+  static contextType = BookListContext
 
   componentDidMount() {
     console.log(this.props.match.params);
     this.setState(
       {
-        bookList: STORE.bookList
+        bookList: this.context.bookList
       },
       //does it make sense/matter to put these const vars outside of cb function scope?
       () => {
@@ -38,24 +40,18 @@ export default class CategoryPage extends React.Component {
     );
   }
 
-  //load list in app and do a cb func?
 
-  //use context to access data
-  //take conditional path as prop to determine what to show
 
-  // static defaultProps = {
-  //   category: "instrument",
-  //   list: []
-  // };
-
-  // handleInstrumentCategory = () => {
-  //   if (this.props.match.)
-  // }
-
+  
   handleSortOption(sortValue) {
-    console.log("sortValue: ", sortValue);
+    // const list = this.state.bookList ? this.state.bookList : STORE.bookList;
+    const list = this.state.bookList
 
-    const list = this.state.bookList ? this.state.bookList : STORE.bookList;
+    const instrument = this.props.match.params.instrument
+    if(instrument) {
+      this.handleFilterInstrument(instrument)
+    }
+
 
     const sortFunc = function(a, b) {
       var thingA = a[sortValue].toUpperCase();
@@ -79,7 +75,6 @@ export default class CategoryPage extends React.Component {
 
           break;
         case "author":
-          console.log("author");
           newList = list.sort(sortFunc);
           break;
         case "id":
@@ -115,11 +110,8 @@ export default class CategoryPage extends React.Component {
 
   handleFilterInstrument = (instrument) => {
     const list = this.state.bookList
-
     let newList
-
     newList = list.filter(item => item.instrument === instrument)
-
     this.setState({
       bookList: newList
     })
@@ -129,9 +121,15 @@ export default class CategoryPage extends React.Component {
     //store big list in context
     //is it better to just hide an element based on filter?
     // const list = this.state.bookList ? this.state.bookList : STORE.bookList
-    const list = STORE.bookList;
+    const list = this.state.bookList
 
     let newList = list;
+
+    const instrument = this.props.match.params.instrument
+    if(instrument) {
+      newList = list.filter(item => item.instrument === instrument)
+    }
+
 
     if (!filters.includes("old books")) {
       newList = newList.filter(item => item.published_year <= 2000);

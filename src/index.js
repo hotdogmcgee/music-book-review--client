@@ -2,10 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App/App.js";
+import { BookListProvider } from "./Contexts/BookListContext";
+import { BookProvider } from "./Contexts/BookContext";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { faStar as farStar } from '@fortawesome/free-regular-svg-icons'
+import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
 import {
   faBookOpen,
   faComment,
@@ -15,11 +17,12 @@ import {
   faListUl,
   faPenAlt,
   faQuoteLeft,
-  faStar as fasStar,
-} from '@fortawesome/free-solid-svg-icons'
+  faStar as fasStar
+} from "@fortawesome/free-solid-svg-icons";
 import "./index.css";
 
-library.add(faSearch,
+library.add(
+  faSearch,
   faGift, // logo
   faListUl, // style: listicle
   faListOl, // style: howto
@@ -29,10 +32,15 @@ library.add(faSearch,
   faComment,
   faQuoteLeft,
   farStar,
-  fasStar,);
+  fasStar
+);
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <BookListProvider>
+      <BookProvider>
+        <App />
+      </BookProvider>
+    </BookListProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );

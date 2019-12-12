@@ -20,3 +20,7 @@ export function Section({ className, list, ...props }) {
   export function Hyph() {
     return <span className='Hyph'>{' - '}</span>
   }
+
+  export function Input({ className, ...props }) {
+    return <input className={["Input", className].join(" ")} {...props} />;
+  }
