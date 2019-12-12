@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage component renders a HomePage by default 1`] = `
+<Section
+  className="HomePage"
+>
+  <section>
+    <Link
+      to="/"
+    >
+      Music Book Review
+    </Link>
+  </section>
+  <section>
+    ABOUT
+  </section>
+  <section>
+    <h2>
+      Instrument select
+    </h2>
+    <div
+      className="select-boxes"
+    >
+      <div
+        className="select-box"
+      >
+        <InstrumentCard
+          image="a piano"
+          title="piano"
+        />
+      </div>
+      <div
+        className="select-box"
+      >
+        <InstrumentCard
+          image="a guitar"
+          title="guitar"
+        />
+      </div>
+      <div
+        className="select-box"
+      >
+        <InstrumentCard
+          image="a violin"
+          title="violin"
+        />
+      </div>
+      <div
+        className="select-box"
+      >
+        <InstrumentCard
+          image="a clarinet"
+          title="clarinet"
+        />
+      </div>
+    </div>
+  </section>
+</Section>
+`;

@@ -28,7 +28,8 @@ export default BookContext
 export class BookProvider extends React.Component {
     state = {
         book: {},
-        error: null
+        error: null,
+        hasError: null
     }
 
     setError = error => {

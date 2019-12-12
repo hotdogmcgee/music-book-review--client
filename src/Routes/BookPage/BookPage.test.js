@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import BookPage from './BookPage'
 
-describe.only(`BookPage component`, () => {
+describe.skip(`BookPage component`, () => {
   const props = {
     image: 'an image',
             title: 'where the red fern grows',

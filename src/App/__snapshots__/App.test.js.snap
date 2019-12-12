@@ -10,9 +10,14 @@ exports[`App component renders the UI as expected 1`] = `
     <nav
       className="Header"
     >
-      <p>
-        Log In/Register
-      </p>
+      <div>
+        <a
+          href="/login"
+          onClick={[Function]}
+        >
+          Log In/Register
+        </a>
+      </div>
       <div>
         <div
           className="dropdown"

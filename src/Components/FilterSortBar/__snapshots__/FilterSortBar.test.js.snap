@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterSortBar component renders a FilterSortBar by default 1`] = `
+<Section
+  id="filter-sort-bar"
+>
+  <div
+    className="filter-sort-buttons"
+  >
+    <FilterButton
+      setOptions={[Function]}
+      toggleFilterOrSort={[Function]}
+      toggleShowOptions={[Function]}
+    />
+    <SortButton
+      setOptions={[Function]}
+      showOptions={[Function]}
+      toggleFilterOrSort={[Function]}
+      toggleShowOptions={[Function]}
+    />
+  </div>
+  <div />
+</Section>
+`;
