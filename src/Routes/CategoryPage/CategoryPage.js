@@ -5,6 +5,7 @@ import FilterSortBar from "../../Components/FilterSortBar/FilterSortBar";
 import { Section } from "../../Components/Utils/Utils";
 import BookListContext from '../../Contexts/BookListContext'
 import "./CategoryPage.css";
+import BooksApiService from "../../services/books-api-service";
 
 export default class CategoryPage extends React.Component {
   constructor(props) {
@@ -20,24 +21,41 @@ export default class CategoryPage extends React.Component {
 
   static contextType = BookListContext
 
+  // componentDidMount() {
+  //   console.log(this.props.match.params);
+  //   this.setState(
+  //     {
+  //       bookList: this.context.bookList
+  //     },
+  //     //does it make sense/matter to put these const vars outside of cb function scope?
+  //     () => {
+  //       const instrument = this.props.match.params.instrument;
+  //       if (instrument) {
+  //         this.handleFilterInstrument(instrument);
+  //       }
+  //       const type = this.props.match.params.type;
+  //       if (type) {
+  //         this.handleSortOption(type);
+  //       }
+  //     }
+  //   );
+  // }
+
   componentDidMount() {
-    console.log(this.props.match.params);
-    this.setState(
-      {
-        bookList: this.context.bookList
-      },
-      //does it make sense/matter to put these const vars outside of cb function scope?
-      () => {
-        const instrument = this.props.match.params.instrument;
-        if (instrument) {
-          this.handleFilterInstrument(instrument);
-        }
-        const type = this.props.match.params.type;
-        if (type) {
-          this.handleSortOption(type);
-        }
+    console.log('MOUNT');
+    this.context.clearError();
+    BooksApiService.getBooks().then(this.context.setBookList)
+    .then(() => {
+      const instrument = this.props.match.params.instrument;
+      if (instrument) {
+        this.handleFilterInstrument(instrument);
       }
-    );
+      const type = this.props.match.params.type;
+      if (type) {
+        this.handleSortOption(type);
+      }
+    })
+
   }
 
 
@@ -45,7 +63,7 @@ export default class CategoryPage extends React.Component {
   
   handleSortOption(sortValue) {
     // const list = this.state.bookList ? this.state.bookList : STORE.bookList;
-    const list = this.state.bookList
+    const list = this.context.bookList
 
     const instrument = this.props.match.params.instrument
     if(instrument) {
@@ -109,7 +127,7 @@ export default class CategoryPage extends React.Component {
   }
 
   handleFilterInstrument = (instrument) => {
-    const list = this.state.bookList
+    const list = this.context.bookList
     let newList
     newList = list.filter(item => item.instrument === instrument)
     this.setState({
@@ -121,7 +139,7 @@ export default class CategoryPage extends React.Component {
     //store big list in context
     //is it better to just hide an element based on filter?
     // const list = this.state.bookList ? this.state.bookList : STORE.bookList
-    const list = this.state.bookList
+    const list = this.context.bookList
 
     let newList = list;
 
@@ -159,7 +177,7 @@ export default class CategoryPage extends React.Component {
           onFilterOptionClick={this.handleFilterOption}
         />
 
-        <BookList bookList={this.state.bookList} />
+        <BookList bookList={this.context.bookList} />
       </>
     );
   }

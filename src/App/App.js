@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import BookListContext from '../Contexts/BookListContext'
 import HomePage from "../Routes/HomePage/HomePage";
 import Header from "../Components/Header/Header.js";
 import CategoryPage from "../Routes/CategoryPage/CategoryPage.js";
@@ -12,7 +11,6 @@ import NotFoundPage from "../Routes/NotFoundPage/NotFoundPage";
 // import LoginModal from "../Routes/LoginModal/LoginModal";
 import ProfilePage from "../Routes/ProfilePage/ProfilePage";
 import LoginPage from "../Routes/LoginPage/LoginPage";
-import { STORE  } from '../store.js'
 
 
 //browse value change in context
@@ -32,13 +30,11 @@ class App extends React.Component {
     return { hasError: true };
   }
 
-  static contextType = BookListContext
-
-  componentDidMount() {
-    this.context.clearError()
-    this.context.setBookList(STORE.bookList)
-    this.context.setSavedList(STORE.bookList)
-  }
+  // componentDidMount() {
+  //   this.context.clearError()
+  //   this.context.setBookList(STORE.bookList)
+  //   this.context.setSavedList(STORE.bookList)
+  // }
 
   hasLogin = loggedIn => {
     this.setState({

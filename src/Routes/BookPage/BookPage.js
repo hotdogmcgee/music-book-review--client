@@ -7,7 +7,7 @@ import BookContext from '../../Contexts/BookContext'
 import SaveBook from "../../Components/SaveBook/SaveBook";
 import ReviewForm from "../../Components/ReviewForm/ReviewForm";
 import "./BookPage.css";
-import { STORE } from "../../store";
+import BooksApiService from "../../services/books-api-service";
 
 export default class BookPage extends React.Component {
   static defaultProps = {
@@ -20,13 +20,12 @@ export default class BookPage extends React.Component {
   componentDidMount() {
     const { bookId } = this.props.match.params;
     this.context.clearError();
-    // WoodApiService.getWood(bookId)
-    //   .then(this.context.setWood)
-    //   .catch(this.context.setError);
-    // WoodApiService.getWoodSubmissions(bookId)
-    //   .then(this.context.setSubmissions)
-    //   .catch(this.context.setError);
-    this.context.setBook(STORE.bookList[bookId - 1])
+    BooksApiService.getBook(bookId)
+      .then(this.context.setBook)
+      .catch(this.context.setError);
+    BooksApiService.getBookReviews(bookId)
+      .then(this.context.setReviews)
+      .catch(this.context.setError);
   }
 
   componentWillUnmount() {
@@ -38,20 +37,6 @@ export default class BookPage extends React.Component {
     const id = this.props.match.params.bookId;
 
     //use error modal
-    if (!STORE.bookList[id - 1]) {
-      return "error!";
-    }
-    // const { title, author, rating, description, image, numReviews, reviews } = this.props;
-    // const {
-    //   title,
-    //   author,
-    //   instrument,
-    //   rating,
-    //   description,
-    //   image,
-    //   numReviews,
-    //   reviews
-    // } = STORE.bookList[id - 1];
 
     const {
       title,
@@ -61,8 +46,10 @@ export default class BookPage extends React.Component {
       description,
       image,
       numReviews,
-      reviews
+      user
     } = this.context.book
+
+    const { reviews } = this.context
 
     return (
       <Section id="book">
@@ -79,7 +66,7 @@ export default class BookPage extends React.Component {
           <span>{rating}</span>
           <span>Based on {numReviews} reviews</span>
         </div>
-        <BookReviews reviews={reviews} />
+        <BookReviews reviews={reviews} user={user}/>
         <ReviewForm />
       </Section>
     );
@@ -95,7 +82,7 @@ export default class BookPage extends React.Component {
   }
 }
 
-function BookReviews({ reviews = [] }) {
+function BookReviews({ reviews = [], user }) {
   return (
     <ul className="BookPage__review-list">
       {reviews.map(review => (
@@ -106,12 +93,12 @@ function BookReviews({ reviews = [] }) {
               icon="quote-left"
               className="BookPage__review-icon blue"
             />{" "}
-            {review.text}
+            {review.review_text}
           </p>
           <p className="BookPage__review-user">
             <BookStarRating rating={review.rating} />
             <Hyph />
-            {review.user.full_name}
+            {user.full_name}
           </p>
         </li>
       ))}

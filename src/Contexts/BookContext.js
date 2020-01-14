@@ -45,12 +45,14 @@ export class BookProvider extends React.Component {
       };
     
       setReviews = reviews => {
+
         // reviews.forEach(item => {
         //     item.user_id = item.user.full_name;
         //   return "";
         // });
     
         this.setState({ reviews });
+        console.log(this.state.reviews);
       };
 
       clearBook = () => {
