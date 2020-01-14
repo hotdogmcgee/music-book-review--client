@@ -19,11 +19,14 @@ exports[`BookList component renders the BookList given props 1`] = `
       key="0"
     >
       <BookListItem
-        author="i forgot"
+        author="zi forgot"
+        cost={30}
         description="two dogs in a very sad tale"
         id={1}
-        image="an image"
+        image="image"
+        instrument="piano"
         numReviews={10}
+        published_year={2001}
         rating={4}
         reviews={
           Array [
@@ -45,12 +48,47 @@ exports[`BookList component renders the BookList given props 1`] = `
     >
       <BookListItem
         author="JK Rowling"
+        cost={20}
         description="everyone knows it by now"
         id={2}
-        image="another image"
+        image="image"
+        instrument="guitar"
         numReviews={3}
+        published_year={1990}
         rating={3}
         title="Harry Potter and the Goblet of Fire"
+      />
+    </li>
+    <li
+      key="2"
+    >
+      <BookListItem
+        author="JK Rowling"
+        cost={15}
+        description="not my fav"
+        id={3}
+        image="image"
+        instrument="guitar"
+        numReviews={4}
+        published_year={1988}
+        rating={2}
+        title="Harry Potter and the Chamber of Secrets"
+      />
+    </li>
+    <li
+      key="3"
+    >
+      <BookListItem
+        author="Sally Reed"
+        cost={30}
+        description="the best ever"
+        id={4}
+        image="image"
+        instrument="clarinet"
+        numReviews={100}
+        published_year={2002}
+        rating={5}
+        title="The Only Way to Learn Clarinet"
       />
     </li>
   </ul>

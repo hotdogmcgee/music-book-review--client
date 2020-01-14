@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Section, Hyph } from "../../Components/Utils/Utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BookStarRating } from "../../Components/BookStarRating/BookStarRating";
-import BookContext from '../../Contexts/BookContext'
+import BookContext from "../../Contexts/BookContext";
 import SaveBook from "../../Components/SaveBook/SaveBook";
 import ReviewForm from "../../Components/ReviewForm/ReviewForm";
 import "./BookPage.css";
@@ -14,8 +14,7 @@ export default class BookPage extends React.Component {
     match: { params: {} }
   };
 
-  static contextType = BookContext
-  //use api fetch with param id, or should i just call everything in App.js and it will live in state?
+  static contextType = BookContext;
 
   componentDidMount() {
     const { bookId } = this.props.match.params;
@@ -32,10 +31,7 @@ export default class BookPage extends React.Component {
     this.context.clearBook();
   }
 
-
   renderBook() {
-    const id = this.props.match.params.bookId;
-
     //use error modal
 
     const {
@@ -47,13 +43,12 @@ export default class BookPage extends React.Component {
       image,
       numReviews,
       user
-    } = this.context.book
+    } = this.context.book;
 
-    const { reviews } = this.context
+    const { reviews } = this.context;
 
     return (
       <Section id="book">
-        
         <p>{image}</p>
         <div className="book-info">
           <h3>{title}</h3>
@@ -66,7 +61,7 @@ export default class BookPage extends React.Component {
           <span>{rating}</span>
           <span>Based on {numReviews} reviews</span>
         </div>
-        <BookReviews reviews={reviews} user={user}/>
+        <BookReviews reviews={reviews} user={user} />
         <ReviewForm />
       </Section>
     );
@@ -83,6 +78,8 @@ export default class BookPage extends React.Component {
 }
 
 function BookReviews({ reviews = [], user }) {
+  debugger
+  console.log(user);
   return (
     <ul className="BookPage__review-list">
       {reviews.map(review => (
@@ -98,7 +95,7 @@ function BookReviews({ reviews = [], user }) {
           <p className="BookPage__review-user">
             <BookStarRating rating={review.rating} />
             <Hyph />
-            {user.full_name}
+            {review.user.full_name}
           </p>
         </li>
       ))}

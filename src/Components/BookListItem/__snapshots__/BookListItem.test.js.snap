@@ -1,8 +1,14 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BookList component renders a BookListItem by default 1`] = `
-<div>
-  <p />
+<div
+  className="book-list-item"
+>
+  <div
+    className="book-list-img-container"
+  >
+    <span />
+  </div>
   <div
     className="book-info"
   >
@@ -13,22 +19,29 @@ exports[`BookList component renders a BookListItem by default 1`] = `
     </Link>
     <p />
     <p />
+    <p />
   </div>
   <div
     className="ratings-container"
   >
-    <span />
-    <span>
+    <p />
+    <p>
       Based on 
        reviews
-    </span>
+    </p>
   </div>
 </div>
 `;
 
 exports[`BookList component renders the BookListItem given props 1`] = `
-<div>
-  <p />
+<div
+  className="book-list-item"
+>
+  <div
+    className="book-list-img-container"
+  >
+    <span />
+  </div>
   <div
     className="book-info"
   >
@@ -39,15 +52,16 @@ exports[`BookList component renders the BookListItem given props 1`] = `
     </Link>
     <p />
     <p />
+    <p />
   </div>
   <div
     className="ratings-container"
   >
-    <span />
-    <span>
+    <p />
+    <p>
       Based on 
        reviews
-    </span>
+    </p>
   </div>
 </div>
 `;

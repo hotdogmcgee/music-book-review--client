@@ -9,6 +9,7 @@ const nullBook = {
       description: '',
       image: '',
       numReviews: '',
+      user: {},
       reviews: []
 }
 const BookContext = React.createContext({
@@ -41,15 +42,16 @@ export class BookProvider extends React.Component {
       };
     
       setBook = book => {
+          console.log('setbook', book);
         this.setState({ book });
       };
     
       setReviews = reviews => {
 
-        // reviews.forEach(item => {
-        //     item.user_id = item.user.full_name;
-        //   return "";
-        // });
+        reviews.forEach(item => {
+            item.user_id = item.user.full_name;
+          return "";
+        });
     
         this.setState({ reviews });
         console.log(this.state.reviews);
