@@ -13,6 +13,8 @@ export default function BookListItem(props) {
     authors,
     id
   } = props;
+  
+  const renderAuthors = authors ? <RenderAuthors authors={authors} /> : "no authors!"
 
   //have a description truncate function
   return (
@@ -25,7 +27,7 @@ export default function BookListItem(props) {
           <h3>{title}</h3>
         </Link>
         <div className="authors-container">
-          {authors.length ? <RenderAuthors authors={authors} /> : "no authors!"}
+          {renderAuthors}
         </div>
 
         <p>{instrument}</p>

@@ -15,7 +15,7 @@ describe('BookList component', () => {
       })
     
       it('renders the BookList given props', () => {
-        const wrapper = shallow(<BookList bookList={list} />)
+        const wrapper = shallow(<BookList bookList={[list]} />)
         expect(toJson(wrapper)).toMatchSnapshot()
       })
 })

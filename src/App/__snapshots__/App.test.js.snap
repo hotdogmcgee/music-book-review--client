@@ -160,7 +160,7 @@ exports[`App component renders the UI as expected 1`] = `
     </section>
   </main>
   <div
-    className="ReactModalPortal"
+    className="react-modal-portal"
   />
 </div>
 `;

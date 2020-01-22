@@ -17,7 +17,11 @@ exports[`BookList component renders a BookListItem by default 1`] = `
     >
       <h3 />
     </Link>
-    <p />
+    <div
+      className="authors-container"
+    >
+      no authors!
+    </div>
     <p />
     <p />
   </div>
@@ -50,7 +54,24 @@ exports[`BookList component renders the BookListItem given props 1`] = `
     >
       <h3 />
     </Link>
-    <p />
+    <div
+      className="authors-container"
+    >
+      <RenderAuthors
+        authors={
+          Array [
+            Object {
+              "first_name": "Suzie",
+              "last_name": "Violin",
+            },
+            Object {
+              "first_name": "Will",
+              "last_name": "Superstar",
+            },
+          ]
+        }
+      />
+    </div>
     <p />
     <p />
   </div>

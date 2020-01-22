@@ -9,6 +9,7 @@ import { STORE } from '../../store.js'
 describe('BookList component', () => {
 
     const item = STORE.bookList[0]
+    const authors = item.authors
 
       it('renders a BookListItem by default', () => {
         const wrapper = shallow(<BookListItem />)
@@ -16,7 +17,7 @@ describe('BookList component', () => {
       })
     
       it('renders the BookListItem given props', () => {
-        const wrapper = shallow(<BookListItem item={item} />)
+        const wrapper = shallow(<BookListItem item={item} authors={authors}/>)
         expect(toJson(wrapper)).toMatchSnapshot()
       })
 })
