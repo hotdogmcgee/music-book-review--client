@@ -78,7 +78,7 @@ class App extends React.Component {
             <Route path={"*"} component={NotFoundPage} />
           </Switch>
         </main>
-        <div className="ReactModalPortal">
+        <div className="react-modal-portal">
           {/* <LoginModal open={this.state.showModal} onClose={this.toggleModal}>
             {" "}
             Test Modal

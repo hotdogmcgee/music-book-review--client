@@ -5,7 +5,8 @@ const nullBook = {
     title: '',
       author: '',
       instrument: '',
-      rating: '',
+      avg_rating: '',
+      authors: [],
       description: '',
       image: '',
       numReviews: '',
@@ -21,13 +22,15 @@ const BookContext = React.createContext({
     clearError: () => {},
     setBook: () => {},
     setReviews: () => {},
-    clearBook: () => {}
+    clearBook: () => {},
+    addReview: () => {}
 })
 
 export default BookContext
 
 export class BookProvider extends React.Component {
     state = {
+      //try setting to nullBook
         book: {},
         error: null,
         hasError: null
@@ -42,19 +45,27 @@ export class BookProvider extends React.Component {
       };
     
       setBook = book => {
-          console.log('setbook', book);
+        console.log('setbook', book);
         this.setState({ book });
       };
+
+      addReview = review => {
+        this.setReviews([
+          ...this.state.reviews,
+          review
+        ])
+      }
     
+      //fix this for review adding
       setReviews = reviews => {
 
         reviews.forEach(item => {
-            item.user_id = item.user.full_name;
+            item.user_name = item.user.full_name;
           return "";
         });
     
         this.setState({ reviews });
-        console.log(this.state.reviews);
+        console.log('reviews', this.state.reviews);
       };
 
       clearBook = () => {
@@ -71,7 +82,8 @@ export class BookProvider extends React.Component {
               clearError: this.clearError,
               setBook: this.setBook,
               clearBook: this.clearBook,
-              setReviews: this.setReviews
+              setReviews: this.setReviews,
+              addReview: this.addReview
           }
           return (
               <BookContext.Provider value={value}>

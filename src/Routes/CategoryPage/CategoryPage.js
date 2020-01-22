@@ -42,7 +42,6 @@ export default class CategoryPage extends React.Component {
   // }
 
   componentDidMount() {
-    console.log('MOUNT');
     this.context.clearError();
     BooksApiService.getBooks().then(this.context.setBookList)
     .then(() => {
@@ -63,7 +62,10 @@ export default class CategoryPage extends React.Component {
   
   handleSortOption(sortValue) {
     // const list = this.state.bookList ? this.state.bookList : STORE.bookList;
-    const list = this.context.bookList
+
+    let list = this.context.bookList
+    this.setState({ bookList: list})
+
 
     const instrument = this.props.match.params.instrument
     if(instrument) {
@@ -105,7 +107,7 @@ export default class CategoryPage extends React.Component {
           break;
         case "rating":
           newList = list.sort((a, b) => {
-            return b.rating - a.rating;
+            return b.avg_rating - a.avg_rating;
           });
           break;
         default:
@@ -177,7 +179,7 @@ export default class CategoryPage extends React.Component {
           onFilterOptionClick={this.handleFilterOption}
         />
 
-        <BookList bookList={this.context.bookList} />
+        <BookList bookList={this.state.bookList} />
       </>
     );
   }

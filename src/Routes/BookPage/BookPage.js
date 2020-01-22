@@ -4,7 +4,6 @@ import { Section, Hyph } from "../../Components/Utils/Utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BookStarRating } from "../../Components/BookStarRating/BookStarRating";
 import BookContext from "../../Contexts/BookContext";
-import SaveBook from "../../Components/SaveBook/SaveBook";
 import ReviewForm from "../../Components/ReviewForm/ReviewForm";
 import "./BookPage.css";
 import BooksApiService from "../../services/books-api-service";
@@ -36,12 +35,12 @@ export default class BookPage extends React.Component {
 
     const {
       title,
-      author,
+      authors,
       instrument,
-      rating,
+      avg_rating,
       description,
       image,
-      numReviews,
+      num_reviews,
       user
     } = this.context.book;
 
@@ -52,14 +51,16 @@ export default class BookPage extends React.Component {
         <p>{image}</p>
         <div className="book-info">
           <h3>{title}</h3>
+
+          <div className="authors-container">
+            {authors ? <RenderAuthors authors={authors} /> : "no authors!"}
+          </div>
           <p>{instrument}</p>
-          <p>{author}</p>
           <p>{description}</p>
         </div>
-        <SaveBook />
         <div className="ratings-container">
-          <span>{rating}</span>
-          <span>Based on {numReviews} reviews</span>
+          <span>{avg_rating}</span>
+          <span>Based on {num_reviews} reviews</span>
         </div>
         <BookReviews reviews={reviews} user={user} />
         <ReviewForm />
@@ -78,8 +79,6 @@ export default class BookPage extends React.Component {
 }
 
 function BookReviews({ reviews = [], user }) {
-  debugger
-  console.log(user);
   return (
     <ul className="BookPage__review-list">
       {reviews.map(review => (
@@ -101,4 +100,17 @@ function BookReviews({ reviews = [], user }) {
       ))}
     </ul>
   );
+}
+
+function RenderAuthors({ authors }) {
+  return authors.map((author, key) => {
+    const commaSpace = key < authors.length - 1 ? ", " : "";
+
+    return (
+      <span className="author-container" key={key}>
+        {/* {author.first_name} {author.last_name} {commaSpace} */}
+        {`${author.first_name} ${author.last_name}${commaSpace} `}
+      </span>
+    );
+  });
 }
