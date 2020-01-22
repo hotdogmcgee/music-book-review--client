@@ -42,10 +42,13 @@ export default function BookListItem(props) {
 }
 
 function RenderAuthors({ authors }) {
-  return authors.map((author, key) => (
-    <p className="author-container" key={key}>
-      {author.first_name} {author.last_name}
-      {key < authors.length - 1 && ','}
-    </p>
-  ));
+  return authors.map((author, key) => {
+    const commaSpace = key < authors.length - 1 ? ", " : "";
+
+    return (
+      <span className="author-container" key={key}>
+        {`${author.first_name} ${author.last_name}${commaSpace} `}
+      </span>
+    );
+  });
 }

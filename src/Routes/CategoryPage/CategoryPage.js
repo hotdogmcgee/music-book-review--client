@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import BookList from "../../Components/BookList/BookList";
 import FilterSortBar from "../../Components/FilterSortBar/FilterSortBar";
 import { Section } from "../../Components/Utils/Utils";
-import BookListContext from '../../Contexts/BookListContext'
+import BookListContext from "../../Contexts/BookListContext";
 import "./CategoryPage.css";
 import BooksApiService from "../../services/books-api-service";
 
@@ -14,12 +14,12 @@ export default class CategoryPage extends React.Component {
       bookList: [],
       browseTrue: false,
       listSorted: false,
-      sortVal: null,
+      sortVal: null
     };
     this.handleSortOption = this.handleSortOption.bind(this);
   }
 
-  static contextType = BookListContext
+  static contextType = BookListContext;
 
   // componentDidMount() {
   //   console.log(this.props.match.params);
@@ -43,39 +43,43 @@ export default class CategoryPage extends React.Component {
 
   componentDidMount() {
     this.context.clearError();
-    BooksApiService.getBooks().then(this.context.setBookList)
-    .then(() => {
-      const instrument = this.props.match.params.instrument;
-      if (instrument) {
-        this.handleFilterInstrument(instrument);
-      }
-      const type = this.props.match.params.type;
-      if (type) {
-        this.handleSortOption(type);
-      }
-    })
-
+    BooksApiService.getBooks()
+      .then(this.context.setBookList)
+      .then(() => {
+        const instrument = this.props.match.params.instrument;
+        if (instrument) {
+          this.handleFilterInstrument(instrument);
+        }
+        const type = this.props.match.params.type;
+        if (type) {
+          this.handleSortOption(type);
+        }
+      });
   }
 
-
-
-  
   handleSortOption(sortValue) {
     // const list = this.state.bookList ? this.state.bookList : STORE.bookList;
 
-    let list = this.context.bookList
-    this.setState({ bookList: list})
+    let list = this.context.bookList;
+    this.setState({ bookList: list });
+    debugger;
+    console.log(list);
 
-
-    const instrument = this.props.match.params.instrument
-    if(instrument) {
-      this.handleFilterInstrument(instrument)
+    const instrument = this.props.match.params.instrument;
+    if (instrument) {
+      this.handleFilterInstrument(instrument);
     }
 
-
     const sortFunc = function(a, b) {
-      var thingA = a[sortValue].toUpperCase();
-      var thingB = b[sortValue].toUpperCase();
+      let thingA, thingB;
+      if (sortValue === "authors") {
+        console.log(a[sortValue][0].last_name);
+        thingA = a[sortValue][0].last_name.toUpperCase();
+        thingB = b[sortValue][0].last_name.toUpperCase();
+      } else {
+        thingA = a[sortValue].toUpperCase();
+        thingB = b[sortValue].toUpperCase();
+      }
       if (thingA < thingB) {
         return -1;
       }
@@ -94,7 +98,7 @@ export default class CategoryPage extends React.Component {
           newList = list.sort(sortFunc);
 
           break;
-        case "author":
+        case "authors":
           newList = list.sort(sortFunc);
           break;
         case "id":
@@ -128,28 +132,27 @@ export default class CategoryPage extends React.Component {
     }
   }
 
-  handleFilterInstrument = (instrument) => {
-    const list = this.context.bookList
-    let newList
-    newList = list.filter(item => item.instrument === instrument)
+  handleFilterInstrument = instrument => {
+    const list = this.context.bookList;
+    let newList;
+    newList = list.filter(item => item.instrument === instrument);
     this.setState({
       bookList: newList
-    })
-  }
+    });
+  };
 
   handleFilterOption = filters => {
     //store big list in context
     //is it better to just hide an element based on filter?
     // const list = this.state.bookList ? this.state.bookList : STORE.bookList
-    const list = this.context.bookList
+    const list = this.context.bookList;
 
     let newList = list;
 
-    const instrument = this.props.match.params.instrument
-    if(instrument) {
-      newList = list.filter(item => item.instrument === instrument)
+    const instrument = this.props.match.params.instrument;
+    if (instrument) {
+      newList = list.filter(item => item.instrument === instrument);
     }
-
 
     if (!filters.includes("old books")) {
       newList = newList.filter(item => item.published_year <= 2000);

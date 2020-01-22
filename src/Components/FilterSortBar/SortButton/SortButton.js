@@ -14,7 +14,7 @@ export default class SortButton extends React.Component {
   };
 
   handleClick() {
-    const list = ["id", "title", "rating", 'author'];
+    const list = ["id", "title", "rating", 'authors'];
     this.props.toggleFilterOrSort('sort')
     this.props.setOptions(list);
     this.props.toggleShowOptions()

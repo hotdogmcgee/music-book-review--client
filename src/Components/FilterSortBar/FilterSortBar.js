@@ -58,15 +58,11 @@ export default class FilterSortBar extends React.Component {
       return;
     }
   }
-  // handleFilterOptionClick(filterValue) {
-  //   this.props.onFilterOptionClick(filterValue);
-  // }
 
   handleFilterOptionClick(value) {
     const filters = this.state.filters;
     let newFilters;
     if (filters.includes(value)) {
-      debugger;
 
       newFilters = filters.filter(item => item !== value);
       this.setState({
