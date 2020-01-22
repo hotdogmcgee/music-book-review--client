@@ -108,7 +108,6 @@ function RenderAuthors({ authors }) {
 
     return (
       <span className="author-container" key={key}>
-        {/* {author.first_name} {author.last_name} {commaSpace} */}
         {`${author.first_name} ${author.last_name}${commaSpace} `}
       </span>
     );

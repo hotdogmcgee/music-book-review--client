@@ -19,76 +19,125 @@ exports[`BookList component renders the BookList given props 1`] = `
       key="0"
     >
       <BookListItem
-        author="zi forgot"
-        cost={30}
-        description="two dogs in a very sad tale"
-        id={1}
-        image="image"
-        instrument="piano"
-        numReviews={10}
-        published_year={2001}
-        rating={4}
-        reviews={
-          Array [
-            Object {
-              "id": 1,
-              "rating": 3,
-              "text": "it was pretty good",
-              "user": Object {
-                "full_name": "dave bones",
+        0={
+          Object {
+            "authors": Array [
+              Object {
+                "first_name": "Suzie",
+                "last_name": "Violin",
               },
-            },
-          ]
+              Object {
+                "first_name": "Will",
+                "last_name": "Superstar",
+              },
+            ],
+            "cost": 30,
+            "description": "two dogs in a very sad tale",
+            "id": 1,
+            "image": "image",
+            "instrument": "piano",
+            "numReviews": 10,
+            "published_year": 2001,
+            "rating": 4,
+            "reviews": Array [
+              Object {
+                "id": 1,
+                "rating": 3,
+                "text": "it was pretty good",
+                "user": Object {
+                  "full_name": "dave bones",
+                },
+              },
+            ],
+            "title": "where the red fern grows",
+          }
         }
-        title="where the red fern grows"
-      />
-    </li>
-    <li
-      key="1"
-    >
-      <BookListItem
-        author="JK Rowling"
-        cost={20}
-        description="everyone knows it by now"
-        id={2}
-        image="image"
-        instrument="guitar"
-        numReviews={3}
-        published_year={1990}
-        rating={3}
-        title="Harry Potter and the Goblet of Fire"
-      />
-    </li>
-    <li
-      key="2"
-    >
-      <BookListItem
-        author="JK Rowling"
-        cost={15}
-        description="not my fav"
-        id={3}
-        image="image"
-        instrument="guitar"
-        numReviews={4}
-        published_year={1988}
-        rating={2}
-        title="Harry Potter and the Chamber of Secrets"
-      />
-    </li>
-    <li
-      key="3"
-    >
-      <BookListItem
-        author="Sally Reed"
-        cost={30}
-        description="the best ever"
-        id={4}
-        image="image"
-        instrument="clarinet"
-        numReviews={100}
-        published_year={2002}
-        rating={5}
-        title="The Only Way to Learn Clarinet"
+        1={
+          Object {
+            "authors": Array [
+              Object {
+                "first_name": "Suzie",
+                "last_name": "Violin",
+              },
+            ],
+            "cost": 20,
+            "description": "everyone knows it by now",
+            "id": 2,
+            "image": "image",
+            "instrument": "guitar",
+            "numReviews": 3,
+            "published_year": 1990,
+            "rating": 3,
+            "reviews": Array [
+              Object {
+                "id": 1,
+                "rating": 3,
+                "text": "not good",
+                "user": Object {
+                  "full_name": "dave bones",
+                },
+              },
+            ],
+            "title": "Harry Potter and the Goblet of Fire",
+          }
+        }
+        2={
+          Object {
+            "authors": Array [
+              Object {
+                "first_name": "Jim",
+                "last_name": "Cool",
+              },
+            ],
+            "cost": 15,
+            "description": "not my fav",
+            "id": 3,
+            "image": "image",
+            "instrument": "guitar",
+            "numReviews": 4,
+            "published_year": 1988,
+            "rating": 2,
+            "reviews": Array [],
+            "title": "Harry Potter and the Chamber of Secrets",
+          }
+        }
+        3={
+          Object {
+            "authors": Array [
+              Object {
+                "first_name": "Mister",
+                "last_name": "Clarinet",
+              },
+            ],
+            "cost": 30,
+            "description": "the best ever",
+            "id": 4,
+            "image": "image",
+            "instrument": "clarinet",
+            "numReviews": 100,
+            "published_year": 2002,
+            "rating": 5,
+            "reviews": Array [
+              Object {
+                "id": 1,
+                "rating": 3,
+                "text": "it was pretty good",
+                "user": Object {
+                  "full_name": "dave bones",
+                },
+              },
+              Object {
+                "id": 1,
+                "rating": 5,
+                "text": "amazing!",
+                "user": Object {
+                  "full_name": "joe joe",
+                },
+              },
+            ],
+            "title": "The Only Way to Learn Clarinet",
+          }
+        }
       />
     </li>
   </ul>
