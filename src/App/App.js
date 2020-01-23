@@ -30,11 +30,6 @@ class App extends React.Component {
     return { hasError: true };
   }
 
-  // componentDidMount() {
-  //   this.context.clearError()
-  //   this.context.setBookList(STORE.bookList)
-  //   this.context.setSavedList(STORE.bookList)
-  // }
 
   hasLogin = loggedIn => {
     this.setState({
@@ -59,7 +54,7 @@ class App extends React.Component {
       <div className="App">
         <header className="App__header">
           
-          <Header toggleModal={this.toggleModal}></Header>
+          <Header hasLogin={this.hasLogin}></Header>
         </header>
         <main className="App__main">
           <Switch>

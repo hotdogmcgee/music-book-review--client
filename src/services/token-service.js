@@ -2,9 +2,11 @@ import config from "../config";
 
 const TokenService = {
   saveAuthToken(token) {
+    console.log('token', token);
     window.sessionStorage.setItem(config.TOKEN_KEY, token);
   },
   saveUserId(payload) {
+    console.log('payload: ', payload);
     window.sessionStorage.setItem("user_id", payload.user_id);
   },
   getAuthToken() {

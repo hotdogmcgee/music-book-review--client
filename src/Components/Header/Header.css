@@ -1,17 +1,18 @@
-.Header {
+/* .Header {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid black;
-}
+} */
 
 
-/* .Header {
+.Header {
     height: 40px;
     display: flex;
     align-items: normal;
     justify-content: space-between;
+    padding: 10px;
   }
   
   .Header h1 {
@@ -106,5 +107,5 @@
       margin-left: auto;
       margin-right: auto;
     }
-  } */
+  }
   
