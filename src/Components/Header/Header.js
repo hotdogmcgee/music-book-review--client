@@ -75,6 +75,7 @@ export default class Header extends React.Component {
           For Students, Educators, and Parents!
         </span>
 
+
         <div>
           <BrowseDropdown />
         </div>

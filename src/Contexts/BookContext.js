@@ -45,11 +45,11 @@ export class BookProvider extends React.Component {
       };
     
       setBook = book => {
-        console.log('setbook', book);
         this.setState({ book });
       };
 
       addReview = review => {
+        console.log('review in add review', review);
         this.setReviews([
           ...this.state.reviews,
           review
@@ -57,15 +57,16 @@ export class BookProvider extends React.Component {
       }
     
       //fix this for review adding
+      //user name addition a prob, might need to do server-side fixes
       setReviews = reviews => {
 
+        console.log('reviews set', reviews);
         reviews.forEach(item => {
             item.user_name = item.user.full_name;
           return "";
         });
     
         this.setState({ reviews });
-        console.log('reviews', this.state.reviews);
       };
 
       clearBook = () => {

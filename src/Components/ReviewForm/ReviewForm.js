@@ -17,7 +17,6 @@ export default class ReviewForm extends Component {
 
     const rv = {user_id, book_id: book.id, review_text: text.value, rating: Number(rating.value)}
 
-    console.log(rv);
 
     //need to grab user_id from req.params
 
@@ -28,7 +27,7 @@ export default class ReviewForm extends Component {
       Number(rating.value),
       text.value
     )
-      .then(this.context.addReview())
+      .then(thing => this.context.addReview(thing))
       .then(() => {
         text.value = "";
       })

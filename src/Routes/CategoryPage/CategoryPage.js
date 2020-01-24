@@ -50,7 +50,9 @@ export default class CategoryPage extends React.Component {
         if (instrument) {
           this.handleFilterInstrument(instrument);
         }
+        
         const type = this.props.match.params.type;
+        console.log('type: ', type);
         if (type) {
           this.handleSortOption(type);
         }
