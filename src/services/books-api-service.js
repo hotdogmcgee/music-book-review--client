@@ -39,18 +39,18 @@ const BooksApiService = {
     );
   },
 
-  postReview( user_id, book_id, rating, text) {
+  postReview( book_id, rating, review_text) {
     return fetch(`${config.API_ENDPOINT}/reviews`, {
       method: "POST",
       headers: {
-        "content-type": "application/json"
-        //auth
+        "content-type": "application/json",
+        authorization: `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({
-        user_id,
+        // user_id,
         book_id,
         rating,
-        review_text: text
+        review_text
       })
     }).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()

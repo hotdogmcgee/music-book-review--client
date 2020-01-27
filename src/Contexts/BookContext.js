@@ -49,7 +49,6 @@ export class BookProvider extends React.Component {
       };
 
       addReview = review => {
-        console.log('review in add review', review);
         this.setReviews([
           ...this.state.reviews,
           review
@@ -60,11 +59,13 @@ export class BookProvider extends React.Component {
       //user name addition a prob, might need to do server-side fixes
       setReviews = reviews => {
 
-        console.log('reviews set', reviews);
-        reviews.forEach(item => {
-            item.user_name = item.user.full_name;
-          return "";
-        });
+        // reviews.forEach(item => {
+
+        //     item.user_name = item.user.full_name;
+        //     return ''
+
+        //   // return "";
+        // });
     
         this.setState({ reviews });
       };

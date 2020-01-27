@@ -7,17 +7,15 @@ import BookContext from "../../Contexts/BookContext";
 import ReviewForm from "../../Components/ReviewForm/ReviewForm";
 import "./BookPage.css";
 import BooksApiService from "../../services/books-api-service";
-import ReviewSuccessModal from '../../Components/ReviewSuccessModal/ReviewSuccessModal'
+import ReviewSuccessModal from "../../Components/ReviewSuccessModal/ReviewSuccessModal";
 
 export default class BookPage extends React.Component {
-
   constructor(props) {
-    super(props) 
-      this.state = {
-        hasSubmission: false,
-        showModal: false
-      
-    }
+    super(props);
+    this.state = {
+      hasSubmission: false,
+      showModal: false
+    };
   }
 
   static defaultProps = {
@@ -47,28 +45,14 @@ export default class BookPage extends React.Component {
 
   //
   hideModal = () => {
-    this.setState({ showModal: false }, () => this.setState({ hasSubmission: true}));
+    this.setState({ showModal: false }
+    );
   };
 
   handleReviewSuccess = () => {
-    console.log(this.state.showModal);
-    this.setState({showModal: true})
+    this.setState({ showModal: true });
+  };
 
-
-  }
-
-  // handleNewSubmitClick = review => {
-  //   this.setState({
-  //     hasSubmission: false
-  //   });
-  // };
-
-  // renderReviewForm() {
-  //   return (
-
-  //       <ReviewForm onReviewSuccess={this.handleReviewSuccess} />
-  //   );
-  // }
 
   renderBook() {
     //use error modal
@@ -103,8 +87,7 @@ export default class BookPage extends React.Component {
           <span>Based on {num_reviews} reviews</span>
         </div>
         <BookReviews reviews={reviews} user={user} />
-        <ReviewForm onReviewSuccess={this.handleReviewSuccess}/>
-
+        <ReviewForm onReviewSuccess={this.handleReviewSuccess} />
       </Section>
     );
   }
@@ -114,12 +97,17 @@ export default class BookPage extends React.Component {
       <>
         <Link to="/">Music Book Review</Link>
         {this.renderBook()}
-        <ReviewSuccessModal handleClose={this.hideModal} show={this.state.showModal }/>
+        <ReviewSuccessModal
+          handleClose={this.hideModal}
+          show={this.state.showModal}
+          bookId
+        />
       </>
     );
   }
 }
 
+//change user_id to get name, do it from server side
 function BookReviews({ reviews = [], user }) {
   return (
     <ul className="BookPage__review-list">
@@ -136,7 +124,7 @@ function BookReviews({ reviews = [], user }) {
           <p className="BookPage__review-user">
             <BookStarRating rating={review.rating} />
             <Hyph />
-            {review.user.full_name}
+            {review.user_id}
           </p>
         </li>
       ))}

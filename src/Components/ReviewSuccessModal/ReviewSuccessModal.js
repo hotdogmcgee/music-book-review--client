@@ -2,17 +2,13 @@ import React from "react";
 import "./ReviewSuccessModal.css";
 import { Link } from 'react-router-dom'
 
-export default class LoginModal extends React.Component {
+export default class ReviewSuccessModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
     };
   }
 
-
-  handleLoginSuccess = () => {
-    this.props.handleClose();
-  };
 
   render() {
     const { show, handleClose } = this.props;

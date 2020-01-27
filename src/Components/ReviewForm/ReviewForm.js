@@ -18,23 +18,22 @@ export default class ReviewForm extends Component {
     const { book } = this.context;
     const { text, rating } = ev.target;
 
-    const user_id = 1;
+    // const user_id = 1;
 
     //need to grab user_id from req.params
 
-    //promises are not being returned -- needs fix
-
     BooksApiService.postReview(
-      user_id,
+      // user_id,
       book.id,
       Number(rating.value),
       text.value
     )
+      .then(thing => this.context.addReview(thing))
       .then(() => {
         text.value = "";
         this.props.onReviewSuccess();
       })
-      // .then(thing => this.context.addReview(thing))
+
 
       .catch(this.context.setError);
   };
