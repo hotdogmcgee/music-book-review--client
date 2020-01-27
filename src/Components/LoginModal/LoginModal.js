@@ -17,7 +17,6 @@ export default class LoginModal extends React.Component {
   };
 
   handleLoginSuccess = () => {
-    console.log("login success");
     this.props.hasLogin(true);
     this.props.handleClose();
   };

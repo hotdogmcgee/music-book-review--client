@@ -4,12 +4,14 @@ const BookListContext = React.createContext({
 
     bookList: [],
     savedList: [],
+    searchValue: '',
     error: null,
     setError: () => {},
     clearError: () => {},
     setBookList: () => {},
-    setSavedList: () => {}
-
+    setSavedList: () => {},
+    setSearchValue: () => {}
+  
 })
 
 export default BookListContext
@@ -17,17 +19,39 @@ export default BookListContext
 export class BookListProvider extends React.Component {
     state= {
         bookList: [],
+        savedList: [],
+        searchValue: '',
         error: null
     }
 
     setBookList = bookList => {
-        console.log(bookList);
+
         this.setState({ bookList })
     }
 
     setSavedList = savedList => {
         this.setState({ savedList });
       }
+
+    setSearchValue = searchValue => {
+      let currentList = []
+      let searchedList = []
+
+      this.setState({ searchValue })
+
+      if (this.searchValue !== '') {
+        currentList = this.state.savedList
+        console.log(currentList);
+        searchedList = currentList.filter(book => {
+          const lc = book.title.toLowerCase()
+          const filter = searchValue.toLowerCase()
+          return lc.includes(filter)
+        })
+      } else {
+        searchedList = this.state.savedList
+      }
+      this.setBookList(searchedList)
+    }
 
     setError = error => {
         this.setState({ error });
@@ -45,7 +69,8 @@ export class BookListProvider extends React.Component {
           setError: this.setError,
           clearError: this.clearError,
           setBookList: this.setBookList,
-          setSavedList: this.setSavedList
+          setSavedList: this.setSavedList,
+          setSearchValue: this.setSearchValue
         };
         return (
           <BookListContext.Provider value={value}>

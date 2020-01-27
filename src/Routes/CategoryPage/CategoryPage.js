@@ -45,6 +45,8 @@ export default class CategoryPage extends React.Component {
     this.context.clearError();
     BooksApiService.getBooks()
       .then(this.context.setBookList)
+      BooksApiService.getBooks()
+      .then(this.context.setSavedList)
       .then(() => {
         const instrument = this.props.match.params.instrument;
         if (instrument) {
@@ -64,7 +66,6 @@ export default class CategoryPage extends React.Component {
 
     let list = this.context.bookList;
     this.setState({ bookList: list });
-    debugger;
     console.log(list);
 
     const instrument = this.props.match.params.instrument;
@@ -138,6 +139,7 @@ export default class CategoryPage extends React.Component {
     const list = this.context.bookList;
     let newList;
     newList = list.filter(item => item.instrument === instrument);
+    console.log(newList);
     this.setState({
       bookList: newList
     });
@@ -184,6 +186,7 @@ export default class CategoryPage extends React.Component {
           onFilterOptionClick={this.handleFilterOption}
         />
 
+      {/* changed from state, mess around with this */}
         <BookList bookList={this.state.bookList} />
       </>
     );

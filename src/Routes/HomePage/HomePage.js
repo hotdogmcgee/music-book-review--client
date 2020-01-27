@@ -1,35 +1,70 @@
-import React from 'react'
-import './HomePage.css'
-import { Link } from 'react-router-dom'
-import { Section } from '../../Components/Utils/Utils'
-import InstrumentCard from '../../Components/InstrumentCard/InstrumentCard'
+import React from "react";
+import "./HomePage.css";
+import { Link } from "react-router-dom";
+import { Section } from "../../Components/Utils/Utils";
+import BookListContext from "../../Contexts/BookListContext";
+import BookList from "../../Components/BookList/BookList";
+import CardList from "../../Components/CardList/CardList";
 
-function HomePage() {
+class HomePage extends React.Component {
+  state = {
+    searchValue: ""
+  };
+  static contextType = BookListContext;
+
+  //   handleSearchChange = value => {
+  //     let currentList = [];
+  //     let newList = [];
+
+  //     this.setState({
+  //       searchValue: value
+  //     });
+
+  //     if (value !== "") {
+  //         currentList = this.context.savedList;
+
+  //         newList = currentList.filter(book => {
+  //           const lc = item.title.toLowerCase();
+  //           const filter = value.toLowerCase();
+  //           return lc.includes(filter);
+  //         });
+  //       } else {
+  //         newList = this.context.savedList;
+  //       }
+
+  //       this.context.setBookList(newList)
+
+  //   };
+
+  render() {
+    const instrumentList = [
+      { title: "guitar" },
+      { title: "piano" },
+      { title: "clarinet" },
+      { title: "violin" }
+    ];
+    const searchValue = this.context.searchValue || "";
+    console.log(searchValue);
     return (
-        <Section className="HomePage">
+      <Section className="HomePage">
+        <Section>
+          <Link to="/">Music Book Review</Link>
+        </Section>
 
-    
-        <section><Link to="/">Music Book Review</Link></section>
-    
-        <section>ABOUT</section>
-    
-        <section>
-            <h2>Instrument select</h2>
-            <div className="select-boxes">
-                
-                <div className="select-box"><InstrumentCard title="piano" image="a piano"/></div>
-                <div className="select-box"><InstrumentCard title="guitar" image="a guitar"/></div>
-                <div className="select-box"><InstrumentCard title="violin" image="a violin"/></div>
-                <div className="select-box"><InstrumentCard title="clarinet" image="a clarinet"/></div>
-    
-    
-            </div>
-            
-        </section>
-        
-    
+        <Section>ABOUT</Section>
+
+        <Section>
+          <h2>Instrument select</h2>
+
+          {searchValue.length > 0 ? (
+            <p>bleh</p>
+          ) : (
+            <CardList instruments={instrumentList} />
+          )}
+        </Section>
       </Section>
-    )
+    );
+  }
 }
 
-export default HomePage
+export default HomePage;

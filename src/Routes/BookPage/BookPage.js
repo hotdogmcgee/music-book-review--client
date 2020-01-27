@@ -9,6 +9,10 @@ import "./BookPage.css";
 import BooksApiService from "../../services/books-api-service";
 
 export default class BookPage extends React.Component {
+
+  state = {
+    hasSubmission: false
+  }
   static defaultProps = {
     match: { params: {} }
   };
@@ -29,6 +33,31 @@ export default class BookPage extends React.Component {
   componentWillUnmount() {
     this.context.clearBook();
   }
+
+  // handleReviewSucess = review => {
+  //   this.setState({hasSubmission: true})
+  // }
+
+  // handleNewSubmitClick = review => {
+  //   this.setState({
+  //     hasSubmission: false
+  //   });
+  // };
+
+  // renderReviewForm() {
+  //   return (
+
+  //       <ReviewForm onReviewSuccess={this.handleReviewSuccess} />
+  //   );
+  // }
+
+  // renderSubmissionSuccess() {
+  //   return (
+  //     <Section className="ReviewSuccess">
+  //       <ReviewSuccessModal handleNewSubmitClick={this.handleNewSubmitClick} />
+  //     </Section>
+  //   );
+  // }
 
   renderBook() {
     //use error modal

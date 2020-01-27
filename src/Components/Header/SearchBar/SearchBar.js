@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import BookListContext from '../../../Contexts/BookListContext'
 import "./SearchBar.css";
 
 export default class SearchBar extends React.Component {
@@ -17,6 +18,8 @@ export default class SearchBar extends React.Component {
     this.handleMouseOver = this.handleMouseOver.bind(this);
   }
 
+  static contextType = BookListContext
+
   //doesnt work because function has been defined before state?
   //   log(e) {
   //       e.preventDefault()
@@ -27,20 +30,18 @@ export default class SearchBar extends React.Component {
   handleInput = e => {
     e.preventDefault();
     const value = e.target.value;
-    this.setState({
-      searchValue: value
-    });
-    console.log(this.state.searchValue);
-    // this.props.onSearchChange(searchValue);
+    // this.setState({
+    //   searchValue: value
+    // });
+    this.context.setSearchValue(value)
   };
 
-  //   handleToggle() {
-  //       const newVal = !this.state.mouseOverBoolean
-  //       this.setState({
-  //           mouseOverBoolean: newVal
-  //       })
-  //       console.log('toggle');
-  //   }
+    handleToggle() {
+        const newVal = !this.state.mouseOverBoolean
+        this.setState({
+            mouseOverBoolean: newVal
+        })
+    }
 
   handleMouseOver() {
     if (this.state.mouseOverBoolean) {

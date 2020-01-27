@@ -1,0 +1,12 @@
+.select-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.select-box {
+    height: 100px;
+    width: 100px;
+    border: 1px solid black;
+    margin: 20px;
+}

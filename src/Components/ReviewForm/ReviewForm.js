@@ -15,9 +15,6 @@ export default class ReviewForm extends Component {
 
     const user_id = 1;
 
-    const rv = {user_id, book_id: book.id, review_text: text.value, rating: Number(rating.value)}
-
-
     //need to grab user_id from req.params
 
     //promises are not being returned -- needs fix

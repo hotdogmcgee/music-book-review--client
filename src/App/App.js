@@ -11,6 +11,8 @@ import NotFoundPage from "../Routes/NotFoundPage/NotFoundPage";
 // import LoginModal from "../Routes/LoginModal/LoginModal";
 import ProfilePage from "../Routes/ProfilePage/ProfilePage";
 import LoginPage from "../Routes/LoginPage/LoginPage";
+import BooksApiService from "../services/books-api-service";
+import BookListContext from '../Contexts/BookListContext'
 
 
 //browse value change in context
@@ -25,6 +27,13 @@ class App extends React.Component {
       error: null,
       browseCategory: null
   };
+  static contextType = BookListContext
+
+  componentDidMount() {
+    BooksApiService.getBooks()
+    .then(this.context.setBookList)
+    .then(console.log(this.context.bookList))
+  }
 
   static getDerivedStateFromError(error) {
     return { hasError: true };
