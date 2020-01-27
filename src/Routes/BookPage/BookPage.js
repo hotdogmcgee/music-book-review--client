@@ -7,12 +7,19 @@ import BookContext from "../../Contexts/BookContext";
 import ReviewForm from "../../Components/ReviewForm/ReviewForm";
 import "./BookPage.css";
 import BooksApiService from "../../services/books-api-service";
+import ReviewSuccessModal from '../../Components/ReviewSuccessModal/ReviewSuccessModal'
 
 export default class BookPage extends React.Component {
 
-  state = {
-    hasSubmission: false
+  constructor(props) {
+    super(props) 
+      this.state = {
+        hasSubmission: false,
+        showModal: false
+      
+    }
   }
+
   static defaultProps = {
     match: { params: {} }
   };
@@ -34,9 +41,21 @@ export default class BookPage extends React.Component {
     this.context.clearBook();
   }
 
-  // handleReviewSucess = review => {
-  //   this.setState({hasSubmission: true})
-  // }
+  showModal = () => {
+    this.setState({ showModal: true });
+  };
+
+  //
+  hideModal = () => {
+    this.setState({ showModal: false }, () => this.setState({ hasSubmission: true}));
+  };
+
+  handleReviewSuccess = () => {
+    console.log(this.state.showModal);
+    this.setState({showModal: true})
+
+
+  }
 
   // handleNewSubmitClick = review => {
   //   this.setState({
@@ -48,14 +67,6 @@ export default class BookPage extends React.Component {
   //   return (
 
   //       <ReviewForm onReviewSuccess={this.handleReviewSuccess} />
-  //   );
-  // }
-
-  // renderSubmissionSuccess() {
-  //   return (
-  //     <Section className="ReviewSuccess">
-  //       <ReviewSuccessModal handleNewSubmitClick={this.handleNewSubmitClick} />
-  //     </Section>
   //   );
   // }
 
@@ -92,7 +103,8 @@ export default class BookPage extends React.Component {
           <span>Based on {num_reviews} reviews</span>
         </div>
         <BookReviews reviews={reviews} user={user} />
-        <ReviewForm />
+        <ReviewForm onReviewSuccess={this.handleReviewSuccess}/>
+
       </Section>
     );
   }
@@ -102,6 +114,7 @@ export default class BookPage extends React.Component {
       <>
         <Link to="/">Music Book Review</Link>
         {this.renderBook()}
+        <ReviewSuccessModal handleClose={this.hideModal} show={this.state.showModal }/>
       </>
     );
   }
