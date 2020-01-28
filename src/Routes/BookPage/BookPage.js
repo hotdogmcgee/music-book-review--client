@@ -124,7 +124,7 @@ function BookReviews({ reviews = [], user }) {
           <p className="BookPage__review-user">
             <BookStarRating rating={review.rating} />
             <Hyph />
-            {review.user_id}
+            {review.user.full_name}
           </p>
         </li>
       ))}

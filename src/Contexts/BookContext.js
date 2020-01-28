@@ -49,23 +49,16 @@ export class BookProvider extends React.Component {
       };
 
       addReview = review => {
+        console.log('review', review)
         this.setReviews([
           ...this.state.reviews,
           review
         ])
       }
     
-      //fix this for review adding
+      //fix this for review adding.  reviews in state is never set with current forEach loop.  why?
       //user name addition a prob, might need to do server-side fixes
       setReviews = reviews => {
-
-        // reviews.forEach(item => {
-
-        //     item.user_name = item.user.full_name;
-        //     return ''
-
-        //   // return "";
-        // });
     
         this.setState({ reviews });
       };

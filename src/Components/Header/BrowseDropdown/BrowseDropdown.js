@@ -46,7 +46,7 @@ export default class BrowseDropdown extends React.Component {
               </Link>
             </li>
             <li>
-              <Link to="/category/author">Author</Link>
+              <Link to="/category/authors">Authors</Link>
             </li>
             <li>
               <Link to="/category/publisher">Publisher</Link>
