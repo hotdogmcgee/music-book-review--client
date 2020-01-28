@@ -42,28 +42,57 @@ export default class CategoryPage extends React.Component {
   // }
 
   componentDidMount() {
+    console.log("mount");
     this.context.clearError();
-    BooksApiService.getBooks()
-      .then(this.context.setBookList)
-      BooksApiService.getBooks()
-      .then(this.context.setSavedList)
-      .then(() => {
-        const instrument = this.props.match.params.instrument;
-        if (instrument) {
-          this.handleFilterInstrument(instrument);
-        }
-        
-        const type = this.props.match.params.type;
-        console.log('type: ', type);
-        if (type) {
-          this.handleSortOption(type);
-        }
-      });
+    BooksApiService.getBooks().then(this.context.setBookList);
+    BooksApiService.getBooks().then(this.context.setSavedList)
+    .then(() => {
+      const instrument = this.props.match.params.instrument;
+      if (instrument) {
+        this.handleFilterInstrument(instrument);
+      }
+
+      // console.log(this.context.browseValue);
+      // const type = this.context.browseValue ? this.context.browseValue : this.props.match.params.type
+      const type = this.props.match.params.type;
+      if (type) {
+        this.handleSortOption(type);
+      }
+    })
+    .catch(this.context.setError)
+  }
+
+
+
+
+  renderBooks = () => {
+    const { bookList = [], browseValue } = this.context;
+
+    // const instrument = this.props.match.params.instrument;
+    // if (instrument) {
+    //   bookList = this.handleFilterOption(instrument)
+    // }
+
+    // if (browseValue) {
+    //   this.handleSortType(browseValue)
+    // }
+    // const instrument = this.props.match.params.instrument;
+    // if (instrument) {
+    //   return this.handleFilterInstrument(instrument);
+    // }
+
+    // // console.log(this.context.browseValue);
+    // // const type = this.context.browseValue ? this.context.browseValue : this.props.match.params.type
+    // const type = this.props.match.params.type;
+    // console.log("type: ", type);
+    // if (type) {
+    //   this.handleSortOption(type);
+    // }
+    return <BookList bookList={bookList} />;
   }
 
   handleSortOption(sortValue) {
-    // const list = this.state.bookList ? this.state.bookList : STORE.bookList;
-
+  
     let list = this.context.bookList;
     this.setState({ bookList: list });
     console.log(list);
@@ -129,9 +158,11 @@ export default class CategoryPage extends React.Component {
     } else if (this.state.listSorted) {
       newList = list.reverse();
 
-      this.setState({
-        bookList: newList
-      });
+      // this.setState({
+      //   bookList: newList
+      // });
+
+      this.context.setBookList(newList)
     }
   }
 
@@ -139,10 +170,10 @@ export default class CategoryPage extends React.Component {
     const list = this.context.bookList;
     let newList;
     newList = list.filter(item => item.instrument === instrument);
-    console.log(newList);
-    this.setState({
-      bookList: newList
-    });
+    // this.setState({
+    //   bookList: newList
+    // });
+    this.context.setBookList(newList)
   };
 
   handleFilterOption = filters => {
@@ -169,9 +200,10 @@ export default class CategoryPage extends React.Component {
       newList = newList.filter(item => item.published_year > 2000);
     }
 
-    this.setState({
-      bookList: newList
-    });
+    // this.setState({
+    //   bookList: newList
+    // });
+    this.context.setBookList(newList)
   };
 
   render() {
@@ -186,8 +218,9 @@ export default class CategoryPage extends React.Component {
           onFilterOptionClick={this.handleFilterOption}
         />
 
-      {/* changed from state, mess around with this */}
-        <BookList bookList={this.state.bookList} />
+        {/* changed from state, mess around with this */}
+        {/* <BookList bookList={this.state.bookList} /> */}
+        {this.renderBooks()}
       </>
     );
   }
