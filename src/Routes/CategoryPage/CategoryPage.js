@@ -5,16 +5,13 @@ import FilterSortBar from "../../Components/FilterSortBar/FilterSortBar";
 import { Section } from "../../Components/Utils/Utils";
 import BookListContext from "../../Contexts/BookListContext";
 import "./CategoryPage.css";
-import BooksApiService from "../../services/books-api-service";
 
 export default class CategoryPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookList: [],
       browseTrue: false,
-      listSorted: false,
-      sortVal: null
+      listSorted: false
     };
     this.handleSortOption = this.handleSortOption.bind(this);
   }
@@ -23,60 +20,46 @@ export default class CategoryPage extends React.Component {
 
   componentDidMount() {
     console.log("mount");
-    this.context.clearError();
-    BooksApiService.getBooks().then(this.context.setBookList);
-    BooksApiService.getBooks().then(this.context.setSavedList)
-    .then(() => {
-      const instrument = this.props.match.params.instrument;
-      if (instrument) {
-        this.handleFilterInstrument(instrument);
-      }
-
-      // console.log(this.context.browseValue);
-      // const type = this.context.browseValue ? this.context.browseValue : this.props.match.params.type
-      const type = this.props.match.params.type;
-      if (type) {
-        this.handleSortOption(type);
-      }
-    })
-    .catch(this.context.setError)
   }
 
-
-
-
+  //put filtering here
   renderBooks = () => {
-    const { bookList = [], searchValue } = this.context;
+    const {
+      bookList = [],
+      searchValue = "",
+      instrumentValue = "",
+      filterValue = "",
+      sortValue = "",
+      savedList = [],
+      filterObject = {}
+    } = this.context;
 
-    
+    let currentList = [];
+    let newList = [];
 
-    // const instrument = this.props.match.params.instrument;
-    // if (instrument) {
-    //   bookList = this.handleFilterOption(instrument)
-    // }
+    //why is searchValue not updating?  The setSearchValue function works in BookListContext
 
-    // if (browseValue) {
-    //   this.handleSortType(browseValue)
-    // }
-    // const instrument = this.props.match.params.instrument;
-    // if (instrument) {
-    //   return this.handleFilterInstrument(instrument);
-    // }
+    console.log("context search value", searchValue);
 
-    // // console.log(this.context.browseValue);
-    // // const type = this.context.browseValue ? this.context.browseValue : this.props.match.params.type
-    // const type = this.props.match.params.type;
-    // console.log("type: ", type);
-    // if (type) {
-    //   this.handleSortOption(type);
-    // }
-    return <BookList bookList={bookList} />;
-  }
+    if (searchValue !== "") {
+      currentList = savedList;
+      console.log(currentList);
+      newList = currentList.filter(book => {
+        const lc = book.title.toLowerCase();
+        const filter = searchValue.toLowerCase();
+        return lc.includes(filter);
+      });
+    } else {
+      newList = bookList;
+    }
+
+    console.log("new list", newList);
+
+    return <BookList bookList={newList} />;
+  };
 
   handleSortOption(sortValue) {
-  
     let list = this.context.bookList;
-    this.setState({ bookList: list });
     console.log(list);
 
     const instrument = this.props.match.params.instrument;
@@ -133,9 +116,7 @@ export default class CategoryPage extends React.Component {
       }
 
       this.setState({
-        bookList: newList,
-        listSorted: true,
-        sortVal: sortValue
+        listSorted: true
       });
     } else if (this.state.listSorted) {
       newList = list.reverse();
@@ -144,7 +125,7 @@ export default class CategoryPage extends React.Component {
       //   bookList: newList
       // });
 
-      this.context.setBookList(newList)
+      this.context.setBookList(newList);
     }
   }
 
@@ -155,7 +136,7 @@ export default class CategoryPage extends React.Component {
     // this.setState({
     //   bookList: newList
     // });
-    this.context.setBookList(newList)
+    this.context.setBookList(newList);
   };
 
   handleFilterOption = filters => {
@@ -185,10 +166,12 @@ export default class CategoryPage extends React.Component {
     // this.setState({
     //   bookList: newList
     // });
-    this.context.setBookList(newList)
+    this.context.setBookList(newList);
   };
 
   render() {
+    // const {filterObject} = this.context
+
     return (
       <>
         <Section>

@@ -1,98 +1,117 @@
-import React from 'react'
+import React from "react";
 
 const BookListContext = React.createContext({
+  bookList: [],
+  savedList: [],
+  searchValue: "",
+  browseValue: "",
+  instrumentValue: "",
+  filterValue: "",
+  sortValue: "",
+  filterObject: {},
+  error: null,
+  setError: () => {},
+  clearError: () => {},
+  setBookList: () => {},
+  setSavedList: () => {},
+  setSearchValue: () => {},
+  setBrowseValue: () => {},
+  setInstrumentValue: () => {},
+  setFilterValue: () => {},
+  setSortValue: () => {},
+  setFilterObject: () => {}
+});
 
-    bookList: [],
-    savedList: [],
-    searchValue: '',
-    browseValue: '',
-    error: null,
-    setError: () => {},
-    clearError: () => {},
-    setBookList: () => {},
-    setSavedList: () => {},
-    setSearchValue: () => {},
-    setBrowseValue: () => {}
-  
-})
-
-export default BookListContext
+export default BookListContext;
 
 export class BookListProvider extends React.Component {
-    state= {
-        bookList: [],
-        savedList: [],
-        searchValue: '',
-        browseValue: '',
-        error: null
+  state = {
+    bookList: [],
+    savedList: [],
+    searchValue: "",
+    browseValue: "",
+    instrumentValue: "",
+    filterValue: "",
+    sortValue: "",
+    error: null,
+    filterObject: {
+      searchValue: "",
+      browseValue: "",
+      instrumentValue: "",
+      filterValue: "",
+      sortValue: ""
     }
+  };
 
-    setBookList = bookList => {
+  setBookList = bookList => {
+    this.setState({ bookList });
+  };
 
-        this.setState({ bookList })
-    }
+  setSavedList = savedList => {
+    this.setState({ savedList });
+  };
 
-    setSavedList = savedList => {
-        this.setState({ savedList });
+  setSearchValue = searchValue => {
+    console.log("set search context", searchValue);
+
+    this.setState({ searchValue });
+  };
+
+  setInstrumentValue = instrumentValue => {
+    this.setState({ instrumentValue });
+  };
+
+  setFilterValue = filterValue => {
+    this.setState({ filterValue });
+  };
+
+  setSortValue = sortValue => {
+    this.setState({ sortValue });
+  };
+
+  setFilterObject = (searchValue, instrumentValue, filterValue, sortValue) => {
+    this.setState({
+      filterObject: {
+        searchValue,
+        instrumentValue,
+        filterValue,
+        sortValue
       }
+    });
+  };
 
-    setSearchValue = searchValue => {
-      let currentList = []
-      let newList = []
+  setBrowseValue = browseValue => {
+    this.setState({ browseValue });
+  };
 
-      // this.setState({ searchValue })
+  setError = error => {
+    this.setState({ error });
+  };
 
-      if (searchValue !== '') {
-        currentList = this.state.bookList
-        newList = currentList.filter(book => {
-          const lc = book.title.toLowerCase()
-          const filter = searchValue.toLowerCase()
-          return lc.includes(filter)
+  clearError = () => {
+    this.setState({ error: null });
+  };
 
-
-        })
-      } else {
-        newList = this.state.bookList
-      }
-
-      console.log('newList', newList);
-      console.log('search value', searchValue);
-
-      this.setState({ searchValue, bookList: newList})
-
-    }
-
-  
-
-    setBrowseValue = browseValue => {
-      this.setState({browseValue})
-
-    }
-
-    setError = error => {
-        this.setState({ error });
-      };
-
-      clearError = () => {
-        this.setState({ error: null });
-      };
-
-      render() {
-        const value = {
-          bookList: this.state.bookList,
-          savedList: this.state.savedList,
-          error: this.state.error,
-          setError: this.setError,
-          clearError: this.clearError,
-          setBookList: this.setBookList,
-          setSavedList: this.setSavedList,
-          setSearchValue: this.setSearchValue,
-          setBrowseValue: this.setBrowseValue
-        };
-        return (
-          <BookListContext.Provider value={value}>
-            {this.props.children}
-          </BookListContext.Provider>
-        );
-      }
+  render() {
+    const value = {
+      bookList: this.state.bookList,
+      savedList: this.state.savedList,
+      error: this.state.error,
+      setError: this.setError,
+      clearError: this.clearError,
+      setBookList: this.setBookList,
+      setSavedList: this.setSavedList,
+      setSearchValue: this.setSearchValue,
+      setBrowseValue: this.setBrowseValue,
+      setInstrumentValue: this.setInstrumentValue,
+      setFilterValue: this.setFilterValue,
+      setSortValue: this.setSortValue,
+      setFilterObject: this.setFilterObject
+    };
+    return (
+      <BookListContext.Provider value={value}>
+        {this.props.children}
+      </BookListContext.Provider>
+    );
+  }
 }
