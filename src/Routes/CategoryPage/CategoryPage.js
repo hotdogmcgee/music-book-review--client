@@ -21,26 +21,6 @@ export default class CategoryPage extends React.Component {
 
   static contextType = BookListContext;
 
-  // componentDidMount() {
-  //   console.log(this.props.match.params);
-  //   this.setState(
-  //     {
-  //       bookList: this.context.bookList
-  //     },
-  //     //does it make sense/matter to put these const vars outside of cb function scope?
-  //     () => {
-  //       const instrument = this.props.match.params.instrument;
-  //       if (instrument) {
-  //         this.handleFilterInstrument(instrument);
-  //       }
-  //       const type = this.props.match.params.type;
-  //       if (type) {
-  //         this.handleSortOption(type);
-  //       }
-  //     }
-  //   );
-  // }
-
   componentDidMount() {
     console.log("mount");
     this.context.clearError();
@@ -66,7 +46,9 @@ export default class CategoryPage extends React.Component {
 
 
   renderBooks = () => {
-    const { bookList = [], browseValue } = this.context;
+    const { bookList = [], searchValue } = this.context;
+
+    
 
     // const instrument = this.props.match.params.instrument;
     // if (instrument) {
@@ -179,8 +161,8 @@ export default class CategoryPage extends React.Component {
   handleFilterOption = filters => {
     //store big list in context
     //is it better to just hide an element based on filter?
-    // const list = this.state.bookList ? this.state.bookList : STORE.bookList
-    const list = this.context.bookList;
+    const list = this.context.savedList;
+    console.log(list);
 
     let newList = list;
 

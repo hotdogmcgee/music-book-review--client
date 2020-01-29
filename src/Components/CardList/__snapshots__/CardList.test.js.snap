@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardList component renders a CardList by default 1`] = `
+<Section
+  className="select-boxes"
+/>
+`;
+
+exports[`CardList component renders the CardList given props 1`] = `
+<Section
+  className="select-boxes"
+>
+  <div
+    className="select-box"
+    key="0"
+  >
+    <InstrumentCard
+      title="guitar"
+    />
+  </div>
+  <div
+    className="select-box"
+    key="1"
+  >
+    <InstrumentCard
+      title="piano"
+    />
+  </div>
+  <div
+    className="select-box"
+    key="2"
+  >
+    <InstrumentCard
+      title="clarinet"
+    />
+  </div>
+  <div
+    className="select-box"
+    key="3"
+  >
+    <InstrumentCard
+      title="violin"
+    />
+  </div>
+</Section>
+`;

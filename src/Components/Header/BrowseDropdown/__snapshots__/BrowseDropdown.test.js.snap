@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BrowseDropdown component renders a BrowseDropdown by default 1`] = `
+<div
+  className="dropdown"
+  style={
+    Object {
+      "background": "red",
+      "width": "200px",
+    }
+  }
+>
+  <div
+    className="button"
+    onClick={[Function]}
+  >
+    Browse
+  </div>
+</div>
+`;

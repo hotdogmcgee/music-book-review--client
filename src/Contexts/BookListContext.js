@@ -40,11 +40,10 @@ export class BookListProvider extends React.Component {
       let currentList = []
       let newList = []
 
-      this.setState({ searchValue })
+      // this.setState({ searchValue })
 
       if (searchValue !== '') {
-        currentList = this.state.savedList
-        console.log(currentList);
+        currentList = this.state.bookList
         newList = currentList.filter(book => {
           const lc = book.title.toLowerCase()
           const filter = searchValue.toLowerCase()
@@ -53,10 +52,17 @@ export class BookListProvider extends React.Component {
 
         })
       } else {
-        newList = this.state.savedList
+        newList = this.state.bookList
       }
-      this.setBookList(newList)
+
+      console.log('newList', newList);
+      console.log('search value', searchValue);
+
+      this.setState({ searchValue, bookList: newList})
+
     }
+
+  
 
     setBrowseValue = browseValue => {
       this.setState({browseValue})

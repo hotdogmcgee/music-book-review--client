@@ -17,12 +17,7 @@ export default class ReviewForm extends Component {
     const { book } = this.context;
     const { text, rating } = ev.target;
 
-    // const user_id = 1;
-
-    //need to grab user_id from req.params
-
     BooksApiService.postReview(
-      // user_id,
       book.id,
       Number(rating.value),
       text.value
