@@ -19,7 +19,8 @@ const BookListContext = React.createContext({
   setInstrumentValue: () => {},
   setFilterValue: () => {},
   setSortValue: () => {},
-  setFilterObject: () => {}
+  setFilterObject: () => {},
+  // setFilterProperty: () => {}
 });
 
 export default BookListContext;
@@ -51,22 +52,35 @@ export class BookListProvider extends React.Component {
     this.setState({ savedList });
   };
 
+  //better to do large setState or try to use setFilterObject method?
   setSearchValue = searchValue => {
-    console.log("set search context", searchValue);
+    this.setState({ filterObject: {
+      ...this.state.filterObject,
+      searchValue
+    } });
 
-    this.setState({ searchValue });
+    // this.setFilterObject(searchValue)
   };
 
   setInstrumentValue = instrumentValue => {
-    this.setState({ instrumentValue });
+    this.setState({ filterObject: {
+      ...this.state.filterObject,
+      instrumentValue
+    } });
   };
 
   setFilterValue = filterValue => {
-    this.setState({ filterValue });
+    this.setState({ filterObject: {
+      ...this.state.filterObject,
+      filterValue
+    } });
   };
 
   setSortValue = sortValue => {
-    this.setState({ sortValue });
+    this.setState({ filterObject: {
+      ...this.state.filterObject,
+      sortValue
+    } });
   };
 
   setFilterObject = (searchValue, instrumentValue, filterValue, sortValue) => {
@@ -79,6 +93,13 @@ export class BookListProvider extends React.Component {
       }
     });
   };
+
+  // setFilterProperty = (property, value) => {
+  //   this.setState({ filterObject: {
+  //     ...this.state.filterObject,
+  //     [property]: value
+  //   }})
+  // }
 
   setBrowseValue = browseValue => {
     this.setState({ browseValue });
@@ -96,6 +117,7 @@ export class BookListProvider extends React.Component {
     const value = {
       bookList: this.state.bookList,
       savedList: this.state.savedList,
+      filterObject: this.state.filterObject,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
@@ -106,7 +128,8 @@ export class BookListProvider extends React.Component {
       setInstrumentValue: this.setInstrumentValue,
       setFilterValue: this.setFilterValue,
       setSortValue: this.setSortValue,
-      setFilterObject: this.setFilterObject
+      setFilterObject: this.setFilterObject,
+      // setFilterProperty: this.setFilterProperty
     };
     return (
       <BookListContext.Provider value={value}>

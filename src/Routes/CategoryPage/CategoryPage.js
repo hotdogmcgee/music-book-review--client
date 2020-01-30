@@ -20,57 +20,60 @@ export default class CategoryPage extends React.Component {
 
   componentDidMount() {
     console.log("mount");
+    const instrument = this.props.match.params.instrument;
+    if (instrument) {
+      this.context.setInstrumentValue(instrument);
+    }
+    const type = this.props.match.params.type;
+    if (type) {
+      this.context.setSortValue(type);
+    }
   }
 
   //put filtering here
   renderBooks = () => {
+    console.log('RENDER');
+    const { bookList = [], savedList = [], filterObject } = this.context;
+
     const {
-      bookList = [],
-      searchValue = "",
-      instrumentValue = "",
-      filterValue = "",
-      sortValue = "",
-      savedList = [],
-      filterObject = {}
-    } = this.context;
+      searchValue,
+      browseValue,
+      instrumentValue,
+      filterValue,
+      sortValue
+    } = filterObject;
 
-    let currentList = [];
-    let newList = [];
+    console.log("filterObject: ", filterObject);
 
-    //why is searchValue not updating?  The setSearchValue function works in BookListContext
+    let currentList = savedList;
+    let newList;
 
-    console.log("context search value", searchValue);
+    if (instrumentValue !== "") {
+      newList = this.handleFilterInstrument(instrumentValue, currentList);
+
+    }
+    if (sortValue !== "") {
+      newList = this.handleSortOption(sortValue, newList);
+    }
 
     if (searchValue !== "") {
-      currentList = savedList;
-      console.log(currentList);
-      newList = currentList.filter(book => {
+      // currentList = this.context.bookList;
+      newList = newList.filter(book => {
         const lc = book.title.toLowerCase();
         const filter = searchValue.toLowerCase();
         return lc.includes(filter);
       });
     } else {
-      newList = bookList;
+      newList = newList;
     }
-
-    console.log("new list", newList);
 
     return <BookList bookList={newList} />;
   };
 
-  handleSortOption(sortValue) {
-    let list = this.context.bookList;
-    console.log(list);
-
-    const instrument = this.props.match.params.instrument;
-    if (instrument) {
-      this.handleFilterInstrument(instrument);
-    }
-
+  handleSortOption(sortValue, list) {
     const sortFunc = function(a, b) {
       let thingA, thingB;
       if (sortValue === "authors") {
-        console.log(a[sortValue][0].last_name);
         thingA = a[sortValue][0].last_name.toUpperCase();
         thingB = b[sortValue][0].last_name.toUpperCase();
       } else {
@@ -89,7 +92,7 @@ export default class CategoryPage extends React.Component {
 
     let newList;
 
-    if (sortValue !== this.state.sortVal) {
+    if (sortValue) {
       switch (sortValue) {
         case "instrument":
           newList = list.sort(sortFunc);
@@ -115,33 +118,27 @@ export default class CategoryPage extends React.Component {
           console.log("yo");
       }
 
-      this.setState({
-        listSorted: true
-      });
-    } else if (this.state.listSorted) {
-      newList = list.reverse();
+      debugger;
 
       // this.setState({
-      //   bookList: newList
+      //   listSorted: true
       // });
-
-      this.context.setBookList(newList);
     }
+    //put reverse function back in
+    //  else if (this.state.listSorted) {
+    //   newList = list.reverse();
+
+    // }
+    return newList;
   }
 
-  handleFilterInstrument = instrument => {
-    const list = this.context.bookList;
+  handleFilterInstrument(instrument, list) {
     let newList;
     newList = list.filter(item => item.instrument === instrument);
-    // this.setState({
-    //   bookList: newList
-    // });
-    this.context.setBookList(newList);
+    return newList;
   };
 
   handleFilterOption = filters => {
-    //store big list in context
-    //is it better to just hide an element based on filter?
     const list = this.context.savedList;
     console.log(list);
 
@@ -170,7 +167,6 @@ export default class CategoryPage extends React.Component {
   };
 
   render() {
-    // const {filterObject} = this.context
 
     return (
       <>
@@ -179,12 +175,9 @@ export default class CategoryPage extends React.Component {
         </Section>
 
         <FilterSortBar
-          onSortOptionClick={this.handleSortOption}
+          // onSortOptionClick={this.handleSortOption}
           onFilterOptionClick={this.handleFilterOption}
         />
-
-        {/* changed from state, mess around with this */}
-        {/* <BookList bookList={this.state.bookList} /> */}
         {this.renderBooks()}
       </>
     );
