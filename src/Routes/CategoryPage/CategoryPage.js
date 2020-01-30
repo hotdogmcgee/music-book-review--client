@@ -49,10 +49,12 @@ export default class CategoryPage extends React.Component {
     let newList;
 
     if (instrumentValue !== "") {
+      console.log(instrumentValue);
       newList = this.handleFilterInstrument(instrumentValue, currentList);
 
     }
     if (sortValue !== "") {
+      
       newList = this.handleSortOption(sortValue, newList);
     }
 
@@ -67,10 +69,15 @@ export default class CategoryPage extends React.Component {
       newList = newList;
     }
 
+    
+
     return <BookList bookList={newList} />;
   };
 
   handleSortOption(sortValue, list) {
+    if (!list) {
+      list = this.context.savedList
+    }
     const sortFunc = function(a, b) {
       let thingA, thingB;
       if (sortValue === "authors") {
@@ -160,13 +167,12 @@ export default class CategoryPage extends React.Component {
       newList = newList.filter(item => item.published_year > 2000);
     }
 
-    // this.setState({
-    //   bookList: newList
-    // });
     this.context.setBookList(newList);
   };
 
   render() {
+    const instrument = this.props.match.params.instrument
+    const displayInstrumentName = instrument ?  <h2>You are currently viewing {instrument} books only</h2> : ''
 
     return (
       <>
@@ -178,6 +184,7 @@ export default class CategoryPage extends React.Component {
           // onSortOptionClick={this.handleSortOption}
           onFilterOptionClick={this.handleFilterOption}
         />
+        {displayInstrumentName}
         {this.renderBooks()}
       </>
     );

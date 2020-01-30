@@ -56,7 +56,8 @@ class HomePage extends React.Component {
           <h2>Instrument select</h2>
 
           {searchValue.length > 0 ? (
-            <p>bleh</p>
+            // <p>bleh</p>
+            <BookList bookList={this.context.bookList}/>
           ) : (
             <CardList instruments={instrumentList} />
           )}

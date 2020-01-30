@@ -54,6 +54,7 @@ export class BookListProvider extends React.Component {
 
   //better to do large setState or try to use setFilterObject method?
   setSearchValue = searchValue => {
+
     this.setState({ filterObject: {
       ...this.state.filterObject,
       searchValue
@@ -84,6 +85,7 @@ export class BookListProvider extends React.Component {
   };
 
   setFilterObject = (searchValue, instrumentValue, filterValue, sortValue) => {
+
     this.setState({
       filterObject: {
         searchValue,

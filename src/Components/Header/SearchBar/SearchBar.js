@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import BookListContext from '../../../Contexts/BookListContext'
+import BookListContext from "../../../Contexts/BookListContext";
 import "./SearchBar.css";
 
 export default class SearchBar extends React.Component {
@@ -18,30 +18,20 @@ export default class SearchBar extends React.Component {
     this.handleMouseOver = this.handleMouseOver.bind(this);
   }
 
-  static contextType = BookListContext
-
-  //doesnt work because function has been defined before state?
-  //   log(e) {
-  //       e.preventDefault()
-  //     const thing = this.state.searchValue
-  //     console.log(thing);
-  //   }
+  static contextType = BookListContext;
 
   handleInput = e => {
     e.preventDefault();
     const value = e.target.value;
-    // this.setState({
-    //   searchValue: value
-    // });
-    this.context.setSearchValue(value)
+    this.context.setSearchValue(value);
   };
 
-    handleToggle() {
-        const newVal = !this.state.mouseOverBoolean
-        this.setState({
-            mouseOverBoolean: newVal
-        })
-    }
+  handleToggle() {
+    const newVal = !this.state.mouseOverBoolean;
+    this.setState({
+      mouseOverBoolean: newVal
+    });
+  }
 
   handleMouseOver() {
     if (this.state.mouseOverBoolean) {
@@ -57,7 +47,7 @@ export default class SearchBar extends React.Component {
   handleHover() {
     this.setState(prevState => ({
       isHovered: !prevState.isHovered
-    }))
+    }));
     this.props.onSearchBarFocus(this.state.isHovered);
   }
 
@@ -69,16 +59,8 @@ export default class SearchBar extends React.Component {
   //   this.setState({items: items});
   // }
 
-  // componentWillMount = () => {
-  //   this.setState({
-  //       initialItems: this.props.content,
-  //       items: this.props.content
-  //   })
-  // }
-
   render() {
     return (
-      //   <form id="searchForm" onSubmit={this.log}>
       <div
         className="searchBox"
         onChange={this.handleInput}
@@ -86,7 +68,6 @@ export default class SearchBar extends React.Component {
         onMouseEnter={this.handleHover}
         onMouseLeave={this.handleHover}
       >
-        
         <input
           className="searchInput"
           type="text"
@@ -101,7 +82,6 @@ export default class SearchBar extends React.Component {
           />
         </button>
       </div>
-      //   </form>
     );
   }
 }

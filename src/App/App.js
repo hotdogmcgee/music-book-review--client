@@ -4,13 +4,10 @@ import HomePage from "../Routes/HomePage/HomePage";
 import Header from "../Components/Header/Header.js";
 import CategoryPage from "../Routes/CategoryPage/CategoryPage.js";
 import BookPage from "../Routes/BookPage/BookPage";
-
 import "./App.css";
 import NotFoundPage from "../Routes/NotFoundPage/NotFoundPage";
 // import PrivateRoute from "../Components/Utils/PrivateRoute";
-// import LoginModal from "../Routes/LoginModal/LoginModal";
 import ProfilePage from "../Routes/ProfilePage/ProfilePage";
-import LoginPage from "../Routes/LoginPage/LoginPage";
 import BooksApiService from "../services/books-api-service";
 import BookListContext from "../Contexts/BookListContext";
 
@@ -72,21 +69,17 @@ class App extends React.Component {
               path={"/category/instrument/:instrument"}
               component={CategoryPage}
             />
-            <Route
+            {/* <Route
               path={"/login"}
               render={props => (
                 <LoginPage {...props} hasLogin={this.hasLogin} />
               )}
-            />
+            /> */}
             <Route path={"/book/:bookId"} component={BookPage} />
             <Route path={"*"} component={NotFoundPage} />
           </Switch>
         </main>
         <div className="react-modal-portal">
-          {/* <LoginModal open={this.state.showModal} onClose={this.toggleModal}>
-            {" "}
-            Test Modal
-          </LoginModal> */}
         </div>
       </div>
     );
