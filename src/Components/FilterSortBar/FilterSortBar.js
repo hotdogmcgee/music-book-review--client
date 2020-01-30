@@ -3,6 +3,7 @@ import { Section } from "../Utils/Utils";
 import FilterButton from "./FilterButton/FilterButton";
 import SortButton from "./SortButton/SortButton";
 import "./FilterSortBar.css";
+import BookListContext from '../../Contexts/BookListContext'
 
 export default class FilterSortBar extends React.Component {
   constructor(props) {
@@ -23,6 +24,8 @@ export default class FilterSortBar extends React.Component {
     this.handleSetOptions = this.handleSetOptions.bind(this);
     this.handleSortOptionClick = this.handleSortOptionClick.bind(this);
   }
+
+  static contextType = BookListContext
 
   toggleShowOptions = () => {
     this.setState({
@@ -80,7 +83,7 @@ export default class FilterSortBar extends React.Component {
   }
 
   handleSortOptionClick(sortValue) {
-    this.props.onSortOptionClick(sortValue);
+    this.context.setSortValue(sortValue)
   }
   renderOptionsList(list = []) {
     list = this.state.list;

@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component renders a Header by default 1`] = `
+<Fragment>
+  <nav
+    className="Header"
+  >
+    <h1>
+      <Link
+        to="/"
+      >
+        Music Books Review
+      </Link>
+    </h1>
+    <span
+      className="Header__tagline--wide"
+    >
+      For Students, Educators, and Parents!
+    </span>
+    <div
+      className="Header__not-logged-in"
+    >
+      <div
+        onClick={[Function]}
+      >
+        <h2>
+          Log In/Register
+        </h2>
+      </div>
+    </div>
+  </nav>
+  <span
+    className="Header__tagline--narrow"
+  >
+    For Students, Educators, and Parents!
+  </span>
+  <div>
+    <BrowseDropdown />
+  </div>
+  <SearchBar
+    onSearchBarFocus={[Function]}
+  />
+  <LoginModal
+    handleClose={[Function]}
+    show={false}
+  />
+</Fragment>
+`;
+
+exports[`Header component renders the UI as expected 1`] = `
+Array [
+  <nav
+    className="Header"
+  >
+    <h1>
+      <a
+        href="/"
+        onClick={[Function]}
+      >
+        Music Books Review
+      </a>
+    </h1>
+    <span
+      className="Header__tagline--wide"
+    >
+      For Students, Educators, and Parents!
+    </span>
+    <div
+      className="Header__not-logged-in"
+    >
+      <div
+        onClick={[Function]}
+      >
+        <h2>
+          Log In/Register
+        </h2>
+      </div>
+    </div>
+  </nav>,
+  <span
+    className="Header__tagline--narrow"
+  >
+    For Students, Educators, and Parents!
+  </span>,
+  <div>
+    <div
+      className="dropdown"
+      style={
+        Object {
+          "background": "red",
+          "width": "200px",
+        }
+      }
+    >
+      <div
+        className="button"
+        onClick={[Function]}
+      >
+        Browse
+      </div>
+    </div>
+  </div>,
+  <div
+    className="searchBox"
+    onChange={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <input
+      className="searchInput"
+      name=""
+      placeholder="Search"
+      type="text"
+    />
+    <button
+      className="searchButton"
+      href="#"
+    />
+  </div>,
+  <div
+    className="modal display-none"
+  >
+    <section
+      className="modal-main login-modal"
+    >
+      <ul
+        className="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger"
+      >
+        <li
+          onClick={[Function]}
+        >
+          <p>
+            Log In
+          </p>
+        </li>
+        <li>
+          <p
+            onClick={[Function]}
+          >
+            Register
+          </p>
+        </li>
+      </ul>
+      <form
+        className="LoginForm"
+        onSubmit={[Function]}
+      >
+        <div
+          role="alert"
+        />
+        <div
+          className="user_name"
+        >
+          <label
+            htmlFor="LoginForm__user_name"
+          >
+            User name
+          </label>
+          <input
+            className="Input "
+            id="LoginForm__user_name"
+            name="user_name"
+            required={true}
+          />
+        </div>
+        <div
+          className="password"
+        >
+          <label
+            htmlFor="LoginForm__password"
+          >
+            Password
+          </label>
+          <input
+            className="Input "
+            id="LoginForm__password"
+            name="password"
+            required={true}
+            type="password"
+          />
+        </div>
+        <button
+          className="Button "
+          type="submit"
+        >
+          Login
+        </button>
+      </form>
+      <button
+        onClick={[Function]}
+      >
+        Close
+      </button>
+    </section>
+  </div>,
+]
+`;

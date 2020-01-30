@@ -2,13 +2,12 @@ import React, { Component } from "react";
 import BookContext from "../../Contexts/BookContext";
 import BooksApiService from "../../services/books-api-service";
 import { Button, Textarea } from "../Utils/Utils";
-import ReviewSuccessModal from "../../Components/ReviewSuccessModal/ReviewSuccessModal";
 import "./ReviewForm.css";
 
 export default class ReviewForm extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
   static defaultProps = { onReviewSuccess: () => {} };
   static contextType = BookContext;
 
@@ -18,12 +17,7 @@ export default class ReviewForm extends Component {
     const { book } = this.context;
     const { text, rating } = ev.target;
 
-    // const user_id = 1;
-
-    //need to grab user_id from req.params
-
     BooksApiService.postReview(
-      // user_id,
       book.id,
       Number(rating.value),
       text.value

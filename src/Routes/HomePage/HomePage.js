@@ -43,8 +43,7 @@ class HomePage extends React.Component {
       { title: "clarinet" },
       { title: "violin" }
     ];
-    const searchValue = this.context.searchValue || "";
-    console.log(searchValue);
+    const searchValue = this.context.filterObject.searchValue || "";
     return (
       <Section className="HomePage">
         <Section>

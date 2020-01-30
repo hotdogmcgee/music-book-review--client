@@ -10,50 +10,147 @@ exports[`App component renders the UI as expected 1`] = `
     <nav
       className="Header"
     >
-      <div>
+      <h1>
         <a
-          href="/login"
+          href="/"
           onClick={[Function]}
         >
-          Log In/Register
+          Music Books Review
         </a>
-      </div>
-      <div>
+      </h1>
+      <span
+        className="Header__tagline--wide"
+      >
+        For Students, Educators, and Parents!
+      </span>
+      <div
+        className="Header__not-logged-in"
+      >
         <div
-          className="dropdown"
-          style={
-            Object {
-              "background": "red",
-              "width": "200px",
-            }
-          }
+          onClick={[Function]}
         >
-          <div
-            className="button"
-            onClick={[Function]}
-          >
-            Browse
-          </div>
+          <h2>
+            Log In/Register
+          </h2>
         </div>
       </div>
-      <div
-        className="searchBox"
-        onChange={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-      >
-        <input
-          className="searchInput"
-          name=""
-          placeholder="Search"
-          type="text"
-        />
-        <button
-          className="searchButton"
-          href="#"
-        />
-      </div>
     </nav>
+    <span
+      className="Header__tagline--narrow"
+    >
+      For Students, Educators, and Parents!
+    </span>
+    <div>
+      <div
+        className="dropdown"
+        style={
+          Object {
+            "background": "red",
+            "width": "200px",
+          }
+        }
+      >
+        <div
+          className="button"
+          onClick={[Function]}
+        >
+          Browse
+        </div>
+      </div>
+    </div>
+    <div
+      className="searchBox"
+      onChange={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+    >
+      <input
+        className="searchInput"
+        name=""
+        placeholder="Search"
+        type="text"
+      />
+      <button
+        className="searchButton"
+        href="#"
+      />
+    </div>
+    <div
+      className="modal display-none"
+    >
+      <section
+        className="modal-main login-modal"
+      >
+        <ul
+          className="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger"
+        >
+          <li
+            onClick={[Function]}
+          >
+            <p>
+              Log In
+            </p>
+          </li>
+          <li>
+            <p
+              onClick={[Function]}
+            >
+              Register
+            </p>
+          </li>
+        </ul>
+        <form
+          className="LoginForm"
+          onSubmit={[Function]}
+        >
+          <div
+            role="alert"
+          />
+          <div
+            className="user_name"
+          >
+            <label
+              htmlFor="LoginForm__user_name"
+            >
+              User name
+            </label>
+            <input
+              className="Input "
+              id="LoginForm__user_name"
+              name="user_name"
+              required={true}
+            />
+          </div>
+          <div
+            className="password"
+          >
+            <label
+              htmlFor="LoginForm__password"
+            >
+              Password
+            </label>
+            <input
+              className="Input "
+              id="LoginForm__password"
+              name="password"
+              required={true}
+              type="password"
+            />
+          </div>
+          <button
+            className="Button "
+            type="submit"
+          >
+            Login
+          </button>
+        </form>
+        <button
+          onClick={[Function]}
+        >
+          Close
+        </button>
+      </section>
+    </div>
   </header>
   <main
     className="App__main"
@@ -61,7 +158,9 @@ exports[`App component renders the UI as expected 1`] = `
     <section
       className="Section HomePage"
     >
-      <section>
+      <section
+        className="Section"
+      >
         <a
           href="/"
           onClick={[Function]}
@@ -69,35 +168,20 @@ exports[`App component renders the UI as expected 1`] = `
           Music Book Review
         </a>
       </section>
-      <section>
+      <section
+        className="Section"
+      >
         ABOUT
       </section>
-      <section>
+      <section
+        className="Section"
+      >
         <h2>
           Instrument select
         </h2>
-        <div
-          className="select-boxes"
+        <section
+          className="Section select-boxes"
         >
-          <div
-            className="select-box"
-          >
-            <a
-              href="/category/instrument/piano"
-              onClick={[Function]}
-            >
-              <div
-                className="InstrumentCard_[object Object]"
-              >
-                <h2>
-                  piano
-                </h2>
-                <p>
-                  a piano
-                </p>
-              </div>
-            </a>
-          </div>
           <div
             className="select-box"
           >
@@ -111,9 +195,7 @@ exports[`App component renders the UI as expected 1`] = `
                 <h2>
                   guitar
                 </h2>
-                <p>
-                  a guitar
-                </p>
+                <p />
               </div>
             </a>
           </div>
@@ -121,18 +203,16 @@ exports[`App component renders the UI as expected 1`] = `
             className="select-box"
           >
             <a
-              href="/category/instrument/violin"
+              href="/category/instrument/piano"
               onClick={[Function]}
             >
               <div
                 className="InstrumentCard_[object Object]"
               >
                 <h2>
-                  violin
+                  piano
                 </h2>
-                <p>
-                  a violin
-                </p>
+                <p />
               </div>
             </a>
           </div>
@@ -149,13 +229,28 @@ exports[`App component renders the UI as expected 1`] = `
                 <h2>
                   clarinet
                 </h2>
-                <p>
-                  a clarinet
-                </p>
+                <p />
               </div>
             </a>
           </div>
-        </div>
+          <div
+            className="select-box"
+          >
+            <a
+              href="/category/instrument/violin"
+              onClick={[Function]}
+            >
+              <div
+                className="InstrumentCard_[object Object]"
+              >
+                <h2>
+                  violin
+                </h2>
+                <p />
+              </div>
+            </a>
+          </div>
+        </section>
       </section>
     </section>
   </main>
