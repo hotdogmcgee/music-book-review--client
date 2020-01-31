@@ -3,7 +3,7 @@ import { Section } from "../Utils/Utils";
 import FilterButton from "./FilterButton/FilterButton";
 import SortButton from "./SortButton/SortButton";
 import "./FilterSortBar.css";
-import BookListContext from '../../Contexts/BookListContext'
+import BookListContext from "../../Contexts/BookListContext";
 
 export default class FilterSortBar extends React.Component {
   constructor(props) {
@@ -17,7 +17,7 @@ export default class FilterSortBar extends React.Component {
       activeFilters: {
         "under 25 dollars": true,
         "old books": true,
-        'recent': true
+        recent: true
       }
     };
 
@@ -25,12 +25,12 @@ export default class FilterSortBar extends React.Component {
     this.handleSortOptionClick = this.handleSortOptionClick.bind(this);
   }
 
-  static contextType = BookListContext
+  static contextType = BookListContext;
 
   toggleShowOptions = () => {
     this.setState({
       displayOptions: !this.state.displayOptions
-    })
+    });
   };
 
   setFilterOrSort = value => {
@@ -66,7 +66,6 @@ export default class FilterSortBar extends React.Component {
     const filters = this.state.filters;
     let newFilters;
     if (filters.includes(value)) {
-
       newFilters = filters.filter(item => item !== value);
       this.setState({
         filters: newFilters
@@ -82,9 +81,13 @@ export default class FilterSortBar extends React.Component {
     this.props.onFilterOptionClick(newFilters);
   }
 
+  //having issues setting a list direction value in context
   handleSortOptionClick(sortValue) {
+    // this.context.setListSort(sortValue);
+
     this.context.setSortValue(sortValue)
   }
+
   renderOptionsList(list = []) {
     list = this.state.list;
 

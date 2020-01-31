@@ -8,6 +8,7 @@ const BookListContext = React.createContext({
   instrumentValue: "",
   filterValue: "",
   sortValue: "",
+  listSorted: false,
   filterObject: {},
   error: null,
   setError: () => {},
@@ -19,6 +20,7 @@ const BookListContext = React.createContext({
   setInstrumentValue: () => {},
   setFilterValue: () => {},
   setSortValue: () => {},
+  setListSorted: () => {},
   setFilterObject: () => {},
   // setFilterProperty: () => {}
 });
@@ -34,13 +36,15 @@ export class BookListProvider extends React.Component {
     instrumentValue: "",
     filterValue: "",
     sortValue: "",
+    listSorted: false,
     error: null,
     filterObject: {
       searchValue: "",
       browseValue: "",
       instrumentValue: "",
       filterValue: "",
-      sortValue: ""
+      sortValue: "",
+      listSorted: false
     }
   };
 
@@ -60,7 +64,6 @@ export class BookListProvider extends React.Component {
       searchValue
     } });
 
-    // this.setFilterObject(searchValue)
   };
 
   setInstrumentValue = instrumentValue => {
@@ -84,14 +87,27 @@ export class BookListProvider extends React.Component {
     } });
   };
 
-  setFilterObject = (searchValue, instrumentValue, filterValue, sortValue) => {
+  setListSorted = (sortValue) => {
+    console.log('set list sorted');
+    const reverse = !this.state.filterObject.listSorted
+    this.setState({
+      filterObject: {
+        ...this.state.filterObject,
+        sortValue,
+        listSorted: reverse
+      }
+    })
+  }
+
+  setFilterObject = (searchValue, instrumentValue, filterValue, sortValue, listSorted) => {
 
     this.setState({
       filterObject: {
         searchValue,
         instrumentValue,
         filterValue,
-        sortValue
+        sortValue,
+        listSorted
       }
     });
   };
@@ -130,6 +146,7 @@ export class BookListProvider extends React.Component {
       setInstrumentValue: this.setInstrumentValue,
       setFilterValue: this.setFilterValue,
       setSortValue: this.setSortValue,
+      setListSorted: this.setListSorted,
       setFilterObject: this.setFilterObject,
       // setFilterProperty: this.setFilterProperty
     };

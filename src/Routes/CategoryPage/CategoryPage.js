@@ -40,44 +40,48 @@ export default class CategoryPage extends React.Component {
       browseValue,
       instrumentValue,
       filterValue,
-      sortValue
+      sortValue,
+       listSorted
     } = filterObject;
 
     console.log("filterObject: ", filterObject);
 
     let currentList = savedList;
-    let newList;
+    let newList = currentList
 
     if (instrumentValue !== "") {
-      console.log(instrumentValue);
       newList = this.handleFilterInstrument(instrumentValue, currentList);
 
     }
     if (sortValue !== "") {
-      
-      newList = this.handleSortOption(sortValue, newList);
+      console.log('check');
+      // const listSorted = false
+      newList = this.handleSortOption(sortValue, newList, listSorted);
     }
 
     if (searchValue !== "") {
+
+      console.log('newList', newList);
       // currentList = this.context.bookList;
       newList = newList.filter(book => {
         const lc = book.title.toLowerCase();
         const filter = searchValue.toLowerCase();
         return lc.includes(filter);
       });
-    } else {
-      newList = newList;
     }
+
 
     
 
     return <BookList bookList={newList} />;
   };
 
-  handleSortOption(sortValue, list) {
+  handleSortOption(sortValue, list, listSorted) {
+
     if (!list) {
       list = this.context.savedList
     }
+
     const sortFunc = function(a, b) {
       let thingA, thingB;
       if (sortValue === "authors") {
@@ -124,18 +128,16 @@ export default class CategoryPage extends React.Component {
         default:
           console.log("yo");
       }
-
-      debugger;
-
-      // this.setState({
-      //   listSorted: true
-      // });
+      
+    debugger
+    console.log('list sorted', listSorted);
+    if (listSorted === true) {
+      newList = newList.reverse()
+      console.log(newList);
     }
-    //put reverse function back in
-    //  else if (this.state.listSorted) {
-    //   newList = list.reverse();
 
-    // }
+    }
+
     return newList;
   }
 
@@ -172,7 +174,7 @@ export default class CategoryPage extends React.Component {
 
   render() {
     const instrument = this.props.match.params.instrument
-    const displayInstrumentName = instrument ?  <h2>You are currently viewing {instrument} books only</h2> : ''
+    const displayInstrumentName = instrument ?  <div className="instrument-view-reminder"><h2>You are currently viewing {instrument} books only</h2></div> : ''
 
     return (
       <>
@@ -185,6 +187,7 @@ export default class CategoryPage extends React.Component {
           onFilterOptionClick={this.handleFilterOption}
         />
         {displayInstrumentName}
+
         {this.renderBooks()}
       </>
     );

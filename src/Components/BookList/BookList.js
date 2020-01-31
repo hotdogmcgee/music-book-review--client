@@ -15,7 +15,7 @@ export default function BookList(props) {
     : "error!";
 
   return (
-    <Section>
+    <Section className="book-list-container">
       <ul id="book-list">{displayList}</ul>
     </Section>
   );

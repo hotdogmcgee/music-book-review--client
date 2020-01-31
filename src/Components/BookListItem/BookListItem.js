@@ -15,6 +15,7 @@ export default function BookListItem(props) {
   } = props;
   
   const renderAuthors = authors ? <RenderAuthors authors={authors} /> : "no authors!"
+  const roundedNumber = avg_rating ?  avg_rating.toFixed(1) : 0
 
   //have a description truncate function
   return (
@@ -34,7 +35,7 @@ export default function BookListItem(props) {
         <p>{description}</p>
       </div>
       <div className="ratings-container">
-        <p>{avg_rating}</p>
+        <p>{roundedNumber}</p>
         <p>Based on {num_reviews} reviews</p>
       </div>
     </div>
@@ -52,3 +53,5 @@ function RenderAuthors({ authors }) {
     );
   });
 }
+
+
