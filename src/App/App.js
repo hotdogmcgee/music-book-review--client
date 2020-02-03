@@ -6,7 +6,7 @@ import CategoryPage from "../Routes/CategoryPage/CategoryPage.js";
 import BookPage from "../Routes/BookPage/BookPage";
 import "./App.css";
 import NotFoundPage from "../Routes/NotFoundPage/NotFoundPage";
-// import PrivateRoute from "../Components/Utils/PrivateRoute";
+import PrivateRoute from "../Components/Utils/PrivateRoute";
 import ProfilePage from "../Routes/ProfilePage/ProfilePage";
 import BooksApiService from "../services/books-api-service";
 import BookListContext from "../Contexts/BookListContext";
@@ -63,8 +63,8 @@ class App extends React.Component {
           <Switch>
             <Route exact path={"/"} component={HomePage} />
             <Route exact path={"/category/:type"} component={CategoryPage} />
-            {/* <PrivateRoute path={'/my-profile'} component={ProfilePage}/> */}
-            <Route path={"/my-profile"} component={ProfilePage} />
+            <PrivateRoute path={'/my-profile'} component={ProfilePage}/>
+            {/* <Route path={"/my-profile"} component={ProfilePage} /> */}
             <Route
               path={"/category/instrument/:instrument"}
               component={CategoryPage}
