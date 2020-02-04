@@ -19,6 +19,7 @@ export default class ProfilePage extends React.Component {
 
   static contextType = BookListContext;
 
+  //should all user reviews load on app load and then just filter?
   componentDidMount() {
     this.context.clearError();
     BooksApiService.getAllUserReviews().then(reviews =>
@@ -48,7 +49,7 @@ export default class ProfilePage extends React.Component {
         <div className="profile-stats">
           <p>Date Joined: </p>
           <p>Number of Reviews: {this.state.reviews.length || 0}</p>
-          <p>Books Saved: </p>
+          {/* <p>Books Saved: </p> */}
         </div>
       </section>
     );
@@ -57,8 +58,7 @@ export default class ProfilePage extends React.Component {
     return (
       <Section id="profile-page">
         {this.renderProfile()}
-        {/* {this.renderMyReviews()} */}
-        <MyReviewsList reviews={this.state.reviews} />
+        <MyReviewsList reviews={this.state.reviews} bookList={this.context.bookList}/>
         {/* {this.renderSavedBookList} */}
       </Section>
     );

@@ -1,3 +1,9 @@
+.my-reviews-item {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+
 .my-reviews-item-info {
     display: flex;
     flex-direction: column;
