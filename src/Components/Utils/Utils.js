@@ -1,4 +1,5 @@
 import React from "react";
+import { format as formatDate, parseISO } from "date-fns";
 
 export function Section({ className, list, ...props }) {
     const classes = ["Section", list && "Section--list", className]
@@ -31,4 +32,9 @@ export function Section({ className, list, ...props }) {
 
   export function Input({ className, ...props }) {
     return <input className={["Input", className].join(" ")} {...props} />;
+  }
+
+  export function NiceDate({ date, format = "d MMM yyyy" }) {
+    const isoString = parseISO(date);
+    return formatDate(isoString, format);
   }

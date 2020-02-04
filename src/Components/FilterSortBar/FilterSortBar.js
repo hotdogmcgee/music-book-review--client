@@ -81,11 +81,27 @@ export default class FilterSortBar extends React.Component {
     this.props.onFilterOptionClick(newFilters);
   }
 
-  //having issues setting a list direction value in context
-  handleSortOptionClick(sortValue) {
-    // this.context.setListSort(sortValue);
+  //this works in reversing stuff, but is a bit ugly
+  handleSortOptionClick(newSortValue) {
+    const {
+      searchValue,
+      instrumentValue,
+      filterValue,
+      sortValue,
+      listSorted
+    } = this.context.filterObject;
 
-    this.context.setSortValue(sortValue)
+    const reverse = !listSorted;
+
+    // this.context.setSortValue(sortValue)
+
+    this.context.setFilterObject(
+      searchValue,
+      instrumentValue,
+      filterValue,
+      newSortValue,
+      reverse
+    );
   }
 
   renderOptionsList(list = []) {

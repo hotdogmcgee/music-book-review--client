@@ -42,6 +42,9 @@ export default class Header extends React.Component {
         <Link onClick={this.handleLogoutClick} to="/">
           Logout
         </Link>
+        <Link to='/my-profile'>
+          My Profile
+        </Link>
       </div>
     );
   }

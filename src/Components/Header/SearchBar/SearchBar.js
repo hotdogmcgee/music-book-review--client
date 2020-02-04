@@ -18,6 +18,12 @@ export default class SearchBar extends React.Component {
     this.handleMouseOver = this.handleMouseOver.bind(this);
   }
 
+  static defaultProps = {
+    history: {
+      push: () => {}
+    }
+  }
+
   static contextType = BookListContext;
 
   handleInput = e => {
@@ -51,6 +57,14 @@ export default class SearchBar extends React.Component {
     this.props.onSearchBarFocus(this.state.isHovered);
   }
 
+  handleSubmit = e => {
+    e.preventDefault()
+    console.log('handle submit');
+    const { history } = this.props
+    history.push('/')
+
+  }
+
   // filterList = (event) => {
   //   let items = this.state.initialItems;
   //   items = items.filter((item) => {
@@ -59,14 +73,17 @@ export default class SearchBar extends React.Component {
   //   this.setState({items: items});
   // }
 
+
+  //changed to a form to handle return, may change back to div
   render() {
     return (
-      <div
+      <form
         className="searchBox"
         onChange={this.handleInput}
         // onMouseOver={this.handleMouseOver}
         onMouseEnter={this.handleHover}
         onMouseLeave={this.handleHover}
+        onSubmit={this.handleSubmit}
       >
         <input
           className="searchInput"
@@ -81,7 +98,7 @@ export default class SearchBar extends React.Component {
             flip="horizontal"
           />
         </button>
-      </div>
+      </form>
     );
   }
 }
