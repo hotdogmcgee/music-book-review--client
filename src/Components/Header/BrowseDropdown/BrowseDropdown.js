@@ -17,6 +17,12 @@ export default class BrowseDropdown extends React.Component {
   }
   static contextType = BookListContext;
 
+  static defaultProps = {
+    history: {
+      push: () => {}
+    }
+  }
+
   showDropdownMenu(event) {
     event.preventDefault();
     this.setState({ displayMenu: true }, () => {
@@ -32,7 +38,7 @@ export default class BrowseDropdown extends React.Component {
 
   handleBrowseClick = ev => {
     ev.preventDefault();
-    let sortValue = ev.target.text.toLowerCase();
+    let sortValue = ev.target.innerText.toLowerCase();
 
     if (sortValue === "average rating") {
       sortValue = "rating";
@@ -50,6 +56,7 @@ export default class BrowseDropdown extends React.Component {
       filterValue,
       sortValue
     );
+
   };
 
   render() {
@@ -61,11 +68,12 @@ export default class BrowseDropdown extends React.Component {
 
         {this.state.displayMenu ? (
           <ul>
-            <li onClick={this.handleBrowseClick}>
+            <li onClick={this.handleBrowseClick} className="active">
               <Link
+                value="instrument"
                 className="active"
                 to="/category/instrument"
-                value="instrument"
+                
               >
                 Instrument
               </Link>
@@ -74,13 +82,13 @@ export default class BrowseDropdown extends React.Component {
               <Link to="/category/authors">Authors</Link>
             </li>
             {/* no publisher data at the moment */}
-            <li>
-              <Link to="/category/publisher" onClick={this.handleBrowseClick}>
+            <li onClick={this.handleBrowseClick}>
+              <Link to="/category/publisher" >
                 Publisher
               </Link>
             </li>
-            <li>
-              <Link to="/category/rating" onClick={this.handleBrowseClick}>
+            <li onClick={this.handleBrowseClick}>
+              <Link to="/category/rating" >
                 Average Rating
               </Link>
             </li>

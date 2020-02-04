@@ -70,6 +70,8 @@ export default class BookPage extends React.Component {
 
     const { reviews } = this.context;
 
+    const roundedNumber = avg_rating ?  avg_rating.toFixed(1) : 0
+
     return (
       <Section id="book">
         <p>{image}</p>
@@ -83,7 +85,7 @@ export default class BookPage extends React.Component {
           <p>{description}</p>
         </div>
         <div className="ratings-container">
-          <span>{avg_rating}</span>
+          <span>{roundedNumber}</span>
           <span>Based on {num_reviews} reviews</span>
         </div>
         <BookReviews reviews={reviews} user={user} />

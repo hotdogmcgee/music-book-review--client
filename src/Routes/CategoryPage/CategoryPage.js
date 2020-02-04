@@ -32,7 +32,6 @@ export default class CategoryPage extends React.Component {
 
   //put filtering here
   renderBooks = () => {
-    console.log('RENDER');
     const { bookList = [], savedList = [], filterObject } = this.context;
 
     const {
@@ -44,7 +43,6 @@ export default class CategoryPage extends React.Component {
        listSorted
     } = filterObject;
 
-    console.log("filterObject: ", filterObject);
 
     let currentList = savedList;
     let newList = currentList
@@ -54,14 +52,12 @@ export default class CategoryPage extends React.Component {
 
     }
     if (sortValue !== "") {
-      console.log('check');
       // const listSorted = false
       newList = this.handleSortOption(sortValue, newList, listSorted);
     }
 
     if (searchValue !== "") {
 
-      console.log('newList', newList);
       // currentList = this.context.bookList;
       newList = newList.filter(book => {
         const lc = book.title.toLowerCase();
@@ -129,11 +125,8 @@ export default class CategoryPage extends React.Component {
           console.log("yo");
       }
       
-    debugger
-    console.log('list sorted', listSorted);
     if (listSorted === true) {
       newList = newList.reverse()
-      console.log(newList);
     }
 
     }
