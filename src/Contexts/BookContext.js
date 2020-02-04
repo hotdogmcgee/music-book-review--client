@@ -49,7 +49,6 @@ export class BookProvider extends React.Component {
       };
 
       addReview = review => {
-        console.log('review', review)
         this.setReviews([
           ...this.state.reviews,
           review

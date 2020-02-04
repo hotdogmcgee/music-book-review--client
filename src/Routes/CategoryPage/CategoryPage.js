@@ -19,7 +19,6 @@ export default class CategoryPage extends React.Component {
   static contextType = BookListContext;
 
   componentDidMount() {
-    console.log("mount");
     const instrument = this.props.match.params.instrument;
     if (instrument) {
       this.context.setInstrumentValue(instrument);
@@ -32,13 +31,13 @@ export default class CategoryPage extends React.Component {
 
   //put filtering here
   renderBooks = () => {
-    const { bookList = [], savedList = [], filterObject } = this.context;
+    const { savedList = [], filterObject } = this.context;
 
     const {
       searchValue,
-      browseValue,
+      // browseValue,
       instrumentValue,
-      filterValue,
+      // filterValue,
       sortValue,
        listSorted
     } = filterObject;

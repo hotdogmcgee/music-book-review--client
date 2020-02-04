@@ -32,7 +32,6 @@ const BooksApiService = {
   //maybe make it so a user can view all reviews of a given user
   getAllUserReviews() {
     const user_id = TokenService.getUserId();
-    console.log('user_id: ', user_id);
     
     return fetch(`${config.API_ENDPOINT}/reviews?user_id=${user_id}`, {
       headers: {}

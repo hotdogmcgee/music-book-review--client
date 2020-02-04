@@ -87,7 +87,6 @@ export default class FilterSortBar extends React.Component {
       searchValue,
       instrumentValue,
       filterValue,
-      sortValue,
       listSorted
     } = this.context.filterObject;
 

@@ -15,7 +15,8 @@ export default class MyReviewsList extends React.Component {
         let book = bookList.filter(book => rv.book_id === book.id);
 
         rv.title = book[0] ? book[0].title : "loading";
-        rv.authors = book[0] ? book[0].authors : "loading";
+        rv.authors = book[0] ? book[0].authors : "";
+        // rv.authors = book[0].authors
 
         return (
           <div className="my-reviews-item" key={index}>
@@ -57,7 +58,8 @@ export default class MyReviewsList extends React.Component {
   }
 }
 
-function RenderAuthors({ authors=[] }) {
+function RenderAuthors({ authors }) {
+
   return authors.map((author, key) => {
     const commaSpace = key < authors.length - 1 ? ", " : "";
 

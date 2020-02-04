@@ -59,7 +59,6 @@ export default class SearchBar extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    console.log('handle submit');
     const { history } = this.props
     history.push('/')
 

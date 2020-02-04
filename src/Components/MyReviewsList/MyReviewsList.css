@@ -1,10 +1,27 @@
-.my-reviews-item {
+.my-reviews-container {
     display: flex;
-    justify-content: space-evenly;
-    align-items: baseline;
+    justify-content: center;
 }
 
-.my-reviews-item-info {
+#my-reviews-list {
+    width: 80vw;
+    /* flex-direction: column; */
+    padding: 0;
+}
+
+.my-reviews-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px dotted grey;
+    margin-bottom: 10px
+}
+
+.my-reviews-item-book-info {
+    text-align: left;
+}
+.my-reviews-item-data {
     display: flex;
     flex-direction: column;
+    text-align: right;
 }

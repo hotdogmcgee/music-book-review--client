@@ -42,9 +42,7 @@ export default class Header extends React.Component {
         <Link onClick={this.handleLogoutClick} to="/">
           Logout
         </Link>
-        <Link to='/my-profile'>
-          My Profile
-        </Link>
+        <Link to="/my-profile">My Profile</Link>
       </div>
     );
   }
@@ -62,7 +60,6 @@ export default class Header extends React.Component {
   render() {
     return (
       <>
-
         <nav className="Header">
           <h1>
             <Link to="/">Music Books Review</Link>
@@ -70,14 +67,15 @@ export default class Header extends React.Component {
           <span className="Header__tagline--wide">
             For Students, Educators, and Parents!
           </span>
-          {TokenService.hasAuthToken()
-            ? this.renderLogoutLink()
-            : this.renderLoginLink()}
+          <div className="login-container">
+            {TokenService.hasAuthToken()
+              ? this.renderLogoutLink()
+              : this.renderLoginLink()}
+          </div>
         </nav>
         <span className="Header__tagline--narrow">
           For Students, Educators, and Parents!
         </span>
-
 
         <div>
           <BrowseDropdown />

@@ -67,7 +67,7 @@ export default class BrowseDropdown extends React.Component {
         </div>
 
         {this.state.displayMenu ? (
-          <ul>
+          <ul className="browse-dropdown-list">
             <li onClick={this.handleBrowseClick} className="active">
               <Link
                 value="instrument"

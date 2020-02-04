@@ -44,9 +44,13 @@
   
   .Header__not-logged-in {
     display: flex;
-
+    
     align-items: center;
     justify-content: flex-end;
+  }
+
+  .Header__not-logged-in h2 {
+    cursor: pointer;
   }
   
   .Header__not-logged-in a:last-child {
@@ -66,6 +70,10 @@
   .Header__logged-in a:first-child {
     margin-right: 3px;
   }
+
+  .login-container {
+    /* cursor: pointer; */
+  }
   
   @media screen and (min-width: 450px) {
     .Header {
@@ -76,7 +84,8 @@
       font-size: 22px;
     }
   }
-  
+/*   
+  refactor this for mobile-first-design */
   @media screen and (max-width: 630px) {
     .Header__tagline--wide {
       display: none;

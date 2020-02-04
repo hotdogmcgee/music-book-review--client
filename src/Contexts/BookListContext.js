@@ -88,7 +88,6 @@ export class BookListProvider extends React.Component {
   };
 
   setListSorted = (sortValue) => {
-    console.log('set list sorted');
     const reverse = !this.state.filterObject.listSorted
     this.setState({
       filterObject: {
