@@ -71,7 +71,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <BurgerMenu showModal={this.showModal} hasLogin={this.hasLogin} />
+        <BurgerMenu showModal={this.showModal} hasLogin={this.hasLogin}/>
         <header className="App__header">
           <Header hasLogin={this.hasLogin}></Header>
         </header>

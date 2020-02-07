@@ -353,6 +353,7 @@ export default class RegisterForm extends React.Component {
               message={this.state.validationMessages.email}
             />
           </div>
+          <section className="register-form-buttons">
           <Button
             className={!this.state.formValid ? "no-click" : ""}
             type="submit"
@@ -360,6 +361,11 @@ export default class RegisterForm extends React.Component {
           >
             Register
           </Button>
+          <Button onClick={this.props.handleClose}>
+            Close
+          </Button>
+          </section>
+
         </form>
       );
     }

@@ -17,7 +17,6 @@ export default class BurgerMenu extends React.Component {
   }
   
   closeMenu() {
-    console.log("close");
     this.setState({ menuOpen: false });
   }
   handleLogoutClick = () => {
@@ -34,7 +33,7 @@ export default class BurgerMenu extends React.Component {
 
   renderLoginOrLogout = () => {
     const link = TokenService.hasAuthToken() ? (
-      <Link onClick={this.handleLogoutClick} to="/">
+      <Link onClick={this.handleLogoutClick} to="/" className="menu-item">
         Logout
       </Link>
     ) : (
@@ -45,14 +44,24 @@ export default class BurgerMenu extends React.Component {
     return link;
   };
 
+  renderMyProfileLink = () => {
+    const profileLink = TokenService.hasAuthToken() ? (<Link onClick={() => this.closeMenu()} className="menu-item" to="/my-profile">
+    My Profile
+  </Link>) : ""
+  return profileLink
+  }
+
   render() {
+
+    
     return (
       <div>
-        <Menu isOpen={this.state.menuOpen} onStateChange={(state) => this.handleStateChange(state)}right>
+        <Menu isOpen={this.state.menuOpen} onStateChange={(state) => this.handleStateChange(state)} right id="burger-menu">
           {this.renderLoginOrLogout()}
           <li id="about" className="menu-item">
             About
           </li>
+          {this.renderMyProfileLink()}
         </Menu>
       </div>
     );
