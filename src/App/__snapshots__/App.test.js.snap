@@ -24,14 +24,23 @@ exports[`App component renders the UI as expected 1`] = `
         For Students, Educators, and Parents!
       </span>
       <div
-        className="Header__not-logged-in"
+        className="login-container"
       >
         <div
-          onClick={[Function]}
+          className="Header__not-logged-in"
         >
-          <h2>
-            Log In/Register
-          </h2>
+          <div
+            onClick={[Function]}
+          >
+            <h2>
+              <span>
+                Log In /
+              </span>
+              <span>
+                Register
+              </span>
+            </h2>
+          </div>
         </div>
       </div>
     </nav>
@@ -40,40 +49,39 @@ exports[`App component renders the UI as expected 1`] = `
     >
       For Students, Educators, and Parents!
     </span>
-    <div>
-      <div
-        className="dropdown"
-        style={
-          Object {
-            "background": "red",
-            "width": "200px",
-          }
-        }
-      >
+    <div
+      className="browse-and-search-container"
+    >
+      <div>
         <div
-          className="button"
-          onClick={[Function]}
+          className="dropdown"
         >
-          Browse
+          <div
+            className="button"
+            onClick={[Function]}
+          >
+            Browse
+          </div>
         </div>
       </div>
-    </div>
-    <div
-      className="searchBox"
-      onChange={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-    >
-      <input
-        className="searchInput"
-        name=""
-        placeholder="Search"
-        type="text"
-      />
-      <button
-        className="searchButton"
-        href="#"
-      />
+      <form
+        className="searchBox"
+        onChange={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+        onSubmit={[Function]}
+      >
+        <input
+          className="searchInput"
+          name=""
+          placeholder="Search"
+          type="text"
+        />
+        <button
+          className="searchButton"
+          href="#"
+        />
+      </form>
     </div>
     <div
       className="modal display-none"
@@ -158,16 +166,6 @@ exports[`App component renders the UI as expected 1`] = `
     <section
       className="Section HomePage"
     >
-      <section
-        className="Section"
-      >
-        <a
-          href="/"
-          onClick={[Function]}
-        >
-          Music Book Review
-        </a>
-      </section>
       <section
         className="Section"
       >

@@ -48,8 +48,6 @@ export default class SearchBar extends React.Component {
     }
   }
 
-  //make it so search bar stays open when text is in field
-
   handleHover() {
     // if (this.context.filterObject.searchValue.length > 0) {
     //   this.setState({ isHovered: true });
@@ -80,12 +78,10 @@ export default class SearchBar extends React.Component {
   render() {
 
     const { searchValue} = this.context.filterObject
-    console.log(searchValue);
 
     const classes = searchValue ? "show-search" : "searchBox"
     return (
       <form
-        // className="searchBox"
         className={classes}
         onChange={this.handleInput}
         // onMouseOver={this.handleMouseOver}

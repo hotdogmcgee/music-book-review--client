@@ -28,7 +28,9 @@ exports[`BookList component renders a BookListItem by default 1`] = `
   <div
     className="ratings-container"
   >
-    <p />
+    <p>
+      0
+    </p>
     <p>
       Based on 
        reviews
@@ -78,7 +80,9 @@ exports[`BookList component renders the BookListItem given props 1`] = `
   <div
     className="ratings-container"
   >
-    <p />
+    <p>
+      0
+    </p>
     <p>
       Based on 
        reviews

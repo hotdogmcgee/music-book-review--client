@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`BookList component renders a BookList by default 1`] = `
-<Section>
+<Section
+  className="book-list-container"
+>
   <ul
     id="book-list"
   >
@@ -11,7 +13,9 @@ exports[`BookList component renders a BookList by default 1`] = `
 `;
 
 exports[`BookList component renders the BookList given props 1`] = `
-<Section>
+<Section
+  className="book-list-container"
+>
   <ul
     id="book-list"
   >

@@ -3,12 +3,6 @@
 exports[`BrowseDropdown component renders a BrowseDropdown by default 1`] = `
 <div
   className="dropdown"
-  style={
-    Object {
-      "background": "red",
-      "width": "200px",
-    }
-  }
 >
   <div
     className="button"
