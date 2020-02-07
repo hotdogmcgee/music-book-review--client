@@ -61,7 +61,7 @@ export default class BrowseDropdown extends React.Component {
 
   render() {
     return (
-      <div className="dropdown" style={{ background: "red", width: "200px" }}>
+      <div className="dropdown">
         <div className="button" onClick={this.showDropdownMenu}>
           Browse
         </div>

@@ -14,7 +14,7 @@
 }
 
 .searchBox:hover > .searchInput {
-    width: 240px;
+    width: 100%;
     padding: 0 6px;
 }
 
@@ -22,6 +22,27 @@
   background: white;
   color : #2f3640;
 }
+
+.show-search {
+    max-width: 300px;
+    display: flex;
+    /* transform:  translate(-50%,50%); */
+    margin: 5px;
+    background: #2f3640;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px; 
+}
+
+.show-search > .searchInput {
+    width: 100%;
+    padding: 0 6px;
+}
+
+.show-search > .searchButton {
+    background: white;
+    color : #2f3640;
+  }
 
 .searchButton {
     color: white;

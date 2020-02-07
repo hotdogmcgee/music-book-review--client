@@ -97,7 +97,6 @@ export default class BookPage extends React.Component {
   render() {
     return (
       <>
-        <Link to="/">Music Book Review</Link>
         {this.renderBook()}
         <ReviewSuccessModal
           handleClose={this.hideModal}

@@ -17,6 +17,7 @@ export default class Header extends React.Component {
   }
 
   handleSearchBarFocus(bool) {
+    console.log(bool);
     this.setState({
       hideElements: !bool
     });
@@ -51,13 +52,17 @@ export default class Header extends React.Component {
     return (
       <div className="Header__not-logged-in">
         <div onClick={this.showModal}>
-          <h2>Log In/Register</h2>
+          <h2>
+            <span>Log In /</span>
+            <span>Register</span>
+          </h2>
         </div>
       </div>
     );
   }
 
   render() {
+    // const hideElement = this.state.hideElements ? "hide-dropdown" : ""
     return (
       <>
         <nav className="Header">
@@ -77,11 +82,13 @@ export default class Header extends React.Component {
           For Students, Educators, and Parents!
         </span>
 
-        <div>
-          <BrowseDropdown />
-        </div>
+        <div className="browse-and-search-container">
+          <div>
+            <BrowseDropdown />
+          </div>
 
-        <SearchBar onSearchBarFocus={this.handleSearchBarFocus} />
+          <SearchBar onSearchBarFocus={this.handleSearchBarFocus} />
+        </div>
 
         <LoginModal
           handleClose={this.hideModal}

@@ -8,8 +8,6 @@ export default class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      initialItems: [],
-      items: [],
       searchValue: "",
       mouseOverBoolean: false,
       isHovered: false
@@ -22,7 +20,7 @@ export default class SearchBar extends React.Component {
     history: {
       push: () => {}
     }
-  }
+  };
 
   static contextType = BookListContext;
 
@@ -50,19 +48,25 @@ export default class SearchBar extends React.Component {
     }
   }
 
+  //make it so search bar stays open when text is in field
+
   handleHover() {
+    // if (this.context.filterObject.searchValue.length > 0) {
+    //   this.setState({ isHovered: true });
+    //   return;
+    // }
     this.setState(prevState => ({
       isHovered: !prevState.isHovered
     }));
+
     this.props.onSearchBarFocus(this.state.isHovered);
   }
 
   handleSubmit = e => {
-    e.preventDefault()
-    const { history } = this.props
-    history.push('/')
-
-  }
+    e.preventDefault();
+    const { history } = this.props;
+    history.push("/");
+  };
 
   // filterList = (event) => {
   //   let items = this.state.initialItems;
@@ -72,12 +76,17 @@ export default class SearchBar extends React.Component {
   //   this.setState({items: items});
   // }
 
-
   //changed to a form to handle return, may change back to div
   render() {
+
+    const { searchValue} = this.context.filterObject
+    console.log(searchValue);
+
+    const classes = searchValue ? "show-search" : "searchBox"
     return (
       <form
-        className="searchBox"
+        // className="searchBox"
+        className={classes}
         onChange={this.handleInput}
         // onMouseOver={this.handleMouseOver}
         onMouseEnter={this.handleHover}

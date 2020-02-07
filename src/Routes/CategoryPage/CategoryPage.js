@@ -170,10 +170,6 @@ export default class CategoryPage extends React.Component {
 
     return (
       <>
-        <Section>
-          <Link to="/">Music Book Review</Link>
-        </Section>
-
         <FilterSortBar
           // onSortOptionClick={this.handleSortOption}
           onFilterOptionClick={this.handleFilterOption}

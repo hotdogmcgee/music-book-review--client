@@ -46,10 +46,6 @@ class HomePage extends React.Component {
     const searchValue = this.context.filterObject.searchValue || "";
     return (
       <Section className="HomePage">
-        <Section>
-          <Link to="/">Music Book Review</Link>
-        </Section>
-
         <Section>ABOUT</Section>
 
         <Section>
