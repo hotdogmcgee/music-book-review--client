@@ -1,23 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Burger from '@animated-burgers/burger-rotate' 
 import SearchBar from "./SearchBar/SearchBar";
 import BrowseDropdown from "./BrowseDropdown/BrowseDropdown.js";
 import LoginModal from "../LoginModal/LoginModal";
 import TokenService from "../../services/token-service";
+import BurgerMenu from './BurgerMenu/BurgerMenu'
+
 import "./Header.css";
+// import '@animated-burgers/burger-rotate/dist/styles.css' 
 
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showLoginModal: false,
-      hideElements: false
+      hideElements: false,
+      // openBurger: false
     };
     this.handleSearchBarFocus = this.handleSearchBarFocus.bind(this);
   }
 
   handleSearchBarFocus(bool) {
-    console.log(bool);
     this.setState({
       hideElements: !bool
     });
@@ -26,6 +30,10 @@ export default class Header extends React.Component {
   showModal = () => {
     this.setState({ showLoginModal: true });
   };
+
+  // toggleBurger = () => {
+  //   this.setState({ openBurger: !this.state.openBurger})
+  // }
 
   hideModal = () => {
     this.setState({ showLoginModal: false });
@@ -36,6 +44,7 @@ export default class Header extends React.Component {
     this.props.hasLogin(false);
   };
 
+  //make burger list
   renderLogoutLink() {
     return (
       <div className="Header__logged-in">
@@ -50,15 +59,23 @@ export default class Header extends React.Component {
 
   renderLoginLink() {
     return (
-      <div className="Header__not-logged-in">
+      <div className="Header__not-logged-in" onClick={this.toggleBurger}>
         <div onClick={this.showModal}>
           <h2>
             <span>Log In /</span>
             <span>Register</span>
           </h2>
         </div>
+
       </div>
     );
+  }
+
+  renderBurgerMenu() {
+    return (
+      <BurgerMenu showModal={this.showModal}/>
+    )
+
   }
 
   render() {
@@ -72,11 +89,12 @@ export default class Header extends React.Component {
           <span className="Header__tagline--wide">
             For Students, Educators, and Parents!
           </span>
-          <div className="login-container">
+          {/* <div className="login-container">
             {TokenService.hasAuthToken()
               ? this.renderLogoutLink()
               : this.renderLoginLink()}
-          </div>
+              {this.renderBurgerMenu()}
+          </div> */}
         </nav>
         <span className="Header__tagline--narrow">
           For Students, Educators, and Parents!
@@ -89,13 +107,13 @@ export default class Header extends React.Component {
 
           <SearchBar onSearchBarFocus={this.handleSearchBarFocus} />
         </div>
-
+{/* 
         <LoginModal
           handleClose={this.hideModal}
           show={this.state.showLoginModal}
           //some prop drilling here
           hasLogin={this.props.hasLogin}
-        />
+        /> */}
       </>
     );
   }

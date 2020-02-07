@@ -80,7 +80,6 @@ export default class SearchBar extends React.Component {
   render() {
 
     const { searchValue} = this.context.filterObject
-    console.log(searchValue);
 
     const classes = searchValue ? "show-search" : "searchBox"
     return (
