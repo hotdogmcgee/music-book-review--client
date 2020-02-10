@@ -1,6 +1,5 @@
 import React from "react";
 import "./HomePage.css";
-import { Link } from "react-router-dom";
 import { Section } from "../../Components/Utils/Utils";
 import BookListContext from "../../Contexts/BookListContext";
 import BookList from "../../Components/BookList/BookList";
@@ -12,31 +11,7 @@ class HomePage extends React.Component {
   };
   static contextType = BookListContext;
 
-  //   handleSearchChange = value => {
-  //     let currentList = [];
-  //     let newList = [];
-
-  //     this.setState({
-  //       searchValue: value
-  //     });
-
-  //     if (value !== "") {
-  //         currentList = this.context.savedList;
-
-  //         newList = currentList.filter(book => {
-  //           const lc = item.title.toLowerCase();
-  //           const filter = value.toLowerCase();
-  //           return lc.includes(filter);
-  //         });
-  //       } else {
-  //         newList = this.context.savedList;
-  //       }
-
-  //       this.context.setBookList(newList)
-
-  //   };
-
-  render() {
+  renderBookListOrCardList = () => {
     const instrumentList = [
       { title: "guitar" },
       { title: "piano" },
@@ -44,21 +19,33 @@ class HomePage extends React.Component {
       { title: "violin" }
     ];
     const searchValue = this.context.filterObject.searchValue || "";
-    return (
-      <Section className="HomePage">
-        <Section>ABOUT</Section>
 
-        <Section>
+    let newList = this.context.bookList;
+    if (searchValue.length > 0) {
+      newList = newList.filter(book => {
+        const lc = book.title.toLowerCase();
+        const filter = searchValue.toLowerCase();
+        return lc.includes(filter);
+      });
+      return <BookList bookList={newList} />;
+    } else {
+      return (
+        <div>
+          <Section>ABOUT</Section>
           <h2>Instrument select</h2>
+          <CardList instruments={instrumentList} />
+        </div>
+      );
+    }
+  };
 
-          {searchValue.length > 0 ? (
-            // <p>bleh</p>
-            <BookList bookList={this.context.bookList}/>
-          ) : (
-            <CardList instruments={instrumentList} />
-          )}
+  render() {
+    return (
+      <section className="HomePage">
+        <Section className="HomePage__display-area">
+          {this.renderBookListOrCardList()}
         </Section>
-      </Section>
+      </section>
     );
   }
 }

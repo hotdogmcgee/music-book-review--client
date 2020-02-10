@@ -1,10 +1,13 @@
-body {
-    margin: 0
+
+.HomePage {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0
 }
 
-section {
-    text-align: center;
-    margin-bottom: 20px;
+.HomePage__display-area {
+    margin-left: 0;
+    margin-right: 0
 }
 
 

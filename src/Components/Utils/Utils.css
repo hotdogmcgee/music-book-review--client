@@ -9,14 +9,14 @@
 }
 
 .Button:hover {
-  background-color: #8899cc;
+  background-color: #5260d2;
   cursor: pointer;
 }
 
-.Section {
-  margin-left: 20px;
-  margin-right: 20px;
-}
+/* .Section {
+  margin-left: 10px;
+  margin-right: 10px;
+} */
 .Section--list {
   margin-left: 10px;
   margin-right: 10px;

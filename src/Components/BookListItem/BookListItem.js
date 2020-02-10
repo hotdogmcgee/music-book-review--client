@@ -1,6 +1,7 @@
 import React from "react";
 import "./BookListItem.css";
 import { Link } from "react-router-dom";
+import {BookStarRating} from '../BookStarRating/BookStarRating'
 
 export default function BookListItem(props) {
   const {
@@ -17,6 +18,8 @@ export default function BookListItem(props) {
   const renderAuthors = authors ? <RenderAuthors authors={authors} /> : "no authors!"
   const roundedNumber = avg_rating ?  avg_rating.toFixed(1) : 0
 
+  //num_reviews does not update for the component because it would need to make an API call.  fix?
+
   //have a description truncate function
   return (
     <div className="book-list-item">
@@ -25,7 +28,7 @@ export default function BookListItem(props) {
       </div>
       <div className="book-info">
         <Link to={`/book/${id}`}>
-          <h3>{title}</h3>
+          <h3 className="capitalize">{title}</h3>
         </Link>
         <div className="authors-container">
           {renderAuthors}
@@ -35,7 +38,8 @@ export default function BookListItem(props) {
         <p>{description}</p>
       </div>
       <div className="ratings-container">
-        <p>{roundedNumber}</p>
+        {/* <p>{roundedNumber}</p> */}
+        <BookStarRating rating={roundedNumber} />
         <p>Based on {num_reviews} reviews</p>
       </div>
     </div>

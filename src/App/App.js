@@ -85,14 +85,9 @@ class App extends React.Component {
               path={"/category/instrument/:instrument"}
               component={CategoryPage}
             />
-            {/* <Route
-              path={"/login"}
-              render={props => (
-                <LoginPage {...props} hasLogin={this.hasLogin} />
-              )}
-            /> */}
-            <Route path={"/book/:bookId"} component={BookPage} />
-            <Route path={"*"} component={NotFoundPage} />
+            <Route exact path={"/book/:bookId"} component={BookPage} />
+            {/* Not Found Page doesn't render with unfound bookId */}
+            <Route component={NotFoundPage} />
           </Switch>
         </main>
             
