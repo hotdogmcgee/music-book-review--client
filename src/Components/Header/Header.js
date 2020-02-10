@@ -1,25 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Burger from '@animated-burgers/burger-rotate' 
 import SearchBar from "./SearchBar/SearchBar";
 import BrowseDropdown from "./BrowseDropdown/BrowseDropdown.js";
-import LoginModal from "../LoginModal/LoginModal";
 import TokenService from "../../services/token-service";
-import BurgerMenu from './BurgerMenu/BurgerMenu'
+import BurgerMenu from "./BurgerMenu/BurgerMenu";
+import BookListContext from "../../Contexts/BookListContext";
 
 import "./Header.css";
-// import '@animated-burgers/burger-rotate/dist/styles.css' 
+
 
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       showLoginModal: false,
-      hideElements: false,
-      // openBurger: false
+      hideElements: false
     };
     this.handleSearchBarFocus = this.handleSearchBarFocus.bind(this);
   }
+
+  static contextType = BookListContext;
 
   handleSearchBarFocus(bool) {
     this.setState({
@@ -31,9 +31,6 @@ export default class Header extends React.Component {
     this.setState({ showLoginModal: true });
   };
 
-  // toggleBurger = () => {
-  //   this.setState({ openBurger: !this.state.openBurger})
-  // }
 
   hideModal = () => {
     this.setState({ showLoginModal: false });
@@ -48,7 +45,6 @@ export default class Header extends React.Component {
   renderLogoutLink() {
     return (
       <div className="Header__logged-in">
-        {/* <Link to="/my-submissions">My Submissions</Link> */}
         <Link onClick={this.handleLogoutClick} to="/">
           Logout
         </Link>
@@ -66,20 +62,20 @@ export default class Header extends React.Component {
             <span>Register</span>
           </h2>
         </div>
-
       </div>
     );
   }
 
   renderBurgerMenu() {
-    return (
-      <BurgerMenu showModal={this.showModal}/>
-    )
-
+    return <BurgerMenu showModal={this.showModal} />;
   }
 
   render() {
-    // const hideElement = this.state.hideElements ? "hide-dropdown" : ""
+
+    //hide browse dropdown when text is in search field
+    const { searchValue } = this.context.filterObject;
+    const browseDropdownClasses =
+      searchValue.length >= 1 ? "hide-dropdown" : "show-dropdown";
     return (
       <>
         <nav className="Header">
@@ -89,31 +85,18 @@ export default class Header extends React.Component {
           <span className="Header__tagline--wide">
             For Students, Educators, and Parents!
           </span>
-          {/* <div className="login-container">
-            {TokenService.hasAuthToken()
-              ? this.renderLogoutLink()
-              : this.renderLoginLink()}
-              {this.renderBurgerMenu()}
-          </div> */}
         </nav>
         <span className="Header__tagline--narrow">
           For Students, Educators, and Parents!
         </span>
 
         <div className="browse-and-search-container">
-          <div>
+          <div className={browseDropdownClasses}>
             <BrowseDropdown />
           </div>
 
           <SearchBar onSearchBarFocus={this.handleSearchBarFocus} />
         </div>
-{/* 
-        <LoginModal
-          handleClose={this.hideModal}
-          show={this.state.showLoginModal}
-          //some prop drilling here
-          hasLogin={this.props.hasLogin}
-        /> */}
       </>
     );
   }
