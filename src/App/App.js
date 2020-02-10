@@ -4,14 +4,15 @@ import HomePage from "../Routes/HomePage/HomePage";
 import Header from "../Components/Header/Header.js";
 import CategoryPage from "../Routes/CategoryPage/CategoryPage.js";
 import BookPage from "../Routes/BookPage/BookPage";
+import AboutPage from  '../Routes/AboutPage/AboutPage'
 import "./App.css";
 import NotFoundPage from "../Routes/NotFoundPage/NotFoundPage";
 import PrivateRoute from "../Components/Utils/PrivateRoute";
 import ProfilePage from "../Routes/ProfilePage/ProfilePage";
 import BooksApiService from "../services/books-api-service";
 import BookListContext from "../Contexts/BookListContext";
-import BurgerMenu from '../Components/Header/BurgerMenu/BurgerMenu'
-import LoginModal from '../Components/LoginModal/LoginModal'
+import BurgerMenu from "../Components/Header/BurgerMenu/BurgerMenu";
+import LoginModal from "../Components/LoginModal/LoginModal";
 
 //browse value change in context
 
@@ -30,8 +31,7 @@ class App extends React.Component {
 
   componentDidMount() {
     BooksApiService.getBooks().then(this.context.setBookList);
-    BooksApiService.getBooks()
-      .then(this.context.setSavedList)
+    BooksApiService.getBooks().then(this.context.setSavedList);
   }
 
   static getDerivedStateFromError(error) {
@@ -71,7 +71,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <BurgerMenu showModal={this.showModal} hasLogin={this.hasLogin}/>
+        <BurgerMenu showModal={this.showModal} hasLogin={this.hasLogin} />
         <header className="App__header">
           <Header hasLogin={this.hasLogin}></Header>
         </header>
@@ -79,8 +79,8 @@ class App extends React.Component {
           <Switch>
             <Route exact path={"/"} component={HomePage} />
             <Route exact path={"/category/:type"} component={CategoryPage} />
-            <PrivateRoute path={'/my-profile'} component={ProfilePage}/>
-            {/* <Route path={"/my-profile"} component={ProfilePage} /> */}
+            <PrivateRoute path={"/my-profile"} component={ProfilePage} />
+            <Route path={"/about"} component={AboutPage} />
             <Route
               path={"/category/instrument/:instrument"}
               component={CategoryPage}
@@ -90,13 +90,14 @@ class App extends React.Component {
             <Route component={NotFoundPage} />
           </Switch>
         </main>
-            
+
         <LoginModal
           handleClose={this.hideModal}
           show={this.state.showLoginModal}
           //some prop drilling here
           hasLogin={this.hasLogin}
         />
+            <footer id="footer" role="content-info"><a target="blank" className="portfolio-link" href="https://hotdogmcgee.github.io/Portfolio-Website/">&copy; Kevin Robinson 2020</a></footer>
       </div>
     );
   }

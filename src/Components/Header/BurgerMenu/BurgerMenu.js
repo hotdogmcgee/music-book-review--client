@@ -58,9 +58,9 @@ export default class BurgerMenu extends React.Component {
       <div>
         <Menu isOpen={this.state.menuOpen} onStateChange={(state) => this.handleStateChange(state)} right id="burger-menu">
           {this.renderLoginOrLogout()}
-          <li id="about" className="menu-item">
+          <Link to="/about" id="about" className="menu-item" onClick={() => this.closeMenu()}>
             About
-          </li>
+          </Link>
           {this.renderMyProfileLink()}
         </Menu>
       </div>
