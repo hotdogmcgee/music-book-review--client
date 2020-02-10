@@ -1,21 +1,35 @@
 .Button {
-    max-width: 400px;
-  }
-  
-  .LoginPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .LoginForm {
-    text-align: center;
-  }
-  .LoginForm div {
-    margin-bottom: 20px;
-  }
-  
-  .LoginForm div input {
-    width: 40%;
-  }
-  
+  max-width: 400px;
+}
+
+.LoginForm {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.LoginForm div {
+  margin-bottom: 20px;
+}
+
+.LoginForm__fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.LoginForm__fields input {
+  width: 80%;
+}
+
+.login-form-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.login-form-buttons button {
+  max-width: 65%;
+  margin-bottom: 40px;
+}

@@ -51,11 +51,17 @@ export default class BookPage extends React.Component {
 
   handleReviewSuccess = () => {
     this.setState({ showModal: true });
+
   };
 
 
   renderBook() {
-    //use error modal
+
+    //placeholder, please change
+    if (!this.context.book.title) {
+
+      return "not found"
+    }
 
     const {
       title,
@@ -85,11 +91,12 @@ export default class BookPage extends React.Component {
           <p>{description}</p>
         </div>
         <div className="ratings-container">
-          <span>{roundedNumber}</span>
+          <BookStarRating rating={roundedNumber} />
           <span>Based on {num_reviews} reviews</span>
         </div>
         <BookReviews reviews={reviews} user={user} />
         <ReviewForm onReviewSuccess={this.handleReviewSuccess} />
+
       </Section>
     );
   }
@@ -108,8 +115,7 @@ export default class BookPage extends React.Component {
   }
 }
 
-//change user_id to get name, do it from server side
-function BookReviews({ reviews = [], user }) {
+function BookReviews({ reviews = [] }) {
   return (
     <ul className="BookPage__review-list">
       {reviews.map(review => (

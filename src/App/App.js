@@ -10,6 +10,8 @@ import PrivateRoute from "../Components/Utils/PrivateRoute";
 import ProfilePage from "../Routes/ProfilePage/ProfilePage";
 import BooksApiService from "../services/books-api-service";
 import BookListContext from "../Contexts/BookListContext";
+import BurgerMenu from '../Components/Header/BurgerMenu/BurgerMenu'
+import LoginModal from '../Components/LoginModal/LoginModal'
 
 //browse value change in context
 
@@ -18,6 +20,7 @@ class App extends React.Component {
     hasError: false,
     hasLogin: false,
     showModal: false,
+    showLoginModal: false,
 
     loading: false,
     error: null,
@@ -53,9 +56,22 @@ class App extends React.Component {
     });
   }
 
+  showModal = () => {
+    this.setState({ showLoginModal: true });
+  };
+
+  // toggleBurger = () => {
+  //   this.setState({ openBurger: !this.state.openBurger})
+  // }
+
+  hideModal = () => {
+    this.setState({ showLoginModal: false });
+  };
+
   render() {
     return (
       <div className="App">
+        <BurgerMenu showModal={this.showModal} hasLogin={this.hasLogin}/>
         <header className="App__header">
           <Header hasLogin={this.hasLogin}></Header>
         </header>
@@ -69,18 +85,18 @@ class App extends React.Component {
               path={"/category/instrument/:instrument"}
               component={CategoryPage}
             />
-            {/* <Route
-              path={"/login"}
-              render={props => (
-                <LoginPage {...props} hasLogin={this.hasLogin} />
-              )}
-            /> */}
-            <Route path={"/book/:bookId"} component={BookPage} />
-            <Route path={"*"} component={NotFoundPage} />
+            <Route exact path={"/book/:bookId"} component={BookPage} />
+            {/* Not Found Page doesn't render with unfound bookId */}
+            <Route component={NotFoundPage} />
           </Switch>
         </main>
-        <div className="react-modal-portal">
-        </div>
+            
+        <LoginModal
+          handleClose={this.hideModal}
+          show={this.state.showLoginModal}
+          //some prop drilling here
+          hasLogin={this.hasLogin}
+        />
       </div>
     );
   }

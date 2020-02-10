@@ -4,7 +4,6 @@ import BookListContext from "../../../Contexts/BookListContext";
 import "./SearchBar.css";
 
 export default class SearchBar extends React.Component {
-  //on click hide or grey out other buttons so search field takes up more space
   constructor(props) {
     super(props);
     this.state = {
@@ -49,10 +48,6 @@ export default class SearchBar extends React.Component {
   }
 
   handleHover() {
-    // if (this.context.filterObject.searchValue.length > 0) {
-    //   this.setState({ isHovered: true });
-    //   return;
-    // }
     this.setState(prevState => ({
       isHovered: !prevState.isHovered
     }));
@@ -66,13 +61,6 @@ export default class SearchBar extends React.Component {
     history.push("/");
   };
 
-  // filterList = (event) => {
-  //   let items = this.state.initialItems;
-  //   items = items.filter((item) => {
-  //     return item.toLowerCase().search(event.target.value.toLowerCase()) !== -1;
-  //   });
-  //   this.setState({items: items});
-  // }
 
   //changed to a form to handle return, may change back to div
   render() {

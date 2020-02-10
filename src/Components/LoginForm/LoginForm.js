@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TokenService from "../../services/token-service";
 import AuthApiService from "../../services/auth-api-service";
-import { Button, Input } from '../Utils/Utils'
+import { Button, Input } from "../Utils/Utils";
 import "./LoginForm.css";
 
 export default class LoginForm extends Component {
@@ -32,19 +32,16 @@ export default class LoginForm extends Component {
       });
   };
 
-
   render() {
     const { error } = this.state;
     return (
-      <form className="LoginForm"
-       onSubmit={this.handleSubmitJwtAuth}
-       >
+      <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
-        <div className="user_name">
+        <div className="LoginForm__fields user_name">
           <label htmlFor="LoginForm__user_name">User name</label>
           <Input required name="user_name" id="LoginForm__user_name"></Input>
         </div>
-        <div className="password">
+        <div className="LoginForm__fields password">
           <label htmlFor="LoginForm__password">Password</label>
           <Input
             required
@@ -53,7 +50,10 @@ export default class LoginForm extends Component {
             id="LoginForm__password"
           ></Input>
         </div>
-        <Button type="submit">Login</Button>
+        <section className="login-form-buttons">
+          <Button type="submit">Login</Button>
+          <Button onClick={this.props.handleClose}>Close</Button>
+        </section>
       </form>
     );
   }

@@ -3,7 +3,7 @@
   display: inline-block;
   border-radius: 3px;
   cursor: pointer;
-  background: red;
+  background: #ff5e45;
    width: 140px
 }
 .dropdown ul {
@@ -39,7 +39,7 @@
 .button {
   width: 120px;
   height: 18px;
-  background-color: #ff3232;
+  background-color: #ff5e45;
   padding: 12px;
   /* border-radius:5px; */
   font-weight: bold;

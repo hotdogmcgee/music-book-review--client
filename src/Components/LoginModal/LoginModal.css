@@ -5,7 +5,7 @@
     display: block;
     width:100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.3);
   }
   
   .modal-main {
@@ -28,4 +28,31 @@
 
   .error-modal {
       display: flex;
+  }
+
+  .login-modal {
+    height: 462px;
+    overflow-y: scroll;
+  }
+
+  .login-modal ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    border-bottom: 1px solid black;
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .modal-tab:first-child {
+    border-right: 1px solid black;
+  }
+
+  .modal-tab {
+    width: 50%;
+  }
+
+  .highlight {
+    background-color: #d26e52;
   }

@@ -51,23 +51,19 @@ export default class CategoryPage extends React.Component {
 
     }
     if (sortValue !== "") {
-      // const listSorted = false
       newList = this.handleSortOption(sortValue, newList, listSorted);
     }
 
     if (searchValue !== "") {
 
-      // currentList = this.context.bookList;
       newList = newList.filter(book => {
         const lc = book.title.toLowerCase();
         const filter = searchValue.toLowerCase();
         return lc.includes(filter);
       });
-    }
+    }   
 
-
-    
-
+    console.log(newList);
     return <BookList bookList={newList} />;
   };
 
@@ -166,7 +162,7 @@ export default class CategoryPage extends React.Component {
 
   render() {
     const instrument = this.props.match.params.instrument
-    const displayInstrumentName = instrument ?  <div className="instrument-view-reminder"><h2>You are currently viewing {instrument} books only</h2></div> : ''
+    const displayInstrumentName = instrument ?  <div className="instrument-view-reminder"><h2 className="capitalize">Instrument: {instrument}</h2></div> : ''
 
     return (
       <>
