@@ -84,18 +84,24 @@ export default class BookPage extends React.Component {
         <div className="book-info">
           <h3>{title}</h3>
 
-          <div className="authors-container">
+          <div className="BookPage__authors-container">
             {authors ? <RenderAuthors authors={authors} /> : "no authors!"}
           </div>
           <p>{instrument}</p>
           <p>{description}</p>
         </div>
-        <div className="ratings-container">
+        <div className="BookPage__ratings-container">
           <BookStarRating rating={roundedNumber} />
           <span>Based on {num_reviews} reviews</span>
         </div>
+        <div className="BookPage__reviews-container">
         <BookReviews reviews={reviews} user={user} />
-        <ReviewForm onReviewSuccess={this.handleReviewSuccess} />
+        </div>
+
+      <div className="BookPage__review-form-container">
+      <ReviewForm onReviewSuccess={this.handleReviewSuccess} />
+      </div>
+
 
       </Section>
     );

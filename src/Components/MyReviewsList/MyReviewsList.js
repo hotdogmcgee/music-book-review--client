@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Section, NiceDate } from "../Utils/Utils";
+import { BookStarRating } from "../BookStarRating/BookStarRating";
 import "./MyReviewsList.css";
 
 export default class MyReviewsList extends React.Component {
@@ -19,27 +20,29 @@ export default class MyReviewsList extends React.Component {
         // rv.authors = book[0].authors
 
         return (
-          <div className="my-reviews-item" key={index}>
-            <div className="my-reviews-item-book-info">
-              <Link to={`/book/${rv.book_id}`}>{rv.title}</Link>
-              <div className="authors-container">
-                {rv.authors ? (
-                  <RenderAuthors authors={rv.authors} />
-                ) : (
-                  "no authors!"
-                )}
+          <li className="my-reviews-item" key={index}>
+            <section id="my-reviews-item-book-and-review">
+              <div className="my-reviews-item-book-info">
+                <Link to={`/book/${rv.book_id}`}>{rv.title}</Link>
+                <div className="authors-container">
+                  {rv.authors ? (
+                    <span>
+                      by <RenderAuthors authors={rv.authors} />
+                    </span>
+                  ) : (
+                    "no authors!"
+                  )}
+                </div>
               </div>
-            </div>
 
-            <div className="my-reviews-item-data">
-              <p>{rv.rating}</p>
-
-              <p>{rv.review_text}</p>
-              <p>
+              <div className="my-reviews-item-data">
+                <BookStarRating rating={rv.rating} />
                 <NiceDate date={rv.date_created} />
-              </p>
-            </div>
-          </div>
+              </div>
+            </section>
+
+            <p>{rv.review_text}</p>
+          </li>
         );
       });
 
@@ -59,7 +62,6 @@ export default class MyReviewsList extends React.Component {
 }
 
 function RenderAuthors({ authors }) {
-
   return authors.map((author, key) => {
     const commaSpace = key < authors.length - 1 ? ", " : "";
 

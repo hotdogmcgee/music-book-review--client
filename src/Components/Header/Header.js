@@ -73,9 +73,9 @@ export default class Header extends React.Component {
   render() {
 
     //hide browse dropdown when text is in search field
-    const { searchValue } = this.context.filterObject;
-    const browseDropdownClasses =
-      searchValue.length >= 1 ? "hide-dropdown" : "show-dropdown";
+    // const { searchValue } = this.context.filterObject;
+    // const browseDropdownClasses =
+    //   searchValue.length >= 1 ? "hide-dropdown" : "show-dropdown";
     return (
       <>
         <nav className="Header">
@@ -91,11 +91,12 @@ export default class Header extends React.Component {
         </span>
 
         <div className="browse-and-search-container">
-          <div className={browseDropdownClasses}>
+        <SearchBar onSearchBarFocus={this.handleSearchBarFocus} />
+          <div className="show-dropdown">
             <BrowseDropdown />
           </div>
 
-          <SearchBar onSearchBarFocus={this.handleSearchBarFocus} />
+
         </div>
       </>
     );

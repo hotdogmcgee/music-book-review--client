@@ -3,3 +3,33 @@
     flex-direction: column;
     align-items: center;
 }
+
+.BookPage__review-list {
+    list-style: none;
+    padding-left: 30px
+}
+
+.BookPage__ratings-container {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px
+}
+
+.BookPage__review {
+    display: flex;
+    flex-direction: column;
+}
+
+.BookPage__review-user {
+    font-size: 12px;
+}
+
+.BookPage__authors-container {
+    font-size: 16px;
+}
+
+.BookPage__reviews-container {
+    width: 100%;
+
+}

@@ -9,10 +9,14 @@
     padding: 0;
 }
 
-.my-reviews-item {
+#my-reviews-item-book-and-review {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+}
+.my-reviews-item {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
     border-bottom: 1px dotted grey;
     margin-bottom: 10px
 }
@@ -24,4 +28,9 @@
     display: flex;
     flex-direction: column;
     text-align: right;
+    font-size: 12px
+}
+
+.authors-container {
+    font-size: 12px;
 }

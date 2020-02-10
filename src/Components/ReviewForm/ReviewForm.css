@@ -1,10 +1,22 @@
 .ReviewForm select, .ReviewForm label {
     font-size: 1.1em;
+
+  }
+
+  .select {
+    text-align: center;
+    top: auto;
+    bottom: 100%;
   }
   
   .ReviewForm label {
     display: inline-block;
     margin: 10px 10px 20px;
     margin-left: 0;
+  }
+
+  .ReviewForm__textarea {
+    width:  calc(80vw); 
+
   }
   
