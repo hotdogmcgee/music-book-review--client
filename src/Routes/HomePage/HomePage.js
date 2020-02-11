@@ -31,7 +31,15 @@ class HomePage extends React.Component {
     } else {
       return (
         <div>
-          <Section>ABOUT</Section>
+          <Section>
+            <p className="HomePage__hero">
+              The Music Book Reviews app helps you find the right book for a variety of instruments.
+              <br></br>
+
+              <br></br>
+              Add your own reviews to grow the project!
+            </p>
+          </Section>
           <h2>Instrument select</h2>
           <CardList instruments={instrumentList} />
         </div>
