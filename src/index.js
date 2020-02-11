@@ -6,7 +6,7 @@ import { BookListProvider } from "./Contexts/BookListContext";
 import { BookProvider } from "./Contexts/BookContext";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faWrench } from "@fortawesome/free-solid-svg-icons";
 import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
 import {
   faBookOpen,
@@ -23,6 +23,7 @@ import "./index.css";
 
 library.add(
   faSearch,
+  faWrench,
   faGift, // logo
   faListUl, // style: listicle
   faListOl, // style: howto

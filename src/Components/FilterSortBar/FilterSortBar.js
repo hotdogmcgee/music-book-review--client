@@ -111,7 +111,7 @@ export default class FilterSortBar extends React.Component {
         {list.map((item, index) => {
           return (
             <li
-              className={`option-list-item ${
+              className={`option-list-item capitalize ${
                 this.state.activeFilters[item]
                   ? "filter-highlight"
                   : "no-filter-highlight"

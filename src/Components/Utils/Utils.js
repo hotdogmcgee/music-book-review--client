@@ -1,5 +1,6 @@
 import React from "react";
 import { format as formatDate, parseISO } from "date-fns";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './Utils.css'
 
 export function Section({ className, list, ...props }) {
@@ -39,3 +40,15 @@ export function Section({ className, list, ...props }) {
     const isoString = parseISO(date);
     return formatDate(isoString, format);
   }
+
+  export function UnderConstruction() {
+    return (
+      <section className="UnderConstruction">
+
+          <FontAwesomeIcon icon="wrench" size="4x"/>
+          <h2>Under construction!</h2>
+      </section>
+    )
+  }
+
+  

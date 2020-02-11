@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import BookList from "../../Components/BookList/BookList";
 import FilterSortBar from "../../Components/FilterSortBar/FilterSortBar";
-import { Section } from "../../Components/Utils/Utils";
+import { Section, UnderConstruction } from "../../Components/Utils/Utils";
 import BookListContext from "../../Contexts/BookListContext";
 import "./CategoryPage.css";
 
@@ -39,38 +39,55 @@ export default class CategoryPage extends React.Component {
       instrumentValue,
       // filterValue,
       sortValue,
-       listSorted
+      listSorted
     } = filterObject;
 
-
     let currentList = savedList;
-    let newList = currentList
+    let newList = currentList;
 
     if (instrumentValue !== "") {
       newList = this.handleFilterInstrument(instrumentValue, currentList);
-
     }
     if (sortValue !== "") {
       newList = this.handleSortOption(sortValue, newList, listSorted);
     }
 
     if (searchValue !== "") {
-
       newList = newList.filter(book => {
         const lc = book.title.toLowerCase();
         const filter = searchValue.toLowerCase();
         return lc.includes(filter);
       });
-    }   
+    }
 
-    console.log(newList);
-    return <BookList bookList={newList} />;
+    if (!newList) {
+      return <UnderConstruction />;
+    }
+
+    const instrument = this.props.match.params.instrument;
+    const displayInstrumentName = instrument ? (
+      <div className="instrument-view-reminder">
+        <h2 className="capitalize">Instrument: {instrument}</h2>
+      </div>
+    ) : (
+      ""
+    );
+    return (
+      <>
+        {" "}
+        <FilterSortBar
+          // onSortOptionClick={this.handleSortOption}
+          onFilterOptionClick={this.handleFilterOption}
+        />
+        {displayInstrumentName}
+        <BookList bookList={newList} />
+      </>
+    );
   };
 
   handleSortOption(sortValue, list, listSorted) {
-
     if (!list) {
-      list = this.context.savedList
+      list = this.context.savedList;
     }
 
     const sortFunc = function(a, b) {
@@ -119,11 +136,10 @@ export default class CategoryPage extends React.Component {
         default:
           console.log("yo");
       }
-      
-    if (listSorted === true) {
-      newList = newList.reverse()
-    }
 
+      if (listSorted === true) {
+        newList = newList.reverse();
+      }
     }
 
     return newList;
@@ -133,7 +149,7 @@ export default class CategoryPage extends React.Component {
     let newList;
     newList = list.filter(item => item.instrument === instrument);
     return newList;
-  };
+  }
 
   handleFilterOption = filters => {
     const list = this.context.savedList;
@@ -161,19 +177,8 @@ export default class CategoryPage extends React.Component {
   };
 
   render() {
-    const instrument = this.props.match.params.instrument
-    const displayInstrumentName = instrument ?  <div className="instrument-view-reminder"><h2 className="capitalize">Instrument: {instrument}</h2></div> : ''
 
-    return (
-      <>
-        <FilterSortBar
-          // onSortOptionClick={this.handleSortOption}
-          onFilterOptionClick={this.handleFilterOption}
-        />
-        {displayInstrumentName}
 
-        {this.renderBooks()}
-      </>
-    );
+    return <>{this.renderBooks()}</>;
   }
 }

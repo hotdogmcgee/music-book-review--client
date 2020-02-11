@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from '../../Utils/Utils'
 
 export default class FilterButton extends React.Component {
   constructor(props) {
@@ -22,7 +23,7 @@ export default class FilterButton extends React.Component {
   render() {
     return (
       <div onClick={this.handleClick}>
-        <button>Filter</button>
+        <Button>Filter</Button>
 
       </div>
     );

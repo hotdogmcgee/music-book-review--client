@@ -37,3 +37,9 @@
 .Textarea::placeholder {
   color: #ccc;
 }
+
+.UnderConstruction {
+display: flex;
+flex-direction: column;
+align-items: center;
+}

@@ -18,10 +18,6 @@
   align-items: center;
 }
 
-.LoginForm__fields input {
-  width: 80%;
-}
-
 .login-form-buttons {
   display: flex;
   flex-direction: column;

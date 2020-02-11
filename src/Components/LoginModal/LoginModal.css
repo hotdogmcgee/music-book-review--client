@@ -35,6 +35,10 @@
     overflow-y: scroll;
   }
 
+  .login-modal input {
+    width: 100%
+  }
+
   .login-modal ul {
     list-style: none;
     display: flex;
@@ -42,6 +46,7 @@
     padding: 0;
     border-bottom: 1px solid black;
     margin-top: 0;
+    margin-bottom: 2em;
     text-align: center;
   }
 

@@ -2,16 +2,26 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .options-list {
     list-style: none;
-    padding: 0 20vw
+    padding: 0 20vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .option-list-item {
     border: 1px solid black;
-    padding: 5px
+    padding: 5px;
+    text-align: center;
+    width: 45%;
+    margin: 5px;
+    cursor: pointer;
 }
 
 .filter-highlight {

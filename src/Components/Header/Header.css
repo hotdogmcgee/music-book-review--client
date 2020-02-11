@@ -90,6 +90,10 @@
     align-items: center;
   }
 
+  .show-dropdown {
+    box-shadow: -7px 8px 15px -3px rgba(0,0,0,0.61);
+  }
+  
   .hide-dropdown {
     display: none;
   }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from '../../Utils/Utils'
 
 export default class SortButton extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ export default class SortButton extends React.Component {
   };
 
   handleClick() {
-    const list = ["id", "title", "rating", 'authors'];
+    const list = ["title", "rating", 'authors'];
     this.props.toggleFilterOrSort('sort')
     this.props.setOptions(list);
     this.props.toggleShowOptions()
@@ -23,7 +24,7 @@ export default class SortButton extends React.Component {
   render() {
     return (
       <div onClick={this.handleClick}>
-        <button>Sort</button>
+        <Button>Sort</Button>
       </div>
     );
   }

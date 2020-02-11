@@ -1,7 +1,7 @@
 import React from "react";
 import "./BookListItem.css";
 import { Link } from "react-router-dom";
-import {BookStarRating} from '../BookStarRating/BookStarRating'
+import { BookStarRating } from "../BookStarRating/BookStarRating";
 
 export default function BookListItem(props) {
   const {
@@ -14,9 +14,13 @@ export default function BookListItem(props) {
     authors,
     id
   } = props;
-  
-  const renderAuthors = authors ? <RenderAuthors authors={authors} /> : "no authors!"
-  const roundedNumber = avg_rating ?  avg_rating.toFixed(1) : 0
+
+  const renderAuthors = authors ? (
+    <RenderAuthors authors={authors} />
+  ) : (
+    "no authors!"
+  );
+  const roundedNumber = avg_rating ? avg_rating.toFixed(1) : 0;
 
   //num_reviews does not update for the component because it would need to make an API call.  fix?
 
@@ -27,20 +31,22 @@ export default function BookListItem(props) {
         <span>{image}</span>
       </div>
       <div className="book-info">
-        <Link to={`/book/${id}`}>
-          <h3 className="capitalize">{title}</h3>
-        </Link>
-        <div className="authors-container">
-          {renderAuthors}
-        </div>
+        <h3 className="capitalize">
+          {" "}
+          <Link to={`/book/${id}`}>{title} </Link>
+        </h3>
 
-        <p>{instrument}</p>
+        <div className="authors-container">{renderAuthors}</div>
+
+
         <p>{description}</p>
       </div>
       <div className="ratings-container">
         {/* <p>{roundedNumber}</p> */}
         <BookStarRating rating={roundedNumber} />
         <p>Based on {num_reviews} reviews</p>
+
+        <p className="capitalize BookListItem__instrument">{instrument}</p>
       </div>
     </div>
   );
@@ -57,5 +63,3 @@ function RenderAuthors({ authors }) {
     );
   });
 }
-
-
