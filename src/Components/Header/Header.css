@@ -7,25 +7,32 @@
 } */
 
 
-.Header {
+.App__header {
+  margin-bottom: 1rem;
+  font-family: Laila;
+}
+
+.Header__nav {
     height: 40px;
     display: flex;
     align-items: normal;
     justify-content: space-between;
     padding: 10px;
+    margin-bottom: 2rem;
+
   }
   
-  .Header h1 {
+  .Header__nav h1 {
     margin: 0;
     font-size: 16px;
   }
   
-  .Header a {
+  .Header__nav a {
     color: #444;
     text-decoration: none !important;
   }
   
-  .Header a:hover {
+  .Header__nav a:hover {
     color: none !important;
   }
   

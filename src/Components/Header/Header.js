@@ -78,7 +78,7 @@ export default class Header extends React.Component {
     //   searchValue.length >= 1 ? "hide-dropdown" : "show-dropdown";
     return (
       <>
-        <nav className="Header">
+        <nav className="Header__nav">
           <h1>
             <Link to="/">Music Books Review</Link>
           </h1>

@@ -1,6 +1,8 @@
 
 #burger-menu {
   overflow: none !important;
+  width: 50vw !important;
+  font-family: Montserrat;
 }
 
 /* Position and sizing of burger button */
@@ -81,4 +83,9 @@
     text-decoration: none;
     /* color: #b8b7ad; */
     color: #d2ae52;
+    width: fit-content;
+  }
+
+  .menu-item:focus {
+    outline: none;
   }

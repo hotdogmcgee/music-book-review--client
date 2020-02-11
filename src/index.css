@@ -5,6 +5,10 @@ html {
   margin: 0;
 }
 
+* {
+  box-sizing: border-box
+}
+
 body {
   margin: 0;
   min-height: 100%;
@@ -15,10 +19,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Laila|Montserrat|Titillium+Web&display=swap');
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 
+}
+
+h1 {
+  font-family: Laila;
 }
 
 
