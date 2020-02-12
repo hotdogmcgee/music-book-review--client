@@ -72,7 +72,6 @@ export default class Header extends React.Component {
   }
 
   render() {
-    console.log(this.props.searchBar);
 
     //hide browse dropdown when text is in search field
     // const { searchValue } = this.context.filterObject;

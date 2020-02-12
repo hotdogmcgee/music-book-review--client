@@ -4,11 +4,248 @@ exports[`App component renders the UI as expected 1`] = `
 <div
   className="App"
 >
+  <div>
+    <div>
+      <div
+        className="bm-overlay"
+        onClick={[Function]}
+        style={
+          Object {
+            "MozTransform": "translate3d(100%, 0, 0)",
+            "MsTransform": "translate3d(100%, 0, 0)",
+            "OTransform": "translate3d(100%, 0, 0)",
+            "WebkitTransform": "translate3d(100%, 0, 0)",
+            "background": "rgba(0, 0, 0, 0.3)",
+            "height": "100%",
+            "opacity": 0,
+            "position": "fixed",
+            "transform": "translate3d(100%, 0, 0)",
+            "transition": "opacity 0.3s, transform 0s 0.3s",
+            "width": "100%",
+            "zIndex": 1000,
+          }
+        }
+      />
+      <div
+        className="bm-menu-wrap"
+        id="burger-menu"
+        style={
+          Object {
+            "MozTransform": "translate3d(100%, 0, 0)",
+            "MsTransform": "translate3d(100%, 0, 0)",
+            "OTransform": "translate3d(100%, 0, 0)",
+            "WebkitTransform": "translate3d(100%, 0, 0)",
+            "height": "100%",
+            "position": "fixed",
+            "right": 0,
+            "transform": "translate3d(100%, 0, 0)",
+            "transition": "all 0.5s",
+            "width": "300px",
+            "zIndex": 1100,
+          }
+        }
+      >
+        <div
+          className="bm-menu"
+          style={
+            Object {
+              "boxSizing": "border-box",
+              "height": "100%",
+              "overflow": "auto",
+            }
+          }
+        >
+          <nav
+            className="bm-item-list"
+            style={
+              Object {
+                "height": "100%",
+              }
+            }
+          >
+            <li
+              className="bm-item menu-item"
+              id="log-in"
+              onClick={[Function]}
+              style={
+                Object {
+                  "display": "block",
+                }
+              }
+              tabIndex={-1}
+            >
+              Log In/Register
+            </li>
+            <a
+              className="bm-item menu-item"
+              href="/about"
+              id="about"
+              onClick={[Function]}
+              style={
+                Object {
+                  "display": "block",
+                }
+              }
+              tabIndex={-1}
+            >
+              About
+            </a>
+          </nav>
+        </div>
+        <div
+          style={Object {}}
+        >
+          <div
+            className="bm-cross-button"
+            style={
+              Object {
+                "height": 24,
+                "position": "absolute",
+                "right": 8,
+                "top": 8,
+                "width": 24,
+              }
+            }
+          >
+            <span
+              style={
+                Object {
+                  "position": "absolute",
+                  "right": "14px",
+                  "top": "6px",
+                }
+              }
+            >
+              <span
+                className="bm-cross"
+                style={
+                  Object {
+                    "height": 14,
+                    "position": "absolute",
+                    "transform": "rotate(45deg)",
+                    "width": 3,
+                  }
+                }
+              />
+              <span
+                className="bm-cross"
+                style={
+                  Object {
+                    "height": 14,
+                    "position": "absolute",
+                    "transform": "rotate(-45deg)",
+                    "width": 3,
+                  }
+                }
+              />
+            </span>
+            <button
+              onClick={[Function]}
+              style={
+                Object {
+                  "background": "transparent",
+                  "border": "none",
+                  "cursor": "pointer",
+                  "fontSize": 0,
+                  "height": "100%",
+                  "left": 0,
+                  "margin": 0,
+                  "padding": 0,
+                  "position": "absolute",
+                  "top": 0,
+                  "width": "100%",
+                }
+              }
+              tabIndex={-1}
+            >
+              Close Menu
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        style={Object {}}
+      >
+        <div
+          className="bm-burger-button"
+          style={
+            Object {
+              "zIndex": 1000,
+            }
+          }
+        >
+          <span>
+            <span
+              className="bm-burger-bars"
+              style={
+                Object {
+                  "height": "20%",
+                  "left": 0,
+                  "opacity": 1,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": "0%",
+                }
+              }
+            />
+            <span
+              className="bm-burger-bars"
+              style={
+                Object {
+                  "height": "20%",
+                  "left": 0,
+                  "opacity": 1,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": "40%",
+                }
+              }
+            />
+            <span
+              className="bm-burger-bars"
+              style={
+                Object {
+                  "height": "20%",
+                  "left": 0,
+                  "opacity": 1,
+                  "position": "absolute",
+                  "right": 0,
+                  "top": "80%",
+                }
+              }
+            />
+          </span>
+          <button
+            onClick={[Function]}
+            onMouseOut={[Function]}
+            onMouseOver={[Function]}
+            style={
+              Object {
+                "background": "transparent",
+                "border": "none",
+                "cursor": "pointer",
+                "fontSize": 0,
+                "height": "100%",
+                "left": 0,
+                "margin": 0,
+                "padding": 0,
+                "position": "absolute",
+                "top": 0,
+                "width": "100%",
+              }
+            }
+          >
+            Open Menu
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   <header
     className="App__header"
   >
     <nav
-      className="Header"
+      className="Header__nav"
     >
       <h1>
         <a
@@ -23,26 +260,6 @@ exports[`App component renders the UI as expected 1`] = `
       >
         For Students, Educators, and Parents!
       </span>
-      <div
-        className="login-container"
-      >
-        <div
-          className="Header__not-logged-in"
-        >
-          <div
-            onClick={[Function]}
-          >
-            <h2>
-              <span>
-                Log In /
-              </span>
-              <span>
-                Register
-              </span>
-            </h2>
-          </div>
-        </div>
-      </div>
     </nav>
     <span
       className="Header__tagline--narrow"
@@ -52,7 +269,33 @@ exports[`App component renders the UI as expected 1`] = `
     <div
       className="browse-and-search-container"
     >
-      <div>
+      <div
+        className="search-bar-container"
+      >
+         
+        <form
+          className="searchBox"
+          onChange={[Function]}
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+          onSubmit={[Function]}
+        >
+          <input
+            className="searchInput"
+            name=""
+            placeholder="Search"
+            type="text"
+          />
+          <button
+            className="searchButton"
+            href="#"
+          />
+        </form>
+         
+      </div>
+      <div
+        className="show-dropdown"
+      >
         <div
           className="dropdown"
         >
@@ -64,45 +307,184 @@ exports[`App component renders the UI as expected 1`] = `
           </div>
         </div>
       </div>
-      <form
-        className="searchBox"
-        onChange={[Function]}
-        onMouseEnter={[Function]}
-        onMouseLeave={[Function]}
-        onSubmit={[Function]}
-      >
-        <input
-          className="searchInput"
-          name=""
-          placeholder="Search"
-          type="text"
-        />
-        <button
-          className="searchButton"
-          href="#"
-        />
-      </form>
     </div>
-    <div
-      className="modal display-none"
+  </header>
+  <main
+    className="App__main"
+  >
+    <section
+      className="HomePage"
     >
       <section
-        className="modal-main login-modal"
+        className="Section HomePage__display-area"
       >
+        <div>
+          <section
+            className="Section"
+          >
+            <p
+              className="HomePage__hero"
+            >
+              The Music Book Reviews app helps you find the right book for a variety of instruments.
+              <br />
+              <br />
+              Add your own reviews to grow the project!
+            </p>
+          </section>
+          <h2>
+            Instrument select
+          </h2>
+          <section
+            className="Section select-boxes"
+          >
+            <div
+              className="select-box"
+            >
+              <div
+                className="InstrumentCard"
+              >
+                <a
+                  href="/category/instrument/guitar"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="img-wrap"
+                  >
+                    <img
+                      alt="guitar"
+                      src="guitar.jpg"
+                    />
+                  </div>
+                  <div
+                    className="InstrumentCard__title"
+                  >
+                    <h2
+                      className="capitalize"
+                    >
+                      guitar
+                    </h2>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              className="select-box"
+            >
+              <div
+                className="InstrumentCard"
+              >
+                <a
+                  href="/category/instrument/piano"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="img-wrap"
+                  >
+                    <img
+                      alt="piano"
+                      src="piano.jpg"
+                    />
+                  </div>
+                  <div
+                    className="InstrumentCard__title"
+                  >
+                    <h2
+                      className="capitalize"
+                    >
+                      piano
+                    </h2>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              className="select-box"
+            >
+              <div
+                className="InstrumentCard"
+              >
+                <a
+                  href="/category/instrument/clarinet"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="img-wrap"
+                  >
+                    <img
+                      alt="clarinet"
+                      src="clarinet.jpg"
+                    />
+                  </div>
+                  <div
+                    className="InstrumentCard__title"
+                  >
+                    <h2
+                      className="capitalize"
+                    >
+                      clarinet
+                    </h2>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <div
+              className="select-box"
+            >
+              <div
+                className="InstrumentCard"
+              >
+                <a
+                  href="/category/instrument/violin"
+                  onClick={[Function]}
+                >
+                  <div
+                    className="img-wrap"
+                  >
+                    <img
+                      alt="violin"
+                      src="violin.jpg"
+                    />
+                  </div>
+                  <div
+                    className="InstrumentCard__title"
+                  >
+                    <h2
+                      className="capitalize"
+                    >
+                      violin
+                    </h2>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </section>
+  </main>
+  <div
+    className="modal display-none"
+  >
+    <section
+      className="modal-main login-modal"
+    >
+      <div>
         <ul
           className="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger"
         >
           <li
+            className=" modal-tab highlight"
             onClick={[Function]}
           >
             <p>
               Log In
             </p>
           </li>
-          <li>
-            <p
-              onClick={[Function]}
-            >
+          <li
+            className="modal-tab"
+            onClick={[Function]}
+          >
+            <p>
               Register
             </p>
           </li>
@@ -112,10 +494,7 @@ exports[`App component renders the UI as expected 1`] = `
           onSubmit={[Function]}
         >
           <div
-            role="alert"
-          />
-          <div
-            className="user_name"
+            className="LoginForm__fields user_name"
           >
             <label
               htmlFor="LoginForm__user_name"
@@ -130,7 +509,7 @@ exports[`App component renders the UI as expected 1`] = `
             />
           </div>
           <div
-            className="password"
+            className="LoginForm__fields password"
           >
             <label
               htmlFor="LoginForm__password"
@@ -145,115 +524,36 @@ exports[`App component renders the UI as expected 1`] = `
               type="password"
             />
           </div>
-          <button
-            className="Button "
-            type="submit"
+          <section
+            className="login-form-buttons"
           >
-            Login
-          </button>
+            <button
+              className="Button "
+              type="submit"
+            >
+              Login
+            </button>
+            <button
+              className="Button "
+              onClick={[Function]}
+            >
+              Close
+            </button>
+          </section>
         </form>
-        <button
-          onClick={[Function]}
-        >
-          Close
-        </button>
-      </section>
-    </div>
-  </header>
-  <main
-    className="App__main"
-  >
-    <section
-      className="Section HomePage"
-    >
-      <section
-        className="Section"
-      >
-        ABOUT
-      </section>
-      <section
-        className="Section"
-      >
-        <h2>
-          Instrument select
-        </h2>
-        <section
-          className="Section select-boxes"
-        >
-          <div
-            className="select-box"
-          >
-            <a
-              href="/category/instrument/guitar"
-              onClick={[Function]}
-            >
-              <div
-                className="InstrumentCard_[object Object]"
-              >
-                <h2>
-                  guitar
-                </h2>
-                <p />
-              </div>
-            </a>
-          </div>
-          <div
-            className="select-box"
-          >
-            <a
-              href="/category/instrument/piano"
-              onClick={[Function]}
-            >
-              <div
-                className="InstrumentCard_[object Object]"
-              >
-                <h2>
-                  piano
-                </h2>
-                <p />
-              </div>
-            </a>
-          </div>
-          <div
-            className="select-box"
-          >
-            <a
-              href="/category/instrument/clarinet"
-              onClick={[Function]}
-            >
-              <div
-                className="InstrumentCard_[object Object]"
-              >
-                <h2>
-                  clarinet
-                </h2>
-                <p />
-              </div>
-            </a>
-          </div>
-          <div
-            className="select-box"
-          >
-            <a
-              href="/category/instrument/violin"
-              onClick={[Function]}
-            >
-              <div
-                className="InstrumentCard_[object Object]"
-              >
-                <h2>
-                  violin
-                </h2>
-                <p />
-              </div>
-            </a>
-          </div>
-        </section>
-      </section>
+      </div>
     </section>
-  </main>
-  <div
-    className="react-modal-portal"
-  />
+  </div>
+  <footer
+    id="footer"
+  >
+    <a
+      className="portfolio-link"
+      href="https://hotdogmcgee.github.io/Portfolio-Website/"
+      target="blank"
+    >
+      © Kevin Robinson 2020
+    </a>
+  </footer>
 </div>
 `;

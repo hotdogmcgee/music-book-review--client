@@ -1,10 +1,10 @@
 import React from "react";
 import { Section } from "../Utils/Utils";
-import FilterButton from "./FilterButton/FilterButton";
 import SortButton from "./SortButton/SortButton";
 import "./FilterSortBar.css";
 import BookListContext from "../../Contexts/BookListContext";
 
+//factored this way to account for future addition of filter options to this component.
 export default class FilterSortBar extends React.Component {
   constructor(props) {
     super(props);
@@ -12,13 +12,9 @@ export default class FilterSortBar extends React.Component {
     this.state = {
       displayOptions: false,
       list: [],
-      filters: ["under 25 dollars", "old books", "recent"],
       filterOrSort: null,
-      activeFilters: {
-        "under 25 dollars": true,
-        "old books": true,
-        recent: true
-      }
+      arrowDown: true,
+      activeSort: null
     };
 
     this.handleSetOptions = this.handleSetOptions.bind(this);
@@ -45,40 +41,28 @@ export default class FilterSortBar extends React.Component {
     this.setState({ activeFilters });
   };
 
+  toggleSortClass = value => {
+    this.setState({ activeSort: value });
+  };
+
   handleSetOptions(list) {
     this.setState({
       list
     });
   }
 
+  //want arrow behavior to be more predictable
   handleOptionClick(value) {
     if (this.state.filterOrSort === "filter") {
       this.toggleClass(value);
       this.handleFilterOptionClick(value);
     } else if (this.state.filterOrSort === "sort") {
+      this.toggleSortClass(value);
+      this.toggleArrow();
       this.handleSortOptionClick(value);
     } else {
       return;
     }
-  }
-
-  handleFilterOptionClick(value) {
-    const filters = this.state.filters;
-    let newFilters;
-    if (filters.includes(value)) {
-      newFilters = filters.filter(item => item !== value);
-      this.setState({
-        filters: newFilters
-      });
-    } else {
-      filters.push(value);
-      newFilters = filters;
-      this.setState({
-        filters: newFilters
-      });
-    }
-
-    this.props.onFilterOptionClick(newFilters);
   }
 
   //this works in reversing stuff, but is a bit ugly
@@ -92,8 +76,6 @@ export default class FilterSortBar extends React.Component {
 
     const reverse = !listSorted;
 
-    // this.context.setSortValue(sortValue)
-
     this.context.setFilterObject(
       searchValue,
       instrumentValue,
@@ -102,6 +84,30 @@ export default class FilterSortBar extends React.Component {
       reverse
     );
   }
+
+  toggleArrow = () => {
+    this.setState({ arrowDown: !this.state.arrowDown });
+  };
+
+  renderArrow = item => {
+    if (this.state.activeSort === item) {
+      if (!this.state.arrowDown) {
+        return (
+          <span>
+            <i className="arrow up"></i>
+          </span>
+        );
+      } else {
+        return (
+          <span>
+            <i className="arrow down"></i>
+          </span>
+        );
+      }
+    } else {
+      return "";
+    }
+  };
 
   renderOptionsList(list = []) {
     list = this.state.list;
@@ -112,7 +118,7 @@ export default class FilterSortBar extends React.Component {
           return (
             <li
               className={`option-list-item capitalize ${
-                this.state.activeFilters[item]
+                this.state.activeSort === item
                   ? "filter-highlight"
                   : "no-filter-highlight"
               }`}
@@ -120,6 +126,7 @@ export default class FilterSortBar extends React.Component {
               onClick={() => this.handleOptionClick(item)}
             >
               {item}
+              {this.renderArrow(item)}
             </li>
           );
         })}
@@ -131,11 +138,6 @@ export default class FilterSortBar extends React.Component {
     return (
       <Section id="filter-sort-bar">
         <div className="filter-sort-buttons">
-          <FilterButton
-            toggleShowOptions={this.toggleShowOptions}
-            setOptions={this.handleSetOptions}
-            toggleFilterOrSort={this.setFilterOrSort}
-          />
           <SortButton
             toggleShowOptions={this.toggleShowOptions}
             setOptions={this.handleSetOptions}

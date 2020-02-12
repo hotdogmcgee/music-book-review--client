@@ -7,11 +7,6 @@ exports[`FilterSortBar component renders a FilterSortBar by default 1`] = `
   <div
     className="filter-sort-buttons"
   >
-    <FilterButton
-      setOptions={[Function]}
-      toggleFilterOrSort={[Function]}
-      toggleShowOptions={[Function]}
-    />
     <SortButton
       setOptions={[Function]}
       showOptions={[Function]}
