@@ -33,7 +33,6 @@ export default class LoginForm extends Component {
   };
 
   render() {
-    const { error } = this.state;
     return (
       <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
         <div className="LoginForm__fields user_name">

@@ -128,7 +128,6 @@ export default class FilterSortBar extends React.Component {
   }
 
   render() {
-    console.log(this.state.filterOrSort);
     return (
       <Section id="filter-sort-bar">
         <div className="filter-sort-buttons">

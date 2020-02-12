@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import BookList from "../../Components/BookList/BookList";
 import FilterSortBar from "../../Components/FilterSortBar/FilterSortBar";
-import { Section, UnderConstruction } from "../../Components/Utils/Utils";
+import { UnderConstruction } from "../../Components/Utils/Utils";
 import BookListContext from "../../Contexts/BookListContext";
 import "./CategoryPage.css";
 

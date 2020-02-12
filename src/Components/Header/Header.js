@@ -8,7 +8,6 @@ import BookListContext from "../../Contexts/BookListContext";
 
 import "./Header.css";
 
-
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -33,7 +32,6 @@ export default class Header extends React.Component {
   showModal = () => {
     this.setState({ showLoginModal: true });
   };
-
 
   hideModal = () => {
     this.setState({ showLoginModal: false });
@@ -74,8 +72,7 @@ export default class Header extends React.Component {
   }
 
   render() {
-    // const path = this.props.match
-    // console.log(path);
+    console.log(this.props.searchBar);
 
     //hide browse dropdown when text is in search field
     // const { searchValue } = this.context.filterObject;
@@ -96,12 +93,18 @@ export default class Header extends React.Component {
         </span>
 
         <div className="browse-and-search-container">
-        <SearchBar onSearchBarFocus={this.handleSearchBarFocus} />
+          <div className="search-bar-container">
+            {" "}
+            {this.props.showSearchBar ? (
+              <SearchBar onSearchBarFocus={this.handleSearchBarFocus} />
+            ) : (
+              ""
+            )}{" "}
+          </div>
+
           <div className="show-dropdown">
             <BrowseDropdown />
           </div>
-
-
         </div>
       </>
     );

@@ -64,12 +64,12 @@ export default class SearchBar extends React.Component {
 
   //changed to a form to handle return, may change back to div
   render() {
-
     const { searchValue} = this.context.filterObject
 
+    const classes = searchValue ? "show-search" : "searchBox"
     return (
       <form
-        className="searchBox"
+        className={classes}
         onChange={this.handleInput}
         // onMouseOver={this.handleMouseOver}
         onMouseEnter={this.handleHover}

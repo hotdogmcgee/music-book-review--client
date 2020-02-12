@@ -252,36 +252,36 @@ export default class RegisterForm extends React.Component {
       full_name: full_name.value,
       email: email.value
     })
-      // .then(() => {
-      //   AuthApiService.postLogin({
-      //     user_name: user_name.value,
-      //     password: password.value
-      //   });
-      // })
-      // .then(res => {
-      //   full_name.value = "";
-      //   email.value = "";
-      //   user_name.value = "";
-      //   password.value = "";
-      //   repeat_password.value = "";
-      //   email.value = "";
-      //   TokenService.saveAuthToken(res.authToken);
-      //   TokenService.saveUserId(res.payload);
-      //   this.props.onRegisterSuccess();
-      // })
-      .then(() => {
+    .then( () => {
+      AuthApiService.postLogin({
+        user_name: user_name.value,
+        password: password.value
+      })
+      .then(res => {
+        console.log(res);
         full_name.value = "";
         email.value = "";
         user_name.value = "";
         password.value = "";
         repeat_password.value = "";
         email.value = "";
+        TokenService.saveAuthToken(res.authToken);
+        TokenService.saveUserId(res.payload);
         this.props.onRegisterSuccess();
       })
-
-      .catch(res => {
-        this.setState({ error: res.error });
-      });
+    // .then(() => {
+    //   full_name.value = "";
+    //   email.value = "";
+    //   user_name.value = "";
+    //   password.value = "";
+    //   repeat_password.value = "";
+    //   email.value = "";
+    //   this.props.onRegisterSuccess();
+    // })
+    })
+    .catch(res => {
+      this.setState({ error: res.error });
+    });
   };
 
   render() {

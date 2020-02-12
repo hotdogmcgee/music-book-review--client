@@ -73,7 +73,22 @@ class App extends React.Component {
       <div className="App">
         <BurgerMenu showModal={this.showModal} hasLogin={this.hasLogin} />
         <header className="App__header">
-          <Header hasLogin={this.hasLogin}/>
+
+          {/* conditionally show search bar in Header by passing in a prop based on path */}
+          <Switch>
+            <Route
+              path={["/about", "/my-profile", "/book"]}
+              render={props => (
+                <Header {...props} showSearchBar={false} hasLogin={this.hasLogin} />
+              )}
+            />
+            <Route
+              path={"*"}
+              render={props => (
+                <Header {...props} showSearchBar={true} hasLogin={this.hasLogin} />
+              )}
+            />
+          </Switch>
         </header>
         <main className="App__main">
           <Switch>
@@ -97,7 +112,7 @@ class App extends React.Component {
           //some prop drilling here
           hasLogin={this.hasLogin}
         />
-        <footer id="footer" role="content-info">
+        <footer id="footer">
           <a
             target="blank"
             className="portfolio-link"

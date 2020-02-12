@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Section, Hyph } from "../../Components/Utils/Utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BookStarRating } from "../../Components/BookStarRating/BookStarRating";

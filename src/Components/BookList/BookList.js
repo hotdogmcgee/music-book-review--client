@@ -1,5 +1,5 @@
 import React from "react";
-import { Section, UnderConstruction } from "../Utils/Utils";
+import { Section } from "../Utils/Utils";
 import BookListItem from '../BookListItem/BookListItem'
 import './BookList.css'
 
