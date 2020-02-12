@@ -10,14 +10,14 @@
     align-items: center;
   }
   .RegistrationForm > div {
+    width: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* min-width: 95%; */
+
   }
   
   .RegistrationForm div input {
-    /* width: 80%; */
     text-align: left;
   }
   

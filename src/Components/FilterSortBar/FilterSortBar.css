@@ -1,52 +1,52 @@
 .filter-sort-buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .red {
-    background-color: red
+  background-color: #ff5e45;
 }
 
 .options-list {
-    list-style: none;
-    padding: 0 20vw;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
+  list-style: none;
+  padding: 0 20vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .option-list-item {
-    display: flex;
-    justify-content: space-around;
-    border: 1px solid black;
-    padding: 5px;
-    text-align: center;
-    width: 45%;
-    margin: 5px;
-    cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  width: 45%;
+  margin: 5px;
+  cursor: pointer;
 }
 
 .filter-highlight {
-    background-color: red
+  background-color: #ff5e45;
 }
 
 i {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-  }
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
 
-  .up {
-    transform: rotate(-135deg);
-    -webkit-transform: rotate(-135deg);
-  }
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
 
-  .down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-  }
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

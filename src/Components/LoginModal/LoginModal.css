@@ -61,3 +61,24 @@
   .highlight {
     background-color: #d26e52;
   }
+
+  @media screen and (min-height: 800px) {
+    .login-modal {
+      height: auto;
+      overflow-y: hidden;
+    }
+  }
+
+  .SuccessIcon__container {
+    display: flex;
+    align-items: center;
+    height: inherit;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #373a47;
+  }
+
+  .SuccessIcon__container > h2 {
+    color: white;
+    text-align: center;
+  }

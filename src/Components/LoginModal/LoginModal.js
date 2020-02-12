@@ -2,6 +2,7 @@ import React from "react";
 import "./LoginModal.css";
 import LoginForm from "../LoginForm/LoginForm";
 import RegisterForm from "../RegisterForm/RegisterForm";
+import SuccessIcon from "../SuccessIcon/SuccessIcon";
 
 export default class LoginModal extends React.Component {
   constructor(props) {
@@ -19,55 +20,49 @@ export default class LoginModal extends React.Component {
   };
 
   setLoginSuccess = () => {
-
     this.setState({ loginSuccess: !this.state.loginSuccess });
   };
 
   setSuccessMessage = message => {
-    this.setState({ successMessage: message})
-  }
+    this.setState({ successMessage: message });
+  };
 
   handleLoginSuccess = () => {
-
     const showAfterSuccess = () => {
-      this.props.handleClose()
-      this.setLoginSuccess()
-    }
+      this.props.handleClose();
+      this.setLoginSuccess();
+    };
 
-    this.setSuccessMessage('you logged in!')
-    
+    this.setSuccessMessage("Success!");
+
     this.props.hasLogin(true);
-    this.setLoginSuccess()
-    setTimeout(() => showAfterSuccess(), 3000)
-    
+    this.setLoginSuccess();
+    setTimeout(() => showAfterSuccess(), 3000);
   };
 
   handleRegisterSuccess = () => {
-
     const showAfterSuccess = () => {
-      this.props.handleClose()
-      this.setLoginSuccess()
-    }
+      this.props.handleClose();
+      this.setLoginSuccess();
+    };
 
-    this.setSuccessMessage('you registered!')
-    
+    this.setSuccessMessage("Registration complete, you are logged in as well!");
+
     this.props.hasLogin(true);
-    this.setLoginSuccess()
-    setTimeout(() => showAfterSuccess(), 3000)
-    
+    this.setLoginSuccess();
+    setTimeout(() => showAfterSuccess(), 3000);
   };
-
 
   renderSuccessIcon() {
     return (
-      <div>
+      <div className="SuccessIcon__container">
+        <SuccessIcon />
         <h2>{this.state.successMessage}</h2>
       </div>
     );
   }
 
   renderLoginModal() {
-
     const loginClasses =
       this.state.formType === "log-in" ? " modal-tab highlight" : "modal-tab";
     const registerClasses =
@@ -92,14 +87,17 @@ export default class LoginModal extends React.Component {
             handleClose={handleClose}
           />
         ) : (
-          <RegisterForm handleClose={handleClose} onRegisterSuccess={this.handleRegisterSuccess}/>
+          <RegisterForm
+            handleClose={handleClose}
+            onRegisterSuccess={this.handleRegisterSuccess}
+          />
         )}
       </div>
     );
   }
 
   render() {
-    const { show } = this.props
+    const { show } = this.props;
     const showHideClassName = show
       ? "modal display-block"
       : "modal display-none";
@@ -109,7 +107,6 @@ export default class LoginModal extends React.Component {
           {this.state.loginSuccess
             ? this.renderSuccessIcon()
             : this.renderLoginModal()}
-          {/* <button onClick={handleClose}>Close</button> */}
         </section>
       </div>
     );
