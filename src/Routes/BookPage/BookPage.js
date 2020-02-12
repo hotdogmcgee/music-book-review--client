@@ -8,13 +8,15 @@ import ReviewForm from "../../Components/ReviewForm/ReviewForm";
 import "./BookPage.css";
 import BooksApiService from "../../services/books-api-service";
 import ReviewSuccessModal from "../../Components/ReviewSuccessModal/ReviewSuccessModal";
+import ErrorModal from '../../Components/ErrorModal/ErrorModal'
 
 export default class BookPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       hasSubmission: false,
-      showModal: false
+      showModal: false,
+      showErrorModal: false
     };
   }
 
@@ -49,6 +51,18 @@ export default class BookPage extends React.Component {
     );
   };
 
+  showErrorModal = () => {
+    this.setState({ showErrorModal: true });
+  };
+
+  hideErrorModal = () => {
+    this.setState({ showErrorModal: false }
+    );
+  };
+
+  handleReviewFailure = () => {
+    return this.showErrorModal()
+  }
   handleReviewSuccess = () => {
     this.setState({ showModal: true });
 
@@ -99,7 +113,7 @@ export default class BookPage extends React.Component {
         </div>
 
       <div className="BookPage__review-form-container">
-      <ReviewForm onReviewSuccess={this.handleReviewSuccess} />
+      <ReviewForm onReviewSuccess={this.handleReviewSuccess} onReviewFailure={this.handleReviewFailure}/>
       </div>
 
 
@@ -116,6 +130,7 @@ export default class BookPage extends React.Component {
           show={this.state.showModal}
           bookId
         />
+        <ErrorModal error={this.context.error} handleClose={this.hideErrorModal} show={this.state.showErrorModal}/>
       </>
     );
   }

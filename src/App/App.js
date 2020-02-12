@@ -4,7 +4,7 @@ import HomePage from "../Routes/HomePage/HomePage";
 import Header from "../Components/Header/Header.js";
 import CategoryPage from "../Routes/CategoryPage/CategoryPage.js";
 import BookPage from "../Routes/BookPage/BookPage";
-import AboutPage from  '../Routes/AboutPage/AboutPage'
+import AboutPage from "../Routes/AboutPage/AboutPage";
 import "./App.css";
 import NotFoundPage from "../Routes/NotFoundPage/NotFoundPage";
 import PrivateRoute from "../Components/Utils/PrivateRoute";
@@ -73,7 +73,7 @@ class App extends React.Component {
       <div className="App">
         <BurgerMenu showModal={this.showModal} hasLogin={this.hasLogin} />
         <header className="App__header">
-          <Header hasLogin={this.hasLogin}></Header>
+          <Header hasLogin={this.hasLogin}/>
         </header>
         <main className="App__main">
           <Switch>
@@ -97,7 +97,15 @@ class App extends React.Component {
           //some prop drilling here
           hasLogin={this.hasLogin}
         />
-            <footer id="footer" role="content-info"><a target="blank" className="portfolio-link" href="https://hotdogmcgee.github.io/Portfolio-Website/">&copy; Kevin Robinson 2020</a></footer>
+        <footer id="footer" role="content-info">
+          <a
+            target="blank"
+            className="portfolio-link"
+            href="https://hotdogmcgee.github.io/Portfolio-Website/"
+          >
+            &copy; Kevin Robinson 2020
+          </a>
+        </footer>
       </div>
     );
   }

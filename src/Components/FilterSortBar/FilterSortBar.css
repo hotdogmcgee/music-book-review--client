@@ -7,6 +7,10 @@
     flex-wrap: wrap;
 }
 
+.red {
+    background-color: red
+}
+
 .options-list {
     list-style: none;
     padding: 0 20vw;

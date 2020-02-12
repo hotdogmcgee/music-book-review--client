@@ -19,6 +19,9 @@ export default class Header extends React.Component {
     this.handleSearchBarFocus = this.handleSearchBarFocus.bind(this);
   }
 
+  static defaultProps = {
+    match: { params: {} }
+  };
   static contextType = BookListContext;
 
   handleSearchBarFocus(bool) {
@@ -71,6 +74,8 @@ export default class Header extends React.Component {
   }
 
   render() {
+    // const path = this.props.match
+    // console.log(path);
 
     //hide browse dropdown when text is in search field
     // const { searchValue } = this.context.filterObject;

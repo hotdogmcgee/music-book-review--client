@@ -8,7 +8,8 @@ export default class LoginModal extends React.Component {
     super(props);
     this.state = {
       formType: "log-in",
-      loginSuccess: false
+      loginSuccess: false,
+      successMessage: ""
     };
   }
 
@@ -18,29 +19,55 @@ export default class LoginModal extends React.Component {
   };
 
   setLoginSuccess = () => {
-    console.log("try");
+
     this.setState({ loginSuccess: !this.state.loginSuccess });
   };
 
+  setSuccessMessage = message => {
+    this.setState({ successMessage: message})
+  }
+
   handleLoginSuccess = () => {
-    this.props.hasLogin(true);
-    this.setLoginSuccess();
-    setTimeout(this.props.handleClose(), 10000);
-    this.setLoginSuccess()
+
+    const showAfterSuccess = () => {
+      this.props.handleClose()
+      this.setLoginSuccess()
+    }
+
+    this.setSuccessMessage('you logged in!')
     
-    // this.props.handleClose();
+    this.props.hasLogin(true);
+    this.setLoginSuccess()
+    setTimeout(() => showAfterSuccess(), 3000)
+    
   };
 
+  handleRegisterSuccess = () => {
+
+    const showAfterSuccess = () => {
+      this.props.handleClose()
+      this.setLoginSuccess()
+    }
+
+    this.setSuccessMessage('you registered!')
+    
+    this.props.hasLogin(true);
+    this.setLoginSuccess()
+    setTimeout(() => showAfterSuccess(), 3000)
+    
+  };
+
+
   renderSuccessIcon() {
-    console.log("NICE");
     return (
       <div>
-        <h2>NICE</h2>
+        <h2>{this.state.successMessage}</h2>
       </div>
     );
   }
 
   renderLoginModal() {
+
     const loginClasses =
       this.state.formType === "log-in" ? " modal-tab highlight" : "modal-tab";
     const registerClasses =
@@ -65,7 +92,7 @@ export default class LoginModal extends React.Component {
             handleClose={handleClose}
           />
         ) : (
-          <RegisterForm handleClose={handleClose} />
+          <RegisterForm handleClose={handleClose} onRegisterSuccess={this.handleRegisterSuccess}/>
         )}
       </div>
     );

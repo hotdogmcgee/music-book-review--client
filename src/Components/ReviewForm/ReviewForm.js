@@ -2,18 +2,33 @@ import React, { Component } from "react";
 import BookContext from "../../Contexts/BookContext";
 import BooksApiService from "../../services/books-api-service";
 import { Button, Textarea } from "../Utils/Utils";
+import TokenService from '../../services/token-service'
 import "./ReviewForm.css";
 
 export default class ReviewForm extends Component {
-  // constructor(props) {
-  //   super(props);
+  // state = {
+  //   showLoginModal: false
   // }
-  static defaultProps = { onReviewSuccess: () => {} };
+  static defaultProps = { onReviewSuccess: () => {}, onReviewFailure: () => {} };
   static contextType = BookContext;
 
+  // showModal = () => {
+  //   this.setState({ showLoginModal: true });
+  // };
+
+
+  // hideModal = () => {
+  //   this.setState({ showLoginModal: false });
+  // };
   handleSubmit = ev => {
     ev.preventDefault();
+    this.context.clearError()
 
+    if (!TokenService.hasAuthToken()) {
+      this.context.setError('You must log in or register before adding a review')
+      this.props.onReviewFailure()
+      return
+    }
     const { book } = this.context;
     const { text, rating } = ev.target;
 
@@ -29,7 +44,7 @@ export default class ReviewForm extends Component {
       })
 
 
-      .catch(this.context.setError);
+      .catch(this.context.setError('You must be logged in to submit a review'));
   };
 
   render() {
