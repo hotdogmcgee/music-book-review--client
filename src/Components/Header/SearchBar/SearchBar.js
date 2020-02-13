@@ -50,7 +50,7 @@ export default class SearchBar extends React.Component {
 
   //changed to a form to handle return, may change back to div
   render() {
-    const { searchValue } = this.context.filterObject;
+    const { searchValue } = this.context.filterObject || "";
 
     const classes = searchValue ? "show-search" : "searchBox";
     return (

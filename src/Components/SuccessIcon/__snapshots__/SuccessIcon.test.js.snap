@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SuccessIcon component renders a SuccessIcon by default 1`] = `
+<div
+  className="dummy-positioning d-flex"
+>
+  <div
+    className="success-icon"
+  >
+    <div
+      className="success-icon__tip"
+    />
+    <div
+      className="success-icon__long"
+    />
+  </div>
+</div>
+`;

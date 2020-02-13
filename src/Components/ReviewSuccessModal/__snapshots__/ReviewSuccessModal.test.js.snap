@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewSuccessModal component renders a ReviewSuccessModal by default 1`] = `
+<div
+  className="modal display-none"
+>
+  <section
+    className="modal-main review-success-modal"
+  >
+    <Link
+      to="/"
+    >
+      Back to Home Page
+    </Link>
+    <button>
+      Close
+    </button>
+  </section>
+</div>
+`;

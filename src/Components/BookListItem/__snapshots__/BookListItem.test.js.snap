@@ -12,29 +12,36 @@ exports[`BookList component renders a BookListItem by default 1`] = `
   <div
     className="book-info"
   >
-    <Link
-      to="/book/undefined"
+    <h3
+      className="capitalize"
     >
-      <h3 />
-    </Link>
+       
+      <Link
+        to="/book/undefined"
+      >
+         
+      </Link>
+    </h3>
     <div
       className="authors-container"
     >
       no authors!
     </div>
     <p />
-    <p />
   </div>
   <div
     className="ratings-container"
   >
-    <p>
-      0
-    </p>
+    <BookStarRating
+      rating={0}
+    />
     <p>
       Based on 
        reviews
     </p>
+    <p
+      className="capitalize BookListItem__instrument"
+    />
   </div>
 </div>
 `;
@@ -51,11 +58,16 @@ exports[`BookList component renders the BookListItem given props 1`] = `
   <div
     className="book-info"
   >
-    <Link
-      to="/book/undefined"
+    <h3
+      className="capitalize"
     >
-      <h3 />
-    </Link>
+       
+      <Link
+        to="/book/undefined"
+      >
+         
+      </Link>
+    </h3>
     <div
       className="authors-container"
     >
@@ -75,18 +87,20 @@ exports[`BookList component renders the BookListItem given props 1`] = `
       />
     </div>
     <p />
-    <p />
   </div>
   <div
     className="ratings-container"
   >
-    <p>
-      0
-    </p>
+    <BookStarRating
+      rating={0}
+    />
     <p>
       Based on 
        reviews
     </p>
+    <p
+      className="capitalize BookListItem__instrument"
+    />
   </div>
 </div>
 `;

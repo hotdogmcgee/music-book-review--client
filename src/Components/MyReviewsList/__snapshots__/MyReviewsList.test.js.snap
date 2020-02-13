@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyReviewsList component renders a MyReviewsList by default 1`] = `
+<Section
+  className="my-reviews-container"
+>
+  <p>
+    No reviews yet!
+  </p>
+</Section>
+`;

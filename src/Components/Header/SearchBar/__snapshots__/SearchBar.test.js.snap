@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar component renders a SearchBar by default 1`] = `
+<form
+  className="searchBox"
+  onChange={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onSubmit={[Function]}
+>
+  <input
+    className="searchInput"
+    name=""
+    placeholder="Search"
+    type="text"
+  />
+  <button
+    className="searchButton"
+    href="#"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className="material-icons"
+      fixedWidth={false}
+      flip="horizontal"
+      icon="search"
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      swapOpacity={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </button>
+</form>
+`;

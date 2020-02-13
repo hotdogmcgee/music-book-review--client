@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginModal component renders a LoginModal by default 1`] = `
+<div
+  className="modal display-none"
+>
+  <section
+    className="modal-main login-modal"
+  >
+    <div>
+      <ul
+        className="cd-signin-modal__switcher js-signin-modal-switcher js-signin-modal-trigger"
+      >
+        <li
+          className=" modal-tab highlight"
+          onClick={[Function]}
+        >
+          <p>
+            Log In
+          </p>
+        </li>
+        <li
+          className="modal-tab"
+          onClick={[Function]}
+        >
+          <p>
+            Register
+          </p>
+        </li>
+      </ul>
+      <LoginForm
+        onLoginSuccess={[Function]}
+      />
+    </div>
+  </section>
+</div>
+`;

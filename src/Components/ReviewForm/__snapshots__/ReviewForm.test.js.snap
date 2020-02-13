@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReviewForm component renders a ReviewForm by default 1`] = `
+<Fragment>
+  <form
+    className="ReviewForm"
+    onSubmit={[Function]}
+  >
+    <div
+      className="text"
+    >
+      <Textarea
+        aria-label="Type a review..."
+        className="ReviewForm__textarea"
+        cols="20"
+        id="text"
+        name="text"
+        placeholder="Type a review.."
+        required={true}
+        rows="5"
+      />
+    </div>
+    <div
+      className="select"
+    >
+      <label
+        htmlFor="rating"
+      >
+        Rate this book!
+      </label>
+      <select
+        aria-label="Rate this thing!"
+        id="rating"
+        name="rating"
+        required={true}
+      >
+        <option
+          value="1"
+        >
+          1 Star
+        </option>
+        <option
+          value="2"
+        >
+          2 Stars
+        </option>
+        <option
+          value="3"
+        >
+          3 Stars
+        </option>
+        <option
+          value="4"
+        >
+          4 Stars
+        </option>
+        <option
+          value="5"
+        >
+          5 Stars
+        </option>
+      </select>
+    </div>
+    <Button
+      type="submit"
+    >
+      Post review
+    </Button>
+  </form>
+</Fragment>
+`;
