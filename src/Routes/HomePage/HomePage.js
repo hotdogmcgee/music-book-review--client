@@ -33,9 +33,9 @@ class HomePage extends React.Component {
         <div>
           <Section>
             <p className="HomePage__hero">
-              The Music Book Reviews app helps you find the right book for a variety of instruments.
+              The Music Book Reviews app helps you find the right book for a
+              variety of instruments.
               <br></br>
-
               <br></br>
               Add your own reviews to grow the project!
             </p>

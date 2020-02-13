@@ -2,49 +2,37 @@ import React, { Component } from "react";
 import BookContext from "../../Contexts/BookContext";
 import BooksApiService from "../../services/books-api-service";
 import { Button, Textarea } from "../Utils/Utils";
-import TokenService from '../../services/token-service'
+import TokenService from "../../services/token-service";
 import "./ReviewForm.css";
 
 export default class ReviewForm extends Component {
-  // state = {
-  //   showLoginModal: false
-  // }
-  static defaultProps = { onReviewSuccess: () => {}, onReviewFailure: () => {} };
+  static defaultProps = {
+    onReviewSuccess: () => {},
+    onReviewFailure: () => {}
+  };
   static contextType = BookContext;
 
-  // showModal = () => {
-  //   this.setState({ showLoginModal: true });
-  // };
-
-
-  // hideModal = () => {
-  //   this.setState({ showLoginModal: false });
-  // };
   handleSubmit = ev => {
     ev.preventDefault();
-    this.context.clearError()
+    this.context.clearError();
 
     if (!TokenService.hasAuthToken()) {
-      this.context.setError('You must log in or register before adding a review')
-      this.props.onReviewFailure()
-      return
+      this.context.setError(
+        "You must log in or register before adding a review"
+      );
+      this.props.onReviewFailure();
+      return;
     }
     const { book } = this.context;
     const { text, rating } = ev.target;
 
-    BooksApiService.postReview(
-      book.id,
-      Number(rating.value),
-      text.value
-    )
+    BooksApiService.postReview(book.id, Number(rating.value), text.value)
       .then(thing => this.context.addReview(thing))
       .then(() => {
         text.value = "";
         this.props.onReviewSuccess();
       })
-
-
-      .catch(this.context.setError('You must be logged in to submit a review'));
+      .catch(this.context.setError("You must be logged in to submit a review"));
   };
 
   render() {

@@ -32,7 +32,6 @@ export default class AboutPage extends React.Component {
             actually contains.
           </p>
 
-          {/* make this more of a "Section" */}
           <p>
             As this project grows I intend to collate the opinions of music
             professionals for some of the more commonly used books.

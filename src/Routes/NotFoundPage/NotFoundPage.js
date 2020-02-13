@@ -1,6 +1,6 @@
 import React from "react";
 import { Section } from "../../Components/Utils/Utils";
-import { Link } from 'react-router-dom' 
+import { Link } from "react-router-dom";
 import "./NotFoundPage.css";
 
 export default class NotFoundPage extends React.Component {

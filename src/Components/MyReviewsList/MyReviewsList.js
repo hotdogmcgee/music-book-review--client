@@ -6,7 +6,6 @@ import "./MyReviewsList.css";
 
 export default class MyReviewsList extends React.Component {
   //to-do:  make a path/modal for updating a review
-
   renderMyReviews() {
     const reviews = this.props.reviews;
     const bookList = this.props.bookList;
@@ -17,7 +16,6 @@ export default class MyReviewsList extends React.Component {
 
         rv.title = book[0] ? book[0].title : "loading";
         rv.authors = book[0] ? book[0].authors : "";
-        // rv.authors = book[0].authors
 
         return (
           <li className="my-reviews-item" key={index}>

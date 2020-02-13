@@ -7,7 +7,7 @@ import ReviewForm from "../../Components/ReviewForm/ReviewForm";
 import "./BookPage.css";
 import BooksApiService from "../../services/books-api-service";
 import ReviewSuccessModal from "../../Components/ReviewSuccessModal/ReviewSuccessModal";
-import ErrorModal from '../../Components/ErrorModal/ErrorModal'
+import ErrorModal from "../../Components/ErrorModal/ErrorModal";
 
 export default class BookPage extends React.Component {
   constructor(props) {
@@ -44,10 +44,8 @@ export default class BookPage extends React.Component {
     this.setState({ showModal: true });
   };
 
-  //
   hideModal = () => {
-    this.setState({ showModal: false }
-    );
+    this.setState({ showModal: false });
   };
 
   showErrorModal = () => {
@@ -55,25 +53,23 @@ export default class BookPage extends React.Component {
   };
 
   hideErrorModal = () => {
-    this.setState({ showErrorModal: false }
-    );
+    this.setState({ showErrorModal: false });
   };
 
   handleReviewFailure = () => {
-    return this.showErrorModal()
-  }
+    return this.showErrorModal();
+  };
   handleReviewSuccess = () => {
     this.setState({ showModal: true });
-
   };
 
-
   renderBook() {
-
-    //placeholder, please change
     if (!this.context.book.title) {
-
-      return "not found"
+      return (
+        <div>
+          <h2>Book not found</h2>
+        </div>
+      );
     }
 
     const {
@@ -89,7 +85,7 @@ export default class BookPage extends React.Component {
 
     const { reviews } = this.context;
 
-    const roundedNumber = avg_rating ?  avg_rating.toFixed(1) : 0
+    const roundedNumber = avg_rating ? avg_rating.toFixed(1) : 0;
 
     return (
       <Section id="book">
@@ -108,14 +104,15 @@ export default class BookPage extends React.Component {
           <span>Based on {num_reviews} reviews</span>
         </div>
         <div className="BookPage__reviews-container">
-        <BookReviews reviews={reviews} user={user} />
+          <BookReviews reviews={reviews} user={user} />
         </div>
 
-      <div className="BookPage__review-form-container">
-      <ReviewForm onReviewSuccess={this.handleReviewSuccess} onReviewFailure={this.handleReviewFailure}/>
-      </div>
-
-
+        <div className="BookPage__review-form-container">
+          <ReviewForm
+            onReviewSuccess={this.handleReviewSuccess}
+            onReviewFailure={this.handleReviewFailure}
+          />
+        </div>
       </Section>
     );
   }
@@ -129,7 +126,11 @@ export default class BookPage extends React.Component {
           show={this.state.showModal}
           bookId
         />
-        <ErrorModal error={this.context.error} handleClose={this.hideErrorModal} show={this.state.showErrorModal}/>
+        <ErrorModal
+          error={this.context.error}
+          handleClose={this.hideErrorModal}
+          show={this.state.showErrorModal}
+        />
       </>
     );
   }

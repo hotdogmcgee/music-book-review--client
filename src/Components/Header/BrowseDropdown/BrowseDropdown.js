@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import BookListContext from "../../../Contexts/BookListContext";
 import "./BrowseDropdown.css";
 
-//want to make ul items clickable on full box, not just text area.
 export default class BrowseDropdown extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +20,7 @@ export default class BrowseDropdown extends React.Component {
     history: {
       push: () => {}
     }
-  }
+  };
 
   showDropdownMenu(event) {
     event.preventDefault();
@@ -56,7 +55,6 @@ export default class BrowseDropdown extends React.Component {
       filterValue,
       sortValue
     );
-
   };
 
   render() {
@@ -73,7 +71,6 @@ export default class BrowseDropdown extends React.Component {
                 value="instrument"
                 className="active"
                 to="/category/instrument"
-                
               >
                 Instrument
               </Link>
@@ -83,14 +80,10 @@ export default class BrowseDropdown extends React.Component {
             </li>
             {/* no publisher data at the moment */}
             <li onClick={this.handleBrowseClick}>
-              <Link to="/category/publisher" >
-                Publisher
-              </Link>
+              <Link to="/category/publisher">Publisher</Link>
             </li>
             <li onClick={this.handleBrowseClick}>
-              <Link to="/category/rating" >
-                Average Rating
-              </Link>
+              <Link to="/category/rating">Average Rating</Link>
             </li>
           </ul>
         ) : null}

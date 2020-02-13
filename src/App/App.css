@@ -1,14 +1,6 @@
-/* body {
-  background: linear-gradient(
-    30deg,
-    rgba(211, 211, 211, 1) 24%,
-    rgba(69, 147, 255, 1) 100%
-  );
-} */
-
 .App {
   position: relative;
-  min-height: 100vh
+  min-height: 100vh;
 }
 
 .App__main {
@@ -27,19 +19,17 @@ body {
   text-transform: capitalize;
 }
 
-
 #footer {
   text-align: center;
-  font-family: 'Montserrat';
+  font-family: "Montserrat";
   position: absolute;
   bottom: 0;
   width: 100%;
-
 }
 
 .portfolio-link {
   text-decoration: none;
   color: black;
   cursor: pointer;
-  font-size: 10px
+  font-size: 10px;
 }

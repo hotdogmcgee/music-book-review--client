@@ -1,65 +1,61 @@
 .error p {
-    font-size: 12px;
-    text-align: center;
-  }
-  
+  font-size: 12px;
+  text-align: center;
+}
 
-  .RegistrationForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .RegistrationForm > div {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.RegistrationForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.RegistrationForm > div {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  }
-  
+.RegistrationForm div input {
+  text-align: left;
+}
+
+.RegistrationForm .validation-error {
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+
+.validation-error {
+  top: 105%;
+  display: flex;
+  justify-content: center;
+}
+
+.register-form-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.register-form-buttons button {
+  margin-bottom: 40px;
+  max-width: 65%;
+}
+
+@media screen and (min-width: 500px) {
   .RegistrationForm div input {
-    text-align: left;
+    width: 50vw;
   }
-  
-  .RegistrationForm .validation-error {
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
-  }
-  
-  .validation-error {
-    top: 105%;
-    display: flex;
-    justify-content: center;
-    /* position: absolute; */
-  }
-  
+}
 
-  .register-form-buttons {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%
+@media screen and (min-width: 900px) {
+  .RegistrationForm > div {
+    max-width: 700px;
   }
 
-  .register-form-buttons button {
-    margin-bottom: 40px;
-    max-width: 65%
+  .RegistrationForm div input {
+    width: 500px;
   }
-  
-  @media screen and (min-width: 500px) {
-    .RegistrationForm div input {
-      width: 50vw;
-    }
-  }
-  
-  @media screen and (min-width: 900px) {
-    .RegistrationForm > div {
-      max-width: 700px;
-    }
-  
-    .RegistrationForm div input {
-      width: 500px;
-    }
-  }
+}

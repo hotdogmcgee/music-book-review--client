@@ -45,6 +45,10 @@ export default class FilterSortBar extends React.Component {
     this.setState({ activeSort: value });
   };
 
+  toggleArrow = () => {
+    this.setState({ arrowDown: !this.state.arrowDown });
+  };
+
   handleSetOptions(list) {
     this.setState({
       list
@@ -65,7 +69,7 @@ export default class FilterSortBar extends React.Component {
     }
   }
 
-  //this works in reversing stuff, but is a bit ugly
+  //this works in reversing lists, but is a bit ugly
   handleSortOptionClick(newSortValue) {
     const {
       searchValue,
@@ -84,10 +88,6 @@ export default class FilterSortBar extends React.Component {
       reverse
     );
   }
-
-  toggleArrow = () => {
-    this.setState({ arrowDown: !this.state.arrowDown });
-  };
 
   renderArrow = item => {
     if (this.state.activeSort === item) {

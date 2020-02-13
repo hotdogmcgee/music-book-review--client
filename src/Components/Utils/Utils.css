@@ -13,10 +13,6 @@
   cursor: pointer;
 }
 
-/* .Section {
-  margin-left: 10px;
-  margin-right: 10px;
-} */
 .Section--list {
   margin-left: 10px;
   margin-right: 10px;
@@ -39,7 +35,7 @@
 }
 
 .UnderConstruction {
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

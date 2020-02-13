@@ -6,7 +6,7 @@ const TokenService = {
   },
   saveUserId(payload) {
     window.sessionStorage.setItem("user_id", payload.user_id);
-    window.sessionStorage.setItem('date_created', payload.date_created)
+    window.sessionStorage.setItem("date_created", payload.date_created);
   },
 
   getAuthToken() {

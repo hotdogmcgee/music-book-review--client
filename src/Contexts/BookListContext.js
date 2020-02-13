@@ -21,8 +21,7 @@ const BookListContext = React.createContext({
   setFilterValue: () => {},
   setSortValue: () => {},
   setListSorted: () => {},
-  setFilterObject: () => {},
-  // setFilterProperty: () => {}
+  setFilterObject: () => {}
 });
 
 export default BookListContext;
@@ -56,50 +55,60 @@ export class BookListProvider extends React.Component {
     this.setState({ savedList });
   };
 
-  //better to do large setState or try to use setFilterObject method?
   setSearchValue = searchValue => {
-
-    this.setState({ filterObject: {
-      ...this.state.filterObject,
-      searchValue
-    } });
-
+    this.setState({
+      filterObject: {
+        ...this.state.filterObject,
+        searchValue
+      }
+    });
   };
 
   setInstrumentValue = instrumentValue => {
-    this.setState({ filterObject: {
-      ...this.state.filterObject,
-      instrumentValue
-    } });
+    this.setState({
+      filterObject: {
+        ...this.state.filterObject,
+        instrumentValue
+      }
+    });
   };
 
   setFilterValue = filterValue => {
-    this.setState({ filterObject: {
-      ...this.state.filterObject,
-      filterValue
-    } });
+    this.setState({
+      filterObject: {
+        ...this.state.filterObject,
+        filterValue
+      }
+    });
   };
 
   setSortValue = sortValue => {
-    this.setState({ filterObject: {
-      ...this.state.filterObject,
-      sortValue
-    } });
+    this.setState({
+      filterObject: {
+        ...this.state.filterObject,
+        sortValue
+      }
+    });
   };
 
-  setListSorted = (sortValue) => {
-    const reverse = !this.state.filterObject.listSorted
+  setListSorted = sortValue => {
+    const reverse = !this.state.filterObject.listSorted;
     this.setState({
       filterObject: {
         ...this.state.filterObject,
         sortValue,
         listSorted: reverse
       }
-    })
-  }
+    });
+  };
 
-  setFilterObject = (searchValue, instrumentValue, filterValue, sortValue, listSorted) => {
-
+  setFilterObject = (
+    searchValue,
+    instrumentValue,
+    filterValue,
+    sortValue,
+    listSorted
+  ) => {
     this.setState({
       filterObject: {
         searchValue,
@@ -110,13 +119,6 @@ export class BookListProvider extends React.Component {
       }
     });
   };
-
-  // setFilterProperty = (property, value) => {
-  //   this.setState({ filterObject: {
-  //     ...this.state.filterObject,
-  //     [property]: value
-  //   }})
-  // }
 
   setBrowseValue = browseValue => {
     this.setState({ browseValue });
@@ -146,8 +148,7 @@ export class BookListProvider extends React.Component {
       setFilterValue: this.setFilterValue,
       setSortValue: this.setSortValue,
       setListSorted: this.setListSorted,
-      setFilterObject: this.setFilterObject,
-      // setFilterProperty: this.setFilterProperty
+      setFilterObject: this.setFilterObject
     };
     return (
       <BookListContext.Provider value={value}>

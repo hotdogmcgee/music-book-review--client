@@ -32,15 +32,18 @@ const BooksApiService = {
   //maybe make it so a user can view all reviews of a given user
   getAllUserReviews() {
     const user_id = TokenService.getUserId();
-    
-    return fetch(`${config.API_ENDPOINT}/reviews?user_id=${user_id}`, {
-      headers: {}
-    }).then(res =>
+
+    return fetch(
+      `${config.API_ENDPOINT}/reviews?user_id=${user_id}&sort=date_created`,
+      {
+        headers: {}
+      }
+    ).then(res =>
       !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     );
   },
 
-  postReview( book_id, rating, review_text) {
+  postReview(book_id, rating, review_text) {
     return fetch(`${config.API_ENDPOINT}/reviews`, {
       method: "POST",
       headers: {
@@ -48,7 +51,6 @@ const BooksApiService = {
         authorization: `bearer ${TokenService.getAuthToken()}`
       },
       body: JSON.stringify({
-        // user_id,
         book_id,
         rating,
         review_text

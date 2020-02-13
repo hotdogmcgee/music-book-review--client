@@ -28,15 +28,12 @@ export default class CategoryPage extends React.Component {
     }
   }
 
-  //put filtering here
   renderBooks = () => {
     const { savedList = [], filterObject } = this.context;
 
     const {
       searchValue,
-      // browseValue,
       instrumentValue,
-      // filterValue,
       sortValue,
       listSorted
     } = filterObject;
@@ -73,13 +70,7 @@ export default class CategoryPage extends React.Component {
     );
     return (
       <>
-              {displayInstrumentName}
-        {" "}
-        <FilterSortBar
-          // onSortOptionClick={this.handleSortOption}
-          onFilterOptionClick={this.handleFilterOption}
-        />
-
+        {displayInstrumentName} <FilterSortBar />
         <BookList bookList={newList} />
       </>
     );
@@ -134,7 +125,7 @@ export default class CategoryPage extends React.Component {
           });
           break;
         default:
-          console.log("yo");
+          break;
       }
 
       if (listSorted === true) {
@@ -151,34 +142,7 @@ export default class CategoryPage extends React.Component {
     return newList;
   }
 
-  // handleFilterOption = filters => {
-  //   const list = this.context.savedList;
-  //   console.log(list);
-
-  //   let newList = list;
-
-  //   const instrument = this.props.match.params.instrument;
-  //   if (instrument) {
-  //     newList = list.filter(item => item.instrument === instrument);
-  //   }
-
-  //   if (!filters.includes("old books")) {
-  //     newList = newList.filter(item => item.published_year <= 2000);
-  //   }
-
-  //   if (!filters.includes("under 25 dollars")) {
-  //     newList = newList.filter(item => item.cost < 25);
-  //   }
-  //   if (!filters.includes("recent")) {
-  //     newList = newList.filter(item => item.published_year > 2000);
-  //   }
-
-  //   this.context.setBookList(newList);
-  // };
-
   render() {
-
-
     return <>{this.renderBooks()}</>;
   }
 }

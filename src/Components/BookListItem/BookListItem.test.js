@@ -1,6 +1,5 @@
 import React from 'react';
 import BookListItem from './BookListItem.js'
-import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'
 import { STORE } from '../../store.js'

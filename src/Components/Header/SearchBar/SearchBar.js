@@ -11,8 +11,6 @@ export default class SearchBar extends React.Component {
       mouseOverBoolean: false,
       isHovered: false
     };
-    this.handleHover = this.handleHover.bind(this);
-    this.handleMouseOver = this.handleMouseOver.bind(this);
   }
 
   static defaultProps = {
@@ -36,24 +34,13 @@ export default class SearchBar extends React.Component {
     });
   }
 
-  handleMouseOver() {
-    if (this.state.mouseOverBoolean) {
-      return;
-    } else {
-      this.setState({
-        mouseOverBoolean: true
-      });
-      this.props.onSearchBarFocus();
-    }
-  }
-
-  handleHover() {
+  handleHover = () => {
     this.setState(prevState => ({
       isHovered: !prevState.isHovered
     }));
 
     this.props.onSearchBarFocus(this.state.isHovered);
-  }
+  };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -61,17 +48,15 @@ export default class SearchBar extends React.Component {
     history.push("/");
   };
 
-
   //changed to a form to handle return, may change back to div
   render() {
-    const { searchValue} = this.context.filterObject
+    const { searchValue } = this.context.filterObject;
 
-    const classes = searchValue ? "show-search" : "searchBox"
+    const classes = searchValue ? "show-search" : "searchBox";
     return (
       <form
         className={classes}
         onChange={this.handleInput}
-        // onMouseOver={this.handleMouseOver}
         onMouseEnter={this.handleHover}
         onMouseLeave={this.handleHover}
         onSubmit={this.handleSubmit}

@@ -12,10 +12,10 @@ export default class BurgerMenu extends React.Component {
       menuOpen: false
     };
   }
-  handleStateChange (state) {
-    this.setState({menuOpen: state.isOpen})  
+  handleStateChange(state) {
+    this.setState({ menuOpen: state.isOpen });
   }
-  
+
   closeMenu() {
     this.setState({ menuOpen: false });
   }
@@ -45,20 +45,36 @@ export default class BurgerMenu extends React.Component {
   };
 
   renderMyProfileLink = () => {
-    const profileLink = TokenService.hasAuthToken() ? (<Link onClick={() => this.closeMenu()} className="menu-item" to="/my-profile">
-    My Profile
-  </Link>) : ""
-  return profileLink
-  }
+    const profileLink = TokenService.hasAuthToken() ? (
+      <Link
+        onClick={() => this.closeMenu()}
+        className="menu-item"
+        to="/my-profile"
+      >
+        My Profile
+      </Link>
+    ) : (
+      ""
+    );
+    return profileLink;
+  };
 
   render() {
-
-    
     return (
       <div>
-        <Menu isOpen={this.state.menuOpen} onStateChange={(state) => this.handleStateChange(state)} right id="burger-menu">
+        <Menu
+          isOpen={this.state.menuOpen}
+          onStateChange={state => this.handleStateChange(state)}
+          right
+          id="burger-menu"
+        >
           {this.renderLoginOrLogout()}
-          <Link to="/about" id="about" className="menu-item" onClick={() => this.closeMenu()}>
+          <Link
+            to="/about"
+            id="about"
+            className="menu-item"
+            onClick={() => this.closeMenu()}
+          >
             About
           </Link>
           {this.renderMyProfileLink()}

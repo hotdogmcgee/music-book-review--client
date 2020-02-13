@@ -42,7 +42,6 @@ export default class Header extends React.Component {
     this.props.hasLogin(false);
   };
 
-  //make burger list
   renderLogoutLink() {
     return (
       <div className="Header__logged-in">
@@ -72,11 +71,6 @@ export default class Header extends React.Component {
   }
 
   render() {
-
-    //hide browse dropdown when text is in search field
-    // const { searchValue } = this.context.filterObject;
-    // const browseDropdownClasses =
-    //   searchValue.length >= 1 ? "hide-dropdown" : "show-dropdown";
     return (
       <>
         <nav className="Header__nav">

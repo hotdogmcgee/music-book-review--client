@@ -14,8 +14,6 @@ import BookListContext from "../Contexts/BookListContext";
 import BurgerMenu from "../Components/Header/BurgerMenu/BurgerMenu";
 import LoginModal from "../Components/LoginModal/LoginModal";
 
-//browse value change in context
-
 class App extends React.Component {
   state = {
     hasError: false,
@@ -60,9 +58,6 @@ class App extends React.Component {
     this.setState({ showLoginModal: true });
   };
 
-  // toggleBurger = () => {
-  //   this.setState({ openBurger: !this.state.openBurger})
-  // }
 
   hideModal = () => {
     this.setState({ showLoginModal: false });
@@ -101,7 +96,6 @@ class App extends React.Component {
               component={CategoryPage}
             />
             <Route exact path={"/book/:bookId"} component={BookPage} />
-            {/* Not Found Page doesn't render with unfound bookId */}
             <Route component={NotFoundPage} />
           </Switch>
         </main>

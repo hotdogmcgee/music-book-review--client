@@ -1,18 +1,14 @@
-
 .HomePage {
-    text-align: center;
-    margin-left: 0;
-    margin-right: 0
+  text-align: center;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .HomePage__display-area {
-    margin-left: 0;
-    margin-right: 0
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .HomePage__hero {
-    margin: 0 20px;
+  margin: 0 20px;
 }
-
-
-
