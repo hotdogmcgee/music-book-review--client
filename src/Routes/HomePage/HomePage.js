@@ -11,13 +11,37 @@ class HomePage extends React.Component {
   };
   static contextType = BookListContext;
 
+
+
+
+  makeInstrumentList = () => {
+    const { bookList } = this.context
+    let instrumentCount = {}
+
+    const instruments = bookList.map(item => item.instrument)
+
+    for (let i = 0; i < instruments.length; i++) {
+      const num = instruments[i]
+      instrumentCount[num] = instrumentCount[num] ? instrumentCount[num] + 1 : 1;
+
+    }
+    
+    let numberOfBooks = Object.keys(instrumentCount).map(key => {
+      return {
+      title: key,
+      numEntries: instrumentCount[key]   
+    }
+    })
+
+    //returns list sorted by most books for a given instrument
+    const sorted = numberOfBooks.sort((a, b) => { return b.numEntries - a.numEntries} )
+
+    return sorted
+    
+  }
   renderBookListOrCardList = () => {
-    const instrumentList = [
-      { title: "guitar" },
-      { title: "piano" },
-      { title: "clarinet" },
-      { title: "violin" }
-    ];
+
+    const instrumentList =     this.makeInstrumentList()
     const searchValue = this.context.filterObject.searchValue || "";
 
     let newList = this.context.bookList;

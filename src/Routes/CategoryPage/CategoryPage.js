@@ -70,8 +70,8 @@ export default class CategoryPage extends React.Component {
     );
     return (
       <>
-        {displayInstrumentName} <FilterSortBar />
-        <BookList bookList={newList} />
+        {displayInstrumentName} 
+        {newList.length ? (<><FilterSortBar /><BookList bookList={newList} /></>) : <UnderConstruction />}
       </>
     );
   };
