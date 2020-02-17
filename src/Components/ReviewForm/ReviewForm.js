@@ -18,7 +18,7 @@ export default class ReviewForm extends Component {
 
     if (!TokenService.hasAuthToken()) {
       this.context.setError(
-        "You must log in or register before adding a review"
+        "You must log in or register before adding a review."
       );
       this.props.onReviewFailure();
       return;
@@ -32,7 +32,7 @@ export default class ReviewForm extends Component {
         text.value = "";
         this.props.onReviewSuccess();
       })
-      .catch(this.context.setError("You must be logged in to submit a review"));
+      .catch(this.context.setError("You must be logged in to submit a review."));
   };
 
   render() {
@@ -56,7 +56,7 @@ export default class ReviewForm extends Component {
             <label htmlFor="rating">Rate this book!</label>
             <select
               required
-              aria-label="Rate this thing!"
+              aria-label="Rate this book!"
               name="rating"
               id="rating"
             >

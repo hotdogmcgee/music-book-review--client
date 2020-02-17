@@ -1,6 +1,7 @@
 import React from "react";
 import "./ReviewSuccessModal.css";
 import { Link } from "react-router-dom";
+import { Button } from '../Utils/Utils'
 
 export default class ReviewSuccessModal extends React.Component {
   constructor(props) {
@@ -16,8 +17,8 @@ export default class ReviewSuccessModal extends React.Component {
     return (
       <div className={showHideClassName}>
         <section className="modal-main review-success-modal">
-          <Link to="/">Back to Home Page</Link>
-          <button onClick={handleClose}>Close</button>
+          <Link to="/">Go to Home Page</Link>
+          <Button onClick={handleClose}>Close</Button>
         </section>
       </div>
     );

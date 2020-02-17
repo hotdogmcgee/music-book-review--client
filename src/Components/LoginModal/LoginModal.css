@@ -12,7 +12,7 @@
   position: fixed;
   background: white;
   width: 80%;
-  height: auto;
+  /* height: auto; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -24,10 +24,6 @@
 
 .display-none {
   display: none;
-}
-
-.error-modal {
-  display: flex;
 }
 
 .login-modal {
