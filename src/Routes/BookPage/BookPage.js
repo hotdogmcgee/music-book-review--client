@@ -65,11 +65,7 @@ export default class BookPage extends React.Component {
 
   renderBook() {
     if (!this.context.book.title) {
-      return (
-        <div>
-          <h2>Book not found</h2>
-        </div>
-      );
+      return ""
     }
 
     const {
@@ -90,13 +86,15 @@ export default class BookPage extends React.Component {
     return (
       <Section id="book">
         <p>{image}</p>
-        <div className="book-info">
+        <div className="BookPage__book-info">
           <h3>{title}</h3>
 
           <div className="BookPage__authors-container">
             {authors ? <RenderAuthors authors={authors} /> : "no authors!"}
           </div>
-          <p>{instrument}</p>
+
+          {/* make this a link to view instrument type? */}
+          <p className="capitalize">{instrument}</p>
           <p>{description}</p>
         </div>
         <div className="BookPage__ratings-container">

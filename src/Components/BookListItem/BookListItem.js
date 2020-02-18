@@ -22,6 +22,8 @@ export default function BookListItem(props) {
   );
   const roundedNumber = avg_rating ? avg_rating.toFixed(1) : 0;
 
+  const shortenedDescription = Truncate(description)
+
   //have a description truncate function
   return (
     <div className="book-list-item">
@@ -36,7 +38,7 @@ export default function BookListItem(props) {
 
         <div className="authors-container">{renderAuthors}</div>
 
-        <p>{description}</p>
+        <p>{shortenedDescription}</p>
       </div>
       <div className="ratings-container">
         <BookStarRating rating={roundedNumber} />
@@ -58,4 +60,14 @@ function RenderAuthors({ authors }) {
       </span>
     );
   });
+}
+
+function Truncate(text) {
+  const words = text.split(' ')
+
+  if (words.length > 10) {
+    return words.slice(0, 20).join(' ') + ' ...'
+  }
+
+  return text
 }

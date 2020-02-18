@@ -6,7 +6,9 @@
 
 .select-box {
     height: 100px;
-    width: 150px;
+    /* width: 150px; */
     border: 1px solid black;
-    margin: 20px;
+    /* margin: 20px; */
+    width: 140px;
+    margin: 10px;
 }

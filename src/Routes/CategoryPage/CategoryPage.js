@@ -1,7 +1,6 @@
 import React from "react";
 import BookList from "../../Components/BookList/BookList";
 import FilterSortBar from "../../Components/FilterSortBar/FilterSortBar";
-import { UnderConstruction } from "../../Components/Utils/Utils";
 import BookListContext from "../../Contexts/BookListContext";
 import "./CategoryPage.css";
 
@@ -57,7 +56,7 @@ export default class CategoryPage extends React.Component {
     }
 
     if (!newList) {
-      return <UnderConstruction />;
+      return "";
     }
 
     const instrument = this.props.match.params.instrument;
@@ -71,7 +70,7 @@ export default class CategoryPage extends React.Component {
     return (
       <>
         {displayInstrumentName} 
-        {newList.length ? (<><FilterSortBar /><BookList bookList={newList} /></>) : <UnderConstruction />}
+        {newList.length ? (<><FilterSortBar /><BookList bookList={newList} /></>) : ""}
       </>
     );
   };
