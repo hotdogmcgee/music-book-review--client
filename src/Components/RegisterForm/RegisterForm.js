@@ -182,7 +182,7 @@ export default class RegisterForm extends React.Component {
   validateEmail(fieldValue) {
     const fieldErrors = { ...this.state.validationMessages };
     let hasError = false;
-    // const focusElement = () => document.getElementById('RegistrationForm__email').focus()
+    // const focusElement = () => document.getElementById('RegisterForm__email').focus()
 
     fieldValue = fieldValue.trim();
     if (fieldValue.length === 0) {
@@ -277,17 +277,17 @@ export default class RegisterForm extends React.Component {
   render() {
     const { error } = this.state;
     return (
-      <form className="RegistrationForm" onSubmit={e => this.handleSubmit(e)}>
+      <form className="RegisterForm" onSubmit={e => this.handleSubmit(e)}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="full_name">
-          <label htmlFor="RegistrationForm__full_name">
+          <label htmlFor="RegisterForm__full_name">
             Full name <Required />
           </label>
           <Input
             name="full_name"
             type="text"
             required
-            id="RegistrationForm__full_name"
+            id="RegisterForm__full_name"
             autoComplete="off"
             onChange={e => this.updateFullName(e.target.value)}
           ></Input>
@@ -297,14 +297,14 @@ export default class RegisterForm extends React.Component {
           />
         </div>
         <div className="user_name">
-          <label htmlFor="RegistrationForm__user_name">
+          <label htmlFor="RegisterForm__user_name">
             User name <Required />
           </label>
           <Input
             name="user_name"
             type="text"
             required
-            id="RegistrationForm__user_name"
+            id="RegisterForm__user_name"
             autoComplete="off"
             onChange={e => this.updateUserName(e.target.value)}
           ></Input>
@@ -314,14 +314,14 @@ export default class RegisterForm extends React.Component {
           />
         </div>
         <div className="password">
-          <label htmlFor="RegistrationForm__password">
+          <label htmlFor="RegisterForm__password">
             Password <Required />
           </label>
           <Input
             name="password"
             type="password"
             required
-            id="RegistrationForm__password"
+            id="RegisterForm__password"
             onChange={e => this.updatePassword(e.target.value)}
           ></Input>
           <ValidationError
@@ -330,14 +330,14 @@ export default class RegisterForm extends React.Component {
           />
         </div>
         <div className="repeat_password">
-          <label htmlFor="RegistrationForm__repeat_password">
+          <label htmlFor="RegisterForm__repeat_password">
             Confirm password <Required />
           </label>
           <Input
             name="repeat_password"
             type="password"
             required
-            id="RegistrationForm__repeat-password"
+            id="RegisterForm__repeat-password"
             autoComplete="off"
             onChange={e => this.updateRepeatPassword(e.target.value)}
           ></Input>
@@ -347,14 +347,14 @@ export default class RegisterForm extends React.Component {
           />
         </div>
         <div className="email">
-          <label htmlFor="RegistrationForm__email">
+          <label htmlFor="RegisterForm__email">
             Email <Required />
           </label>
           <Input
             name="email"
             type="text"
             required
-            id="RegistrationForm__email"
+            id="RegisterForm__email"
             onChange={e => this.updateEmail(e.target.value)}
           ></Input>
           <ValidationError

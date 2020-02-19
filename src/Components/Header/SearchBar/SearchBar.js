@@ -48,7 +48,6 @@ export default class SearchBar extends React.Component {
     history.push("/");
   };
 
-  //changed to a form to handle return, may change back to div
   render() {
     const { searchValue } = this.context.filterObject || "";
 

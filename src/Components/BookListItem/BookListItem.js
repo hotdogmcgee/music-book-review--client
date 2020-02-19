@@ -22,9 +22,8 @@ export default function BookListItem(props) {
   );
   const roundedNumber = avg_rating ? avg_rating.toFixed(1) : 0;
 
-  const shortenedDescription = Truncate(description)
+  const shortenedDescription = Truncate(description);
 
-  //have a description truncate function
   return (
     <div className="book-list-item">
       <div className="book-list-img-container">
@@ -63,11 +62,11 @@ function RenderAuthors({ authors }) {
 }
 
 function Truncate(text) {
-  const words = text.split(' ')
+  const words = text.split(" ");
 
   if (words.length > 10) {
-    return words.slice(0, 20).join(' ') + ' ...'
+    return words.slice(0, 20).join(" ") + " ...";
   }
 
-  return text
+  return text;
 }

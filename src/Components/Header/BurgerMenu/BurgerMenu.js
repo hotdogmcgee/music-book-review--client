@@ -1,8 +1,8 @@
 import React from "react";
 import { slide as Menu } from "react-burger-menu";
-import "./BurgerMenu.css";
 import TokenService from "../../../services/token-service";
 import { Link } from "react-router-dom";
+import "./BurgerMenu.css";
 
 export default class BurgerMenu extends React.Component {
   constructor(props) {

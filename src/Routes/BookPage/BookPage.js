@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BookStarRating } from "../../Components/BookStarRating/BookStarRating";
 import BookContext from "../../Contexts/BookContext";
 import ReviewForm from "../../Components/ReviewForm/ReviewForm";
-import "./BookPage.css";
 import BooksApiService from "../../services/books-api-service";
 import ReviewSuccessModal from "../../Components/ReviewSuccessModal/ReviewSuccessModal";
 import ErrorModal from "../../Components/ErrorModal/ErrorModal";
+import "./BookPage.css";
 
 export default class BookPage extends React.Component {
   constructor(props) {
@@ -65,7 +65,7 @@ export default class BookPage extends React.Component {
 
   renderBook() {
     if (!this.context.book.title) {
-      return ""
+      return "";
     }
 
     const {

@@ -1,15 +1,14 @@
 import React from "react";
 import { Section } from "../Utils/Utils";
-import BookListItem from '../BookListItem/BookListItem'
-import './BookList.css'
+import BookListItem from "../BookListItem/BookListItem";
+import "./BookList.css";
 
 export default function BookList(props) {
-
   const displayList = props.bookList
     ? props.bookList.map((item, index) => {
         return (
-          <li key={index} >
-              <BookListItem {...item}/>
+          <li key={index}>
+            <BookListItem {...item} />
           </li>
         );
       })
@@ -21,4 +20,3 @@ export default function BookList(props) {
     </Section>
   );
 }
-

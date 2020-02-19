@@ -1,16 +1,11 @@
-import React from 'react';
-import FilterSortBar from './FilterSortBar.js'
-import renderer from 'react-test-renderer'
-import { shallow } from 'enzyme'
-import toJson from 'enzyme-to-json'
-import { STORE } from '../../store.js'
+import React from "react";
+import FilterSortBar from "./FilterSortBar.js";
+import { shallow } from "enzyme";
+import toJson from "enzyme-to-json";
 
-describe('FilterSortBar component', () => {
-
-      it('renders a FilterSortBar by default', () => {
-        const wrapper = shallow(<FilterSortBar />)
-        expect(toJson(wrapper)).toMatchSnapshot()
-      })
-    
-
-})
+describe("FilterSortBar component", () => {
+  it("renders a FilterSortBar by default", () => {
+    const wrapper = shallow(<FilterSortBar />);
+    expect(toJson(wrapper)).toMatchSnapshot();
+  });
+});

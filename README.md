@@ -1,14 +1,14 @@
 Music Book Reviews App
 
 ## Live Link
-https://music-book-review-app.now.sh/{:target="_blank"}
+https://music-book-review-app.now.sh/
 
 ## Summary
 An app for reviewing music books intended for students, teachers, and parents.  Trying to find just the right book?  This app should help you on your way.
 
 ## API used
 
-https://github.com/hotdogmcgee/music-book-review--server{:target="_blank"}
+https://github.com/hotdogmcgee/music-book-review--server/
 
 ## Screenshots
 

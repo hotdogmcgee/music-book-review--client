@@ -1,8 +1,8 @@
 import React from "react";
-import "./LoginModal.css";
 import LoginForm from "../LoginForm/LoginForm";
 import RegisterForm from "../RegisterForm/RegisterForm";
 import SuccessIcon from "../SuccessIcon/SuccessIcon";
+import "./LoginModal.css";
 
 export default class LoginModal extends React.Component {
   constructor(props) {

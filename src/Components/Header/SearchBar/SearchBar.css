@@ -65,10 +65,11 @@
   width: 0px;
 }
 
-/* refactor for MFD */
-@media screen and (max-width: 620px) {
+
+
+/* @media screen and (min-width: 620px) {
   .searchBox:hover > .searchInput {
     width: 100%;
     padding: 0 6px;
   }
-}
+} */

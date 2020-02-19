@@ -104,7 +104,6 @@ export default class ReviewForm extends Component {
   };
 
   render() {
-    console.log(this.state.validationMessages);
     return (
       <>
         <form className="ReviewForm" onSubmit={this.handleSubmit}>

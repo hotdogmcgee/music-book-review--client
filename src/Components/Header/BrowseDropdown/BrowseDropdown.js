@@ -78,7 +78,6 @@ export default class BrowseDropdown extends React.Component {
             <li onClick={this.handleBrowseClick}>
               <Link to="/category/authors">Authors</Link>
             </li>
-            {/* no publisher data at the moment */}
             <li onClick={this.handleBrowseClick}>
               <Link to="/category/publisher">Publisher</Link>
             </li>

@@ -29,7 +29,6 @@ const BooksApiService = {
     );
   },
 
-  //maybe make it so a user can view all reviews of a given user
   getAllUserReviews() {
     const user_id = TokenService.getUserId();
 

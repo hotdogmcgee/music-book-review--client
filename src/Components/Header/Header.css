@@ -4,132 +4,128 @@
 }
 
 .Header__nav {
-    height: 40px;
-    display: flex;
-    align-items: normal;
-    justify-content: space-between;
-    padding: 10px;
-    margin-bottom: 2rem;
+  height: 40px;
+  display: flex;
+  align-items: normal;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 2rem;
+}
 
+.Header__nav h1 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.Header__nav a {
+  color: #444;
+  text-decoration: none !important;
+}
+
+.Header__nav a:hover {
+  color: none !important;
+}
+
+.Header__tagline--wide {
+  opacity: 0.35;
+  margin-left: 10px;
+}
+
+.Header__tagline--narrow {
+  opacity: 0.35;
+  display: block;
+  text-align: center;
+  display: none;
+  margin-top: 10px;
+}
+
+.Header__not-logged-in {
+  display: flex;
+
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Header__not-logged-in h2 {
+  cursor: pointer;
+}
+
+.Header__not-logged-in a:last-child {
+  background: rgb(255, 121, 121);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  margin-left: 10px;
+}
+
+.Header__logged-in a {
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 5px 15px;
+  border-radius: 15px;
+}
+
+.Header__logged-in a:first-child {
+  margin-right: 3px;
+}
+
+.login-container {
+  display: flex;
+  text-align: end;
+  cursor: pointer;
+}
+
+.browse-and-search-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.show-dropdown {
+  box-shadow: -7px 8px 15px -3px rgba(0, 0, 0, 0.61);
+}
+
+.hide-dropdown {
+  display: none;
+}
+
+.Header__tagline--narrow {
+  display: inherit;
+}
+
+.Header__tagline--wide {
+  display: none;
+}
+
+@media screen and (min-width: 450px) {
+  .Header {
+    align-items: baseline;
   }
-  
-  .Header__nav h1 {
-    margin: 0;
-    font-size: 16px;
+
+  .Header h1 {
+    font-size: 22px;
   }
-  
-  .Header__nav a {
-    color: #444;
-    text-decoration: none !important;
+}
+
+@media screen and (max-width: 400px) {
+  .Header__logged-in a {
+    padding: 5px 10px;
+    font-size: 14px;
   }
-  
-  .Header__nav a:hover {
-    color: none !important;
-  }
-  
-  .Header__tagline--wide {
-    opacity: 0.35;
-    margin-left: 10px;
-  }
-  
+}
+
+@media screen and (min-width: 750px) {
   .Header__tagline--narrow {
-    opacity: 0.35;
+    display: none;
+  }
+  .Header__tagline--wide {
     display: block;
     text-align: center;
-    display: none;
-    margin-top: 10px;
+    width: 300px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
-  
-  .Header__not-logged-in {
-    display: flex;
-    
-    align-items: center;
-    justify-content: flex-end;
-  }
-
-  .Header__not-logged-in h2 {
-    cursor: pointer;
-  }
-  
-  .Header__not-logged-in a:last-child {
-    background: rgb(255, 121, 121);
-    color: white;
-    padding: 5px 15px;
-    border-radius: 15px;
-    margin-left: 10px;
-  }
-  
-  .Header__logged-in a {
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    padding: 5px 15px;
-    border-radius: 15px;
-  }
-  
-  .Header__logged-in a:first-child {
-    margin-right: 3px;
-  }
-
-  .login-container {
-    display: flex;
-    text-align: end;
-    cursor: pointer
-  }
-
-  .browse-and-search-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 70px;
-  }
-
-  .show-dropdown {
-    box-shadow: -7px 8px 15px -3px rgba(0,0,0,0.61);
-  }
-  
-  .hide-dropdown {
-    display: none;
-  }
-
-  .Header__tagline--narrow {
-    display: inherit;
-  }
-
-  .Header__tagline--wide {
-    display: none;
-  }
-  
-  @media screen and (min-width: 450px) {
-    .Header {
-      align-items: baseline;
-    }
-  
-    .Header h1 {
-      font-size: 22px;
-    }
-  }
-  
-  @media screen and (max-width: 400px) {
-    .Header__logged-in a {
-      padding: 5px 10px;
-      font-size: 14px;
-    }
-  }
-  
-  @media screen and (min-width: 750px) {
-
-
-    .Header__tagline--narrow {
-      display: none;
-    }
-    .Header__tagline--wide {
-      display: block;
-      text-align: center;
-      width: 300px;
-      position: absolute;
-      left: 0;
-      right: 0;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-  
+}

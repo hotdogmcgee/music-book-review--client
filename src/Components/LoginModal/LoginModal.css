@@ -12,7 +12,6 @@
   position: fixed;
   background: white;
   width: 80%;
-  /* height: auto; */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -58,13 +57,6 @@
   background-color: #d26e52;
 }
 
-@media screen and (min-height: 800px) {
-  .login-modal {
-    height: auto;
-    overflow-y: hidden;
-  }
-}
-
 .SuccessIcon__container {
   display: flex;
   align-items: center;
@@ -77,4 +69,11 @@
 .SuccessIcon__container > h2 {
   color: white;
   text-align: center;
+}
+
+@media screen and (min-height: 800px) {
+  .login-modal {
+    height: auto;
+    overflow-y: hidden;
+  }
 }

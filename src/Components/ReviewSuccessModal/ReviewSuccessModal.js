@@ -1,7 +1,7 @@
 import React from "react";
 import "./ReviewSuccessModal.css";
 import { Link } from "react-router-dom";
-import { Button } from '../Utils/Utils'
+import { Button } from "../Utils/Utils";
 
 export default class ReviewSuccessModal extends React.Component {
   constructor(props) {

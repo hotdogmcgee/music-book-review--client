@@ -2,6 +2,7 @@ import React from "react";
 import BookList from "../../Components/BookList/BookList";
 import FilterSortBar from "../../Components/FilterSortBar/FilterSortBar";
 import BookListContext from "../../Contexts/BookListContext";
+import { UnderConstruction } from "../../Components/Utils/Utils";
 import "./CategoryPage.css";
 
 export default class CategoryPage extends React.Component {
@@ -55,10 +56,6 @@ export default class CategoryPage extends React.Component {
       });
     }
 
-    if (!newList) {
-      return "";
-    }
-
     const instrument = this.props.match.params.instrument;
     const displayInstrumentName = instrument ? (
       <div className="instrument-view-reminder">
@@ -67,10 +64,18 @@ export default class CategoryPage extends React.Component {
     ) : (
       ""
     );
+
     return (
       <>
-        {displayInstrumentName} 
-        {newList.length ? (<><FilterSortBar /><BookList bookList={newList} /></>) : ""}
+        {displayInstrumentName}
+        {newList ? (
+          <>
+            <FilterSortBar />
+            <BookList bookList={newList} />
+          </>
+        ) : (
+          <UnderConstruction />
+        )}
       </>
     );
   };

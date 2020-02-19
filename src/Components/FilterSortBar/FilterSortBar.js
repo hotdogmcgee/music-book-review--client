@@ -115,7 +115,6 @@ export default class FilterSortBar extends React.Component {
     return (
       <ul className="options-list">
         {list.map((item, index) => {
-
           return (
             <li
               className={`option-list-item capitalize ${

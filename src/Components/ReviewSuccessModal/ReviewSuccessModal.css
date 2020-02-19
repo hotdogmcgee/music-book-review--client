@@ -1,5 +1,4 @@
 .review-success-modal {
-  /* height: 462px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +8,7 @@
 }
 
 .review-success-modal a {
-  padding: 20px;
-  /* text-decoration: none; */
-  color: black
+  padding: 25px;
+  font-size: 25px;
+  color: rgba(82, 96, 210, 1)
 }
