@@ -97,6 +97,10 @@
   display: none;
 }
 
+.menu-wide {
+  display: none;
+}
+
 @media screen and (min-width: 450px) {
   .Header {
     align-items: baseline;
@@ -121,11 +125,56 @@
   .Header__tagline--wide {
     display: block;
     text-align: center;
-    width: 300px;
+    font-size: 16px;
+    margin-left: auto;
+  }
+
+  .Header__nav h1 {
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 850px) {
+  .App__header {
+    margin-bottom: 100px;
+  }
+
+  .browse-and-search-container {
     position: absolute;
-    left: 0;
-    right: 0;
+    top: 0;
     margin-left: auto;
     margin-right: auto;
+    flex-direction: row-reverse;
+    width: 60%;
+    right: 0;
+    padding: 0 10px;
+  }
+
+  .dropdown {
+    height: 60px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+  }
+
+  .menu-wide {
+    display: block;
+    padding-top: 20px;
+  }
+
+  .menu-wide-list {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    background: #373a47;
+    padding: 20px;
+  }
+
+  .menu-wide-list-item {
+    padding: 0 20px;
+  }
+
+  .menu-wide-list-item:hover {
+    cursor: pointer;
   }
 }

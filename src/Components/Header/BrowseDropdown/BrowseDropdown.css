@@ -56,3 +56,9 @@
   right: 6px;
   top: 18px;
 }
+
+@media screen and (min-width: 850px) {
+  .button:before {
+    top: 24px
+  }
+}

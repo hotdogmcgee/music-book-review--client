@@ -51,7 +51,7 @@ export default class SearchBar extends React.Component {
   render() {
     const { searchValue } = this.context.filterObject || "";
 
-    const classes = searchValue ? "show-search" : "searchBox";
+    const classes = searchValue ? "show-search fade-in" : "searchBox fade-in";
     return (
       <form
         className={classes}

@@ -58,7 +58,6 @@ class App extends React.Component {
     this.setState({ showLoginModal: true });
   };
 
-
   hideModal = () => {
     this.setState({ showLoginModal: false });
   };
@@ -67,24 +66,36 @@ class App extends React.Component {
     return (
       <div className="App">
         <BurgerMenu showModal={this.showModal} hasLogin={this.hasLogin} />
-        <header className="App__header">
+        <div className="header-wrapper">
+          <header className="App__header">
+            {/* conditionally show search bar in Header by passing in a prop based on path */}
+            <Switch>
+              <Route
+                path={["/about", "/my-profile", "/book"]}
+                render={props => (
+                  <Header
+                    {...props}
+                    showSearchBar={false}
+                    hasLogin={this.hasLogin}
+                    showModal={this.showModal}
+                  />
+                )}
+              />
+              <Route
+                path={"*"}
+                render={props => (
+                  <Header
+                    {...props}
+                    showSearchBar={true}
+                    hasLogin={this.hasLogin}
+                    showModal={this.showModal}
+                  />
+                )}
+              />
+            </Switch>
+          </header>
+        </div>
 
-          {/* conditionally show search bar in Header by passing in a prop based on path */}
-          <Switch>
-            <Route
-              path={["/about", "/my-profile", "/book"]}
-              render={props => (
-                <Header {...props} showSearchBar={false} hasLogin={this.hasLogin} />
-              )}
-            />
-            <Route
-              path={"*"}
-              render={props => (
-                <Header {...props} showSearchBar={true} hasLogin={this.hasLogin} />
-              )}
-            />
-          </Switch>
-        </header>
         <main className="App__main">
           <Switch>
             <Route exact path={"/"} component={HomePage} />

@@ -41,6 +41,10 @@ export default class Header extends React.Component {
     this.props.hasLogin(false);
   };
 
+  handleLoginClick = () => {
+    this.props.showModal()
+  }
+
   renderLogoutLink() {
     return (
       <div className="Header__logged-in">
@@ -65,20 +69,62 @@ export default class Header extends React.Component {
     );
   }
 
-  renderBurgerMenu() {
-    return <BurgerMenu showModal={this.showModal} />;
+  renderLoginOrLogout = () => {
+    const link = TokenService.hasAuthToken() ? (
+      <Link onClick={this.handleLogoutClick} to="/" className="menu-item">
+        Logout
+      </Link>
+    ) : (
+      <div onClick={this.handleLoginClick} id="log-in" className="menu-item">
+        Log In/Register
+      </div>
+    );
+    return link;
+  };
+
+  renderMyProfileLink = () => {
+    const profileLink = TokenService.hasAuthToken() ? (
+      <Link className="menu-item" to="/my-profile">
+        My Profile
+      </Link>
+    ) : (
+      ""
+    );
+    return profileLink;
+  };
+
+  renderMenuWide() {
+    return (
+      <div className="menu-wide">
+        <ul className="menu-wide-list">
+          <li className="menu-wide-list-item">{this.renderLoginOrLogout()}</li>
+          <li className="menu-wide-list-item">{this.renderMyProfileLink()}</li>
+          <li className="menu-wide-list-item">
+            <Link to="/about" id="about" className="menu-item">
+              About
+            </Link>
+          </li>
+        </ul>
+      </div>
+    );
   }
+
+  // renderBurgerMenu() {
+  //   return <BurgerMenu showModal={this.showModal} />;
+  // }
 
   render() {
     return (
       <>
         <nav className="Header__nav">
-          <h1>
-            <Link to="/">Music Books Review</Link>
-          </h1>
-          <span className="Header__tagline--wide">
-            For Students, Educators, and Parents!
-          </span>
+          <div>
+            <h1>
+              <Link to="/">Music Books Review</Link>
+            </h1>
+            <span className="Header__tagline--wide">
+              For Students, Educators, and Parents!
+            </span>
+          </div>
         </nav>
         <span className="Header__tagline--narrow">
           For Students, Educators, and Parents!
@@ -98,6 +144,7 @@ export default class Header extends React.Component {
             <BrowseDropdown />
           </div>
         </div>
+        {this.renderMenuWide()}
       </>
     );
   }

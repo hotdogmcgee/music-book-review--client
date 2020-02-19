@@ -10,3 +10,17 @@
     width: 140px;
     margin: 10px;
 }
+
+@media screen and (min-width: 750px) {
+    .select-box {
+        height: 157px;
+        width: 220px
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .select-box {
+        height: 250px;
+        width: 350px
+    }
+}
