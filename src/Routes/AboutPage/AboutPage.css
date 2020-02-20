@@ -1,7 +1,19 @@
 .AboutPage {
-    margin: 0 20px;
+  padding: 0 20px;
 }
 
 .AboutPage p {
-    text-indent: 1em;
+  text-indent: 1em;
+}
+
+@media screen and (min-width: 950px) {
+  .AboutPage {
+    padding: 0 100px;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .AboutPage {
+    padding: 0 400px;
+  }
 }

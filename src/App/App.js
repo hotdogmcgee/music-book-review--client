@@ -126,7 +126,7 @@ class App extends React.Component {
             &copy; Kevin Robinson 2020
           </a>
         </footer>
-        <button class="scroll-top" data-scroll="up" type="button">
+        <button className="scroll-top" data-scroll="up" type="button">
           <span>Top</span>
         </button>
       </div>

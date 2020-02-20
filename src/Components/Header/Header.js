@@ -114,7 +114,7 @@ export default class Header extends React.Component {
         <nav className="Header__nav">
           <div>
             <h1>
-              <Link to="/">Music Books Review</Link>
+              <Link to="/">Music Book Reviews</Link>
             </h1>
             <span className="Header__tagline--wide">
               For Students, Educators, and Parents!

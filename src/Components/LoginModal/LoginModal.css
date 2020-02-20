@@ -51,6 +51,7 @@
 
 .modal-tab {
   width: 50%;
+  cursor: pointer;
 }
 
 .highlight {

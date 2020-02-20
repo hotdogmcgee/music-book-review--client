@@ -12,7 +12,7 @@ export default class AboutPage extends React.Component {
           </h2>
           <p>
             Music Book Reviews was created to answer a complicated question for
-            anyone involved in music education: which book should I get?
+            anyone involved in music education: which book should I get?  A particular inspiration for the app is that while the most popular instruction books have a healthy amount of reviews and insight, a great number of alternative resources have been pushed out of standard curricula and are perhaps underused.
           </p>
           <p>
             Knowing that every student is different means that one size does not
@@ -36,6 +36,31 @@ export default class AboutPage extends React.Component {
             As this project grows I intend to collate the opinions of music
             professionals for some of the more commonly used books.
           </p>
+        </section>
+
+        <section className="AboutPage__pipeline">
+          <h2>Features in development:</h2>
+          <ul>
+            <li>
+              <h3>Add a book</h3>
+              <p>Submit any book to the project.</p>
+            </li>
+
+            <li>
+              <h3>A more robust search engine</h3>
+              <p>The search engine will currently only search by title, I would like to give a user more flexibility with their search queries.</p>
+            </li>
+
+            <li>
+              <h3>Save to Favorites/Save for Later</h3>
+              <p>The "My Profile" page only displays things you have reviewed, but a major aspect of this site is finding books that you have yet to use.  This feature will certainly help.</p>
+            </li>
+
+            <li>
+              <h3>Price Comparison</h3>
+              <p>This app is designed for understanding a given book's content, but it would certainly be useful to check on pricing and availability as well.</p>
+            </li>
+          </ul>
         </section>
 
         <section className="AboutPage__about-me">

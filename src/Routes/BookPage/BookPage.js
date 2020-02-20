@@ -81,12 +81,10 @@ export default class BookPage extends React.Component {
 
     const { reviews } = this.context;
 
-    console.log(reviews);
-
     const roundedNumber = avg_rating ? avg_rating.toFixed(1) : 0;
 
     return (
-      <Section id="book">
+      <Section id="BookPage">
         <p>{image}</p>
         <div className="BookPage__book-info">
           <h3>{title}<span className="BookPage__authors-container-wide"> by <RenderAuthors authors={authors} /></span></h3>
