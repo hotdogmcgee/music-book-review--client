@@ -241,74 +241,116 @@ exports[`App component renders the UI as expected 1`] = `
       </div>
     </div>
   </div>
-  <header
-    className="App__header"
+  <div
+    className="header-wrapper"
   >
-    <nav
-      className="Header__nav"
+    <header
+      className="App__header"
     >
-      <h1>
-        <a
-          href="/"
-          onClick={[Function]}
-        >
-          Music Books Review
-        </a>
-      </h1>
+      <nav
+        className="Header__nav"
+      >
+        <div>
+          <h1>
+            <a
+              href="/"
+              onClick={[Function]}
+            >
+              Music Book Reviews
+            </a>
+          </h1>
+          <span
+            className="Header__tagline--wide"
+          >
+            For Students, Educators, and Parents!
+          </span>
+        </div>
+      </nav>
       <span
-        className="Header__tagline--wide"
+        className="Header__tagline--narrow"
       >
         For Students, Educators, and Parents!
       </span>
-    </nav>
-    <span
-      className="Header__tagline--narrow"
-    >
-      For Students, Educators, and Parents!
-    </span>
-    <div
-      className="browse-and-search-container"
-    >
       <div
-        className="search-bar-container"
-      >
-         
-        <form
-          className="searchBox"
-          onChange={[Function]}
-          onMouseEnter={[Function]}
-          onMouseLeave={[Function]}
-          onSubmit={[Function]}
-        >
-          <input
-            className="searchInput"
-            name=""
-            placeholder="Search"
-            type="text"
-          />
-          <button
-            className="searchButton"
-            href="#"
-          />
-        </form>
-         
-      </div>
-      <div
-        className="show-dropdown"
+        className="browse-and-search-container"
       >
         <div
-          className="dropdown"
+          className="search-bar-container"
+        >
+           
+          <form
+            className="searchBox fade-in"
+            onChange={[Function]}
+            onMouseEnter={[Function]}
+            onMouseLeave={[Function]}
+            onSubmit={[Function]}
+          >
+            <input
+              className="searchInput"
+              name=""
+              placeholder="Search"
+              type="text"
+            />
+            <button
+              className="searchButton"
+              href="#"
+            />
+          </form>
+           
+        </div>
+        <div
+          className="show-dropdown"
         >
           <div
-            className="button"
-            onClick={[Function]}
+            className="dropdown"
           >
-            Browse
+            <div
+              className="button"
+              onClick={[Function]}
+            >
+              Browse
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
+      <div
+        className="menu-wide"
+      >
+        <ul
+          className="menu-wide-list"
+        >
+          <li
+            className="menu-wide-list-item"
+          >
+            <div
+              className="menu-item"
+              id="log-in"
+              onClick={[Function]}
+            >
+              Log In/Register
+            </div>
+          </li>
+          <li
+            className="menu-wide-list-item"
+          >
+            
+          </li>
+          <li
+            className="menu-wide-list-item"
+          >
+            <a
+              className="menu-item"
+              href="/about"
+              id="about"
+              onClick={[Function]}
+            >
+              About
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+  </div>
   <main
     className="App__main"
   >
@@ -336,128 +378,7 @@ exports[`App component renders the UI as expected 1`] = `
           </h2>
           <section
             className="Section select-boxes"
-          >
-            <div
-              className="select-box"
-            >
-              <div
-                className="InstrumentCard"
-              >
-                <a
-                  href="/category/instrument/guitar"
-                  onClick={[Function]}
-                >
-                  <div
-                    className="img-wrap"
-                  >
-                    <img
-                      alt="guitar"
-                      src="guitar.jpg"
-                    />
-                  </div>
-                  <div
-                    className="InstrumentCard__title"
-                  >
-                    <h2
-                      className="capitalize"
-                    >
-                      guitar
-                    </h2>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div
-              className="select-box"
-            >
-              <div
-                className="InstrumentCard"
-              >
-                <a
-                  href="/category/instrument/piano"
-                  onClick={[Function]}
-                >
-                  <div
-                    className="img-wrap"
-                  >
-                    <img
-                      alt="piano"
-                      src="piano.jpg"
-                    />
-                  </div>
-                  <div
-                    className="InstrumentCard__title"
-                  >
-                    <h2
-                      className="capitalize"
-                    >
-                      piano
-                    </h2>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div
-              className="select-box"
-            >
-              <div
-                className="InstrumentCard"
-              >
-                <a
-                  href="/category/instrument/clarinet"
-                  onClick={[Function]}
-                >
-                  <div
-                    className="img-wrap"
-                  >
-                    <img
-                      alt="clarinet"
-                      src="clarinet.jpg"
-                    />
-                  </div>
-                  <div
-                    className="InstrumentCard__title"
-                  >
-                    <h2
-                      className="capitalize"
-                    >
-                      clarinet
-                    </h2>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div
-              className="select-box"
-            >
-              <div
-                className="InstrumentCard"
-              >
-                <a
-                  href="/category/instrument/violin"
-                  onClick={[Function]}
-                >
-                  <div
-                    className="img-wrap"
-                  >
-                    <img
-                      alt="violin"
-                      src="violin.jpg"
-                    />
-                  </div>
-                  <div
-                    className="InstrumentCard__title"
-                  >
-                    <h2
-                      className="capitalize"
-                    >
-                      violin
-                    </h2>
-                  </div>
-                </a>
-              </div>
-            </div>
-          </section>
+          />
         </div>
       </section>
     </section>
@@ -555,5 +476,14 @@ exports[`App component renders the UI as expected 1`] = `
       © Kevin Robinson 2020
     </a>
   </footer>
+  <button
+    className="scroll-top"
+    data-scroll="up"
+    type="button"
+  >
+    <span>
+      Top
+    </span>
+  </button>
 </div>
 `;

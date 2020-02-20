@@ -10,11 +10,11 @@ exports[`ReviewSuccessModal component renders a ReviewSuccessModal by default 1`
     <Link
       to="/"
     >
-      Back to Home Page
+      Go to Home Page
     </Link>
-    <button>
+    <Button>
       Close
-    </button>
+    </Button>
   </section>
 </div>
 `;

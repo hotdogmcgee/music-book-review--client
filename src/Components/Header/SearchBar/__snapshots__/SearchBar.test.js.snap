@@ -2,7 +2,7 @@
 
 exports[`SearchBar component renders a SearchBar by default 1`] = `
 <form
-  className="searchBox"
+  className="searchBox fade-in"
   onChange={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}

@@ -2,7 +2,7 @@
 
 exports[`RegisterForm component renders a RegisterForm by default 1`] = `
 <form
-  className="RegistrationForm"
+  className="RegisterForm"
   onSubmit={[Function]}
 >
   <div
@@ -12,14 +12,14 @@ exports[`RegisterForm component renders a RegisterForm by default 1`] = `
     className="full_name"
   >
     <label
-      htmlFor="RegistrationForm__full_name"
+      htmlFor="RegisterForm__full_name"
     >
       Full name 
       <Required />
     </label>
     <Input
       autoComplete="off"
-      id="RegistrationForm__full_name"
+      id="RegisterForm__full_name"
       name="full_name"
       onChange={[Function]}
       required={true}
@@ -34,14 +34,14 @@ exports[`RegisterForm component renders a RegisterForm by default 1`] = `
     className="user_name"
   >
     <label
-      htmlFor="RegistrationForm__user_name"
+      htmlFor="RegisterForm__user_name"
     >
       User name 
       <Required />
     </label>
     <Input
       autoComplete="off"
-      id="RegistrationForm__user_name"
+      id="RegisterForm__user_name"
       name="user_name"
       onChange={[Function]}
       required={true}
@@ -56,13 +56,13 @@ exports[`RegisterForm component renders a RegisterForm by default 1`] = `
     className="password"
   >
     <label
-      htmlFor="RegistrationForm__password"
+      htmlFor="RegisterForm__password"
     >
       Password 
       <Required />
     </label>
     <Input
-      id="RegistrationForm__password"
+      id="RegisterForm__password"
       name="password"
       onChange={[Function]}
       required={true}
@@ -77,14 +77,14 @@ exports[`RegisterForm component renders a RegisterForm by default 1`] = `
     className="repeat_password"
   >
     <label
-      htmlFor="RegistrationForm__repeat_password"
+      htmlFor="RegisterForm__repeat_password"
     >
       Confirm password 
       <Required />
     </label>
     <Input
       autoComplete="off"
-      id="RegistrationForm__repeat-password"
+      id="RegisterForm__repeat-password"
       name="repeat_password"
       onChange={[Function]}
       required={true}
@@ -99,13 +99,13 @@ exports[`RegisterForm component renders a RegisterForm by default 1`] = `
     className="email"
   >
     <label
-      htmlFor="RegistrationForm__email"
+      htmlFor="RegisterForm__email"
     >
       Email 
       <Required />
     </label>
     <Input
-      id="RegistrationForm__email"
+      id="RegisterForm__email"
       name="email"
       onChange={[Function]}
       required={true}

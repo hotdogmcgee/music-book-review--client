@@ -15,6 +15,7 @@ exports[`ReviewForm component renders a ReviewForm by default 1`] = `
         cols="20"
         id="text"
         name="text"
+        onChange={[Function]}
         placeholder="Type a review.."
         required={true}
         rows="5"
@@ -29,7 +30,7 @@ exports[`ReviewForm component renders a ReviewForm by default 1`] = `
         Rate this book!
       </label>
       <select
-        aria-label="Rate this thing!"
+        aria-label="Rate this book!"
         id="rating"
         name="rating"
         required={true}
@@ -67,5 +68,10 @@ exports[`ReviewForm component renders a ReviewForm by default 1`] = `
       Post review
     </Button>
   </form>
+  <ErrorModal
+    error=""
+    handleClose={[Function]}
+    show={false}
+  />
 </Fragment>
 `;

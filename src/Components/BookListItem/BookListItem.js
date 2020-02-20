@@ -61,8 +61,11 @@ function RenderAuthors({ authors }) {
   });
 }
 
-function Truncate(text) {
+function Truncate(text="") {
+
+
   const words = text.split(" ");
+
 
   if (words.length > 10) {
     return words.slice(0, 20).join(" ") + " ...";

@@ -5,18 +5,20 @@ exports[`Header component renders a Header by default 1`] = `
   <nav
     className="Header__nav"
   >
-    <h1>
-      <Link
-        to="/"
+    <div>
+      <h1>
+        <Link
+          to="/"
+        >
+          Music Book Reviews
+        </Link>
+      </h1>
+      <span
+        className="Header__tagline--wide"
       >
-        Music Books Review
-      </Link>
-    </h1>
-    <span
-      className="Header__tagline--wide"
-    >
-      For Students, Educators, and Parents!
-    </span>
+        For Students, Educators, and Parents!
+      </span>
+    </div>
   </nav>
   <span
     className="Header__tagline--narrow"
@@ -44,6 +46,39 @@ exports[`Header component renders a Header by default 1`] = `
       />
     </div>
   </div>
+  <div
+    className="menu-wide"
+  >
+    <ul
+      className="menu-wide-list"
+    >
+      <li
+        className="menu-wide-list-item"
+      >
+        <div
+          className="menu-item"
+          id="log-in"
+          onClick={[Function]}
+        >
+          Log In/Register
+        </div>
+      </li>
+      <li
+        className="menu-wide-list-item"
+      />
+      <li
+        className="menu-wide-list-item"
+      >
+        <Link
+          className="menu-item"
+          id="about"
+          to="/about"
+        >
+          About
+        </Link>
+      </li>
+    </ul>
+  </div>
 </Fragment>
 `;
 
@@ -52,19 +87,21 @@ Array [
   <nav
     className="Header__nav"
   >
-    <h1>
-      <a
-        href="/"
-        onClick={[Function]}
+    <div>
+      <h1>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Music Book Reviews
+        </a>
+      </h1>
+      <span
+        className="Header__tagline--wide"
       >
-        Music Books Review
-      </a>
-    </h1>
-    <span
-      className="Header__tagline--wide"
-    >
-      For Students, Educators, and Parents!
-    </span>
+        For Students, Educators, and Parents!
+      </span>
+    </div>
   </nav>,
   <span
     className="Header__tagline--narrow"
@@ -95,6 +132,42 @@ Array [
         </div>
       </div>
     </div>
+  </div>,
+  <div
+    className="menu-wide"
+  >
+    <ul
+      className="menu-wide-list"
+    >
+      <li
+        className="menu-wide-list-item"
+      >
+        <div
+          className="menu-item"
+          id="log-in"
+          onClick={[Function]}
+        >
+          Log In/Register
+        </div>
+      </li>
+      <li
+        className="menu-wide-list-item"
+      >
+        
+      </li>
+      <li
+        className="menu-wide-list-item"
+      >
+        <a
+          className="menu-item"
+          href="/about"
+          id="about"
+          onClick={[Function]}
+        >
+          About
+        </a>
+      </li>
+    </ul>
   </div>,
 ]
 `;
