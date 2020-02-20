@@ -11,7 +11,6 @@
 
 .book-list-item {
   display: flex;
-  justify-content: space-between;
   margin-top: 0;
   margin-bottom: 20px;
 }

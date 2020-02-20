@@ -1,5 +1,5 @@
 import React from "react";
-import { Section, Hyph } from "../../Components/Utils/Utils";
+import { Section, Hyph, NiceDate } from "../../Components/Utils/Utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BookStarRating } from "../../Components/BookStarRating/BookStarRating";
 import BookContext from "../../Contexts/BookContext";
@@ -81,21 +81,23 @@ export default class BookPage extends React.Component {
 
     const { reviews } = this.context;
 
+    console.log(reviews);
+
     const roundedNumber = avg_rating ? avg_rating.toFixed(1) : 0;
 
     return (
       <Section id="book">
         <p>{image}</p>
         <div className="BookPage__book-info">
-          <h3>{title}</h3>
+          <h3>{title}<span className="BookPage__authors-container-wide"> by <RenderAuthors authors={authors} /></span></h3>
 
           <div className="BookPage__authors-container">
-            {authors ? <RenderAuthors authors={authors} /> : "no authors!"}
+            by {authors ? <RenderAuthors authors={authors} /> : "no authors!"}
           </div>
 
           {/* make this a link to view instrument type? */}
           <p className="capitalize">{instrument}</p>
-          <p>{description}</p>
+          <p className="BookPage__description">{description}</p>
         </div>
         <div className="BookPage__ratings-container">
           <BookStarRating rating={roundedNumber} />
@@ -151,6 +153,8 @@ function BookReviews({ reviews = [] }) {
             <BookStarRating rating={review.rating} />
             <Hyph />
             {review.user.full_name}
+            <Hyph />
+            <NiceDate date={review.date_created} />
           </p>
         </li>
       ))}

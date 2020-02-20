@@ -8,6 +8,7 @@
     <meta name="description" content="Music book review app" />
 
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <title>Music Book Review</title>
   </head>
@@ -15,4 +16,21 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
+  <script>$(document).ready(function () {
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 100) {
+        $('.scroll-top').fadeIn();
+      } else {
+        $('.scroll-top').fadeOut();
+      }
+    });
+  
+    $('.scroll-top').click(function () {
+      $("html, body").animate({
+        scrollTop: 0
+      }, 100);
+        return false;
+    });
+  
+  });</script>
 </html>

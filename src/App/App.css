@@ -6,6 +6,9 @@
 .App__main {
   padding-bottom: 4rem;
   font-family: Montserrat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 body {
   background: linear-gradient(

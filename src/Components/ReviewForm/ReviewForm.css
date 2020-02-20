@@ -1,3 +1,7 @@
+.ReviewForm {
+  text-align: center;
+}
+
 .ReviewForm select,
 .ReviewForm label {
   font-size: 1.1em;
@@ -17,4 +21,10 @@
 
 .ReviewForm__textarea {
   width: calc(80vw);
+}
+
+@media screen and (min-width: 850px) {
+  .ReviewForm__textarea {
+    width: calc(60vw);
+  }
 }

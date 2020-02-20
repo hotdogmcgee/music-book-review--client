@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar/SearchBar";
 import BrowseDropdown from "./BrowseDropdown/BrowseDropdown.js";
 import TokenService from "../../services/token-service";
-import BurgerMenu from "./BurgerMenu/BurgerMenu";
 import BookListContext from "../../Contexts/BookListContext";
 import "./Header.css";
 
@@ -108,10 +107,6 @@ export default class Header extends React.Component {
       </div>
     );
   }
-
-  // renderBurgerMenu() {
-  //   return <BurgerMenu showModal={this.showModal} />;
-  // }
 
   render() {
     return (

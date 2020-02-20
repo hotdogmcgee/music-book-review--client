@@ -31,5 +31,31 @@ h1 {
   font-family: Laila;
 }
 
+.scroll-top {
+  width: 45px;
+  height: 45px;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  display: none;
+  background-color: #ff5e45;
+}
+
+.scroll-top span {
+  display: inline-block;
+  color: #fff;
+  font-size: 16px;
+}
+
+.scroll-top:hover {
+    cursor: pointer;
+}
+
+@media screen and (min-width: 850px) {
+  html {
+    overflow-y: scroll;
+  }
+}
+
 
 

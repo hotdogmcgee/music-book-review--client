@@ -23,3 +23,10 @@
 .InstrumentCard a {
   text-decoration: none;
 }
+
+@media screen and (min-width: 1000px) {
+  .InstrumentCard__title {
+    font-size: 30px;
+    text-shadow: 3px 3px black;
+  }
+}

@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 20px;
 }
 
 .BookPage__book-info {
-  padding: 20px;
   width: 100%;
 }
 
@@ -14,8 +14,9 @@
 }
 .BookPage__review-list {
   list-style: none;
-  padding-left: 30px;
+  padding-left: 0;
 }
+
 
 .BookPage__ratings-container {
   font-size: 16px;
@@ -28,6 +29,11 @@
 .BookPage__review {
   display: flex;
   flex-direction: column;
+  border-bottom: 1px dotted black;
+}
+
+.BookPage__review:last-child {
+  border-bottom: none
 }
 
 .BookPage__review-user {
@@ -39,5 +45,33 @@
 }
 
 .BookPage__reviews-container {
-  width: 100%;
+  width: calc(80vw);
+}
+
+.BookPage__authors-container-wide {
+  display: none;
+}
+
+@media screen and (min-width: 850px) {
+  #book {
+    padding: 0 100px;
+  }
+
+  .BookPage__description {
+    line-height: 1.5em;
+  }
+
+  .BookPage__book-info h3 {
+    font-size: 28px
+  }
+
+  .BookPage__authors-container-wide {
+    display: block;
+    font-size: 12px;
+    margin-top: 3px
+  }
+
+  .BookPage__authors-container {
+    display: none;
+  }
 }

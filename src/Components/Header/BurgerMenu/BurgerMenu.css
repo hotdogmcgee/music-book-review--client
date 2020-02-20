@@ -89,6 +89,12 @@
   outline: none;
 }
 
+@media screen and (min-width: 750px) {
+  #burger-menu {
+    width: 33vw !important
+  }
+}
+
 @media screen and (min-width: 850px) {
   #burger-menu {
      display: none;

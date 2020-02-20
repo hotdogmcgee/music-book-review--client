@@ -37,7 +37,7 @@ export default class LoginModal extends React.Component {
 
     this.props.hasLogin(true);
     this.setLoginSuccess();
-    setTimeout(() => showAfterSuccess(), 3000);
+    setTimeout(() => showAfterSuccess(), 2000);
   };
 
   handleRegisterSuccess = () => {
@@ -50,7 +50,7 @@ export default class LoginModal extends React.Component {
 
     this.props.hasLogin(true);
     this.setLoginSuccess();
-    setTimeout(() => showAfterSuccess(), 3000);
+    setTimeout(() => showAfterSuccess(), 2000);
   };
 
   renderSuccessIcon() {

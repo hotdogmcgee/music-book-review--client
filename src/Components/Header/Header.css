@@ -142,8 +142,6 @@
   .browse-and-search-container {
     position: absolute;
     top: 0;
-    margin-left: auto;
-    margin-right: auto;
     flex-direction: row-reverse;
     width: 60%;
     right: 0;
@@ -176,5 +174,16 @@
 
   .menu-wide-list-item:hover {
     cursor: pointer;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .browse-and-search-container {
+    width: 56%
+  }
+
+  .dropdown > .button {
+    font-size: 22px;
+    height: 50px;
   }
 }
