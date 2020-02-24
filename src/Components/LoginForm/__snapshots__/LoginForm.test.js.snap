@@ -42,7 +42,9 @@ exports[`LoginForm component renders a LoginForm by default 1`] = `
     >
       Login
     </Button>
-    <Button>
+    <Button
+      type="button"
+    >
       Close
     </Button>
   </section>

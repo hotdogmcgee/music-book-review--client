@@ -126,7 +126,9 @@ exports[`RegisterForm component renders a RegisterForm by default 1`] = `
     >
       Register
     </Button>
-    <Button>
+    <Button
+      type="button"
+    >
       Close
     </Button>
   </section>

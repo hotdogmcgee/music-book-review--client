@@ -373,6 +373,17 @@ exports[`App component renders the UI as expected 1`] = `
               Add your own reviews to grow the project!
             </p>
           </section>
+          <section
+            className="Section HomePage__how-to"
+          >
+            <button
+              className="Button show-how-to-button"
+              onClick={[Function]}
+            >
+              How do I use this app?
+            </button>
+            
+          </section>
           <h2>
             Instrument select
           </h2>
@@ -457,6 +468,7 @@ exports[`App component renders the UI as expected 1`] = `
             <button
               className="Button "
               onClick={[Function]}
+              type="button"
             >
               Close
             </button>
