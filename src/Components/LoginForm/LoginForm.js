@@ -50,7 +50,7 @@ export default class LoginForm extends Component {
         </div>
         <section className="login-form-buttons">
           <Button type="submit">Login</Button>
-          <Button onClick={this.props.handleClose}>Close</Button>
+          <Button onClick={this.props.handleClose} type="button">Close</Button>
         </section>
       </form>
     );

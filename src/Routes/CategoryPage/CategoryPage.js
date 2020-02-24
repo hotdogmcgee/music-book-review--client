@@ -88,8 +88,8 @@ export default class CategoryPage extends React.Component {
     const sortFunc = function(a, b) {
       let thingA, thingB;
       if (sortValue === "authors") {
-        thingA = a[sortValue][0].last_name.toUpperCase();
-        thingB = b[sortValue][0].last_name.toUpperCase();
+        thingA = a[sortValue][0].last_name.toUpperCase()
+        thingB = b[sortValue][0].last_name.toUpperCase()
       } else {
         thingA = a[sortValue].toUpperCase();
         thingB = b[sortValue].toUpperCase();

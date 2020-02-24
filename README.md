@@ -26,7 +26,7 @@ Look at a book and submit a review
 
 ## How to use the app
 
-To use full functionality of app you must login or register.  A testing username has been provided, please look at the how-to section of the app itself.
+To use full functionality of app you must login or register.  A testing username has been provided, please click on "How do I use this app?" on the home page.
 
 ## Technology Used
 

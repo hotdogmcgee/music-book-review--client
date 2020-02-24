@@ -370,7 +370,7 @@ export default class RegisterForm extends React.Component {
           >
             Register
           </Button>
-          <Button onClick={this.props.handleClose}>Close</Button>
+          <Button onClick={this.props.handleClose} type="button">Close</Button>
         </section>
       </form>
     );

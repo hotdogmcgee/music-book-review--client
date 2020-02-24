@@ -12,3 +12,31 @@
 .HomePage__hero {
   margin: 0 20px;
 }
+
+.HomePage__how-to {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.HomePage__how-to > div {
+  border: 1px solid #ff5e45;
+  color: white;
+  background-color: #373a47;
+  margin: 20px
+}
+
+.HomePage__how-to > button {
+  margin-top: 1em;
+  max-width: 60%;
+}
+
+@media screen and (min-width: 900px) {
+  .HomePage__how-to > button {
+    max-width: 400px;
+  }
+
+  .HomePage__how-to > div {
+    padding: 20px;
+  }
+}

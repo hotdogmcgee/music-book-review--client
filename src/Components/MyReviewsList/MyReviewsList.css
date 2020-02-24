@@ -4,7 +4,7 @@
 }
 
 #my-reviews-list {
-  width: 80vw;
+  width: 90vw;
   padding: 0;
 }
 
@@ -21,6 +21,7 @@
 
 .my-reviews-item-book-info {
   text-align: left;
+  max-width: 75%;
 }
 .my-reviews-item-data {
   display: flex;
@@ -31,4 +32,10 @@
 
 .authors-container {
   font-size: 12px;
+}
+
+@media screen and (min-width: 1000px) {
+  #my-reviews-list {
+    width: 70vw;
+  }
 }
