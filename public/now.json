@@ -2,14 +2,7 @@
   "version": 2,
   "alias": "music-book-review-app",
   "routes": [
-    {
-      "src": "^/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": ".*",
-      "dest": "/index.html"
-    },
-    { "src": "/manifest.json", "dest": "/manifest.json" }
-  ]
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+]
 }
