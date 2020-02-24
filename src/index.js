@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App/App.js";
+import * as serviceWorker from './serviceWorker'
 import { BookListProvider } from "./Contexts/BookListContext";
 import { BookProvider } from "./Contexts/BookContext";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -25,3 +26,5 @@ ReactDOM.render(
   </BrowserRouter>,
   document.getElementById("root")
 );
+
+serviceWorker.unregister();
