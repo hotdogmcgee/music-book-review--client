@@ -5,15 +5,17 @@ import toJson from "enzyme-to-json";
 
 describe("CategoryPage component", () => {
   it("renders a CategoryPage by default", () => {
-      const context = {  filterObject: {
+    const context = {
+      filterObject: {
         searchValue: "",
         browseValue: "",
         instrumentValue: "",
         filterValue: "",
         sortValue: "",
         listSorted: false
-      }}
-    const wrapper = shallow(<CategoryPage />, { context }) ;
+      }
+    };
+    const wrapper = shallow(<CategoryPage />, { context });
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

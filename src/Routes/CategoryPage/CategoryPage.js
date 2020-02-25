@@ -3,7 +3,6 @@ import BookList from "../../Components/BookList/BookList";
 import FilterSortBar from "../../Components/FilterSortBar/FilterSortBar";
 import BookListContext from "../../Contexts/BookListContext";
 import { UnderConstruction } from "../../Components/Utils/Utils";
-import propTypes from 'prop-types'
 import "./CategoryPage.css";
 
 export default class CategoryPage extends React.Component {
@@ -33,7 +32,7 @@ export default class CategoryPage extends React.Component {
   }
 
   renderBooks = () => {
-    const { savedList = [], filterObject } = this.context;
+    const { savedList = [], filterObject = {} } = this.context;
 
     const {
       searchValue,
@@ -54,11 +53,13 @@ export default class CategoryPage extends React.Component {
     }
 
     if (searchValue !== "") {
-      newList = newList.filter(book => {
-        const lc = book.title.toLowerCase();
-        const filter = searchValue.toLowerCase();
-        return lc.includes(filter);
-      });
+      newList = newList
+        ? newList.filter(book => {
+            const lc = book.title.toLowerCase();
+            const filter = searchValue.toLowerCase();
+            return lc.includes(filter);
+          })
+        : [];
     }
 
     const instrument = this.props.match.params.instrument;
@@ -157,8 +158,4 @@ export default class CategoryPage extends React.Component {
   render() {
     return <>{this.renderBooks()}</>;
   }
-}
-
-CategoryPage.contextTypes = {
-  filterObject: propTypes.object
 }

@@ -4,6 +4,7 @@
 }
 
 .App__main {
+  padding-top: 200px;
   padding-bottom: 4rem;
   font-family: Montserrat;
   display: flex;

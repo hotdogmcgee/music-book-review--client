@@ -25,6 +25,8 @@ export default class BookPage extends React.Component {
 
   static contextType = BookContext;
 
+  
+
   componentDidMount() {
     const { bookId } = this.props.match.params;
     BooksApiService.getBook(bookId)
@@ -159,7 +161,7 @@ function BookReviews({ reviews = [] }) {
   );
 }
 
-function RenderAuthors({ authors }) {
+function RenderAuthors({ authors=[] }) {
   return authors.map((author, key) => {
     const commaSpace = key < authors.length - 1 ? ", " : "";
 

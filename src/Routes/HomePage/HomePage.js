@@ -4,7 +4,6 @@ import { Section, Button } from "../../Components/Utils/Utils";
 import BookListContext from "../../Contexts/BookListContext";
 import BookList from "../../Components/BookList/BookList";
 import CardList from "../../Components/CardList/CardList";
-import propTypes from 'prop-types'
 
 class HomePage extends React.Component {
   state = {
@@ -14,7 +13,7 @@ class HomePage extends React.Component {
   static contextType = BookListContext;
 
   makeInstrumentList = () => {
-    const { bookList } = this.context;
+    const { bookList = [] } = this.context;
     let instrumentCount = {};
 
     const instruments = bookList.map(item => item.instrument);
@@ -42,21 +41,25 @@ class HomePage extends React.Component {
   };
 
   toggleHowToClick = () => {
-    this.setState({ showHowTo: !this.state.showHowTo})
-  }
+    this.setState({ showHowTo: !this.state.showHowTo });
+  };
 
   renderHowToSection = () => {
     return (
       <div className="fade-in">
-        <h4>Use this login if you would like to test things out.  You must be logged in to submit reviews.</h4>
+        <h4>
+          Use this login if you would like to test things out. You must be
+          logged in to submit reviews.
+        </h4>
         <p>Username: Testuser</p>
         <p>Password: 1!Password</p>
       </div>
-    )
-  }
+    );
+  };
   renderBookListOrCardList = () => {
     const instrumentList = this.makeInstrumentList();
-    const searchValue = this.context.filterObject.searchValue || "";
+    const { filterObject = {} } = this.context;
+    const searchValue = filterObject.searchValue || "";
 
     let newList = this.context.bookList;
     if (searchValue.length > 0) {
@@ -79,7 +82,12 @@ class HomePage extends React.Component {
             </p>
           </Section>
           <Section className="HomePage__how-to">
-            <Button className="show-how-to-button" onClick={this.toggleHowToClick}>How do I use this app?</Button>
+            <Button
+              className="show-how-to-button"
+              onClick={this.toggleHowToClick}
+            >
+              How do I use this app?
+            </Button>
             {this.state.showHowTo ? this.renderHowToSection() : ""}
           </Section>
           <h2>Instrument select</h2>
@@ -98,11 +106,6 @@ class HomePage extends React.Component {
       </section>
     );
   }
-}
-
-HomePage.contextTypes = {
-  bookList: propTypes.array,
-  filterObject: propTypes.object
 }
 
 export default HomePage;

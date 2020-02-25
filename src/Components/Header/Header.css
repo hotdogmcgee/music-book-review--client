@@ -1,5 +1,11 @@
+.header-wrapper {
+  position: fixed;
+  background-color: rgba( 0, 19, 31);
+  background-image: url('../../Assets/asfalt-light.png');
+  width: 100%;
+}
+
 .App__header {
-  margin-bottom: 1rem;
   font-family: Laila;
 }
 
@@ -9,7 +15,7 @@
   align-items: normal;
   justify-content: space-between;
   padding: 10px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .Header__nav h1 {
@@ -18,8 +24,9 @@
 }
 
 .Header__nav a {
-  color: #444;
+  color: rgb(167, 164, 164);
   text-decoration: none !important;
+  text-shadow: 1px 1px #ff5e45;
 }
 
 .Header__nav a:hover {
@@ -27,16 +34,18 @@
 }
 
 .Header__tagline--wide {
-  opacity: 0.35;
+  opacity: 0.4;
   margin-left: 10px;
+  color: white
 }
 
 .Header__tagline--narrow {
-  opacity: 0.35;
+  opacity: 0.4;
   display: block;
   text-align: center;
   display: none;
   margin-top: 10px;
+  color: white
 }
 
 .Header__not-logged-in {
@@ -135,9 +144,9 @@
 }
 
 @media screen and (min-width: 850px) {
-  .App__header {
+  /* .App__header {
     margin-bottom: 100px;
-  }
+  } */
 
   .browse-and-search-container {
     position: absolute;
@@ -166,6 +175,7 @@
     justify-content: flex-end;
     background: #373a47;
     padding: 20px;
+    margin-bottom: 0;
   }
 
   .menu-wide-list-item {
