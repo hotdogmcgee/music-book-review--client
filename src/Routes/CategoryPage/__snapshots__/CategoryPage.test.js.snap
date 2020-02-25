@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryPage component renders a CategoryPage by default 1`] = `
+<Fragment>
+  <FilterSortBar />
+  <BookList
+    bookList={Array []}
+  />
+</Fragment>
+`;

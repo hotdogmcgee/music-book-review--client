@@ -27,6 +27,11 @@ exports[`BookList component renders a BookListItem by default 1`] = `
     >
       no authors!
     </div>
+    <p
+      className="publisher-details"
+    >
+      : 
+    </p>
     <p />
   </div>
   <div
@@ -86,6 +91,11 @@ exports[`BookList component renders the BookListItem given props 1`] = `
         }
       />
     </div>
+    <p
+      className="publisher-details"
+    >
+      : 
+    </p>
     <p />
   </div>
   <div

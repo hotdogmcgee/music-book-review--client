@@ -3,6 +3,7 @@ import BookList from "../../Components/BookList/BookList";
 import FilterSortBar from "../../Components/FilterSortBar/FilterSortBar";
 import BookListContext from "../../Contexts/BookListContext";
 import { UnderConstruction } from "../../Components/Utils/Utils";
+import propTypes from 'prop-types'
 import "./CategoryPage.css";
 
 export default class CategoryPage extends React.Component {
@@ -15,6 +16,9 @@ export default class CategoryPage extends React.Component {
     this.handleSortOption = this.handleSortOption.bind(this);
   }
 
+  static defaultProps = {
+    match: { params: {} }
+  };
   static contextType = BookListContext;
 
   componentDidMount() {
@@ -44,6 +48,7 @@ export default class CategoryPage extends React.Component {
     if (instrumentValue !== "") {
       newList = this.handleFilterInstrument(instrumentValue, currentList);
     }
+
     if (sortValue !== "") {
       newList = this.handleSortOption(sortValue, newList, listSorted);
     }
@@ -88,8 +93,8 @@ export default class CategoryPage extends React.Component {
     const sortFunc = function(a, b) {
       let thingA, thingB;
       if (sortValue === "authors") {
-        thingA = a[sortValue][0].last_name.toUpperCase()
-        thingB = b[sortValue][0].last_name.toUpperCase()
+        thingA = a[sortValue][0].last_name.toUpperCase();
+        thingB = b[sortValue][0].last_name.toUpperCase();
       } else {
         thingA = a[sortValue].toUpperCase();
         thingB = b[sortValue].toUpperCase();
@@ -123,6 +128,9 @@ export default class CategoryPage extends React.Component {
         case "title":
           newList = list.sort(sortFunc);
           break;
+        case "publisher":
+          newList = list.sort(sortFunc);
+          break;
         case "rating":
           newList = list.sort((a, b) => {
             return b.avg_rating - a.avg_rating;
@@ -149,4 +157,8 @@ export default class CategoryPage extends React.Component {
   render() {
     return <>{this.renderBooks()}</>;
   }
+}
+
+CategoryPage.contextTypes = {
+  filterObject: propTypes.object
 }

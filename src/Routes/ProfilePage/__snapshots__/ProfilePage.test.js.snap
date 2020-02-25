@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfilePage component renders a ProfilePage by default 1`] = `
+<Section
+  id="profile-page"
+>
+  <section>
+    <div
+      className="profile-stats"
+    >
+      <p>
+        Date Joined: 
+        <NiceDate
+          date={null}
+        />
+      </p>
+      <p>
+        Number of Reviews: 
+        0
+      </p>
+    </div>
+  </section>
+  <MyReviewsList
+    reviews={Array []}
+  />
+</Section>
+`;

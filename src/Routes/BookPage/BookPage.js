@@ -27,7 +27,6 @@ export default class BookPage extends React.Component {
 
   componentDidMount() {
     const { bookId } = this.props.match.params;
-    this.context.clearError();
     BooksApiService.getBook(bookId)
       .then(this.context.setBook)
       .catch(this.context.setError);
@@ -64,7 +63,7 @@ export default class BookPage extends React.Component {
   };
 
   renderBook() {
-    if (!this.context.book.title) {
+    if (!this.context.book) {
       return "";
     }
 

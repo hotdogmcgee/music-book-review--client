@@ -2,6 +2,7 @@ import React from "react";
 import "./BookListItem.css";
 import { Link } from "react-router-dom";
 import { BookStarRating } from "../BookStarRating/BookStarRating";
+import propTypes from 'prop-types'
 
 export default function BookListItem(props) {
   const {
@@ -10,8 +11,10 @@ export default function BookListItem(props) {
     avg_rating,
     description,
     image,
+    publisher,
     num_reviews,
     authors,
+    year_published,
     id
   } = props;
 
@@ -36,7 +39,9 @@ export default function BookListItem(props) {
         </h3>
 
         <div className="authors-container">{renderAuthors}</div>
-
+        <p className="publisher-details">
+          {publisher}: {year_published}
+        </p>
         <p>{shortenedDescription}</p>
       </div>
       <div className="ratings-container">
@@ -47,6 +52,19 @@ export default function BookListItem(props) {
       </div>
     </div>
   );
+}
+
+BookListItem.propTypes = {
+  title: propTypes.string,
+    instrument: propTypes.string,
+    avg_rating: propTypes.number,
+    description: propTypes.string,
+    image: propTypes.string,
+    publisher: propTypes.string,
+    num_reviews: propTypes.number,
+    authors: propTypes.array,
+    year_published: propTypes.number,
+    id: propTypes.number,
 }
 
 function RenderAuthors({ authors }) {
@@ -61,11 +79,8 @@ function RenderAuthors({ authors }) {
   });
 }
 
-function Truncate(text="") {
-
-
+function Truncate(text = "") {
   const words = text.split(" ");
-
 
   if (words.length > 10) {
     return words.slice(0, 20).join(" ") + " ...";

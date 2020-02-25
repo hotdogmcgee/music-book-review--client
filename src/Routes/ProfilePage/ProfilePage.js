@@ -19,7 +19,6 @@ export default class ProfilePage extends React.Component {
   static contextType = BookListContext;
 
   componentDidMount() {
-    this.context.clearError();
     BooksApiService.getAllUserReviews().then(reviews =>
       this.setReviews(reviews)
     );

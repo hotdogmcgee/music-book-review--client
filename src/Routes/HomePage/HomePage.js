@@ -4,6 +4,7 @@ import { Section, Button } from "../../Components/Utils/Utils";
 import BookListContext from "../../Contexts/BookListContext";
 import BookList from "../../Components/BookList/BookList";
 import CardList from "../../Components/CardList/CardList";
+import propTypes from 'prop-types'
 
 class HomePage extends React.Component {
   state = {
@@ -97,6 +98,11 @@ class HomePage extends React.Component {
       </section>
     );
   }
+}
+
+HomePage.contextTypes = {
+  bookList: propTypes.array,
+  filterObject: propTypes.object
 }
 
 export default HomePage;

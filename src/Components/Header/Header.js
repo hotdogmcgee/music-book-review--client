@@ -41,8 +41,8 @@ export default class Header extends React.Component {
   };
 
   handleLoginClick = () => {
-    this.props.showModal()
-  }
+    this.props.showModal();
+  };
 
   renderLogoutLink() {
     return (

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InstrumentCard component renders a InstrumentCard by default 1`] = `
+<div
+  className="InstrumentCard"
+>
+  <Link
+    to="/category/instrument/guitar"
+  >
+    <div
+      className="img-wrap"
+    >
+      <img
+        alt="guitar"
+        src="guitar.jpg"
+      />
+    </div>
+    <div
+      className="InstrumentCard__title"
+    >
+      <h2
+        className="capitalize"
+      >
+        guitar
+      </h2>
+    </div>
+  </Link>
+</div>
+`;

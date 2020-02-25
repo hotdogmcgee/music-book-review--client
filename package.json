@@ -15,6 +15,7 @@
     "enzyme-to-json": "^3.4.3",
     "lodash.update": "^4.10.2",
     "node-sass": "^4.13.1",
+    "prop-types": "^15.7.2",
     "react": "^16.11.0",
     "react-burger-menu": "^2.6.13",
     "react-dom": "^16.11.0",
@@ -30,6 +31,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "prettier": "prettier --write **/*.{ts,js,css,html}",
     "predeploy": "npm run build",
     "deploy": "now --prod ./build"
   },
@@ -49,6 +51,9 @@
     ]
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.11.2"
+    "@fortawesome/fontawesome-free": "^5.11.2",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.18.3",
+    "prettier": "^1.19.1"
   }
 }

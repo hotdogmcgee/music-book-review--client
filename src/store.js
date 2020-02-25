@@ -70,9 +70,9 @@ export const STORE = {
       reviews: [],
       authors: [
         {
-            first_name: "Jim",
-            last_name: "Cool"
-          }
+          first_name: "Jim",
+          last_name: "Cool"
+        }
       ],
       published_year: 1988,
       id: 3
@@ -87,9 +87,9 @@ export const STORE = {
       cost: 30,
       authors: [
         {
-            first_name: "Mister",
-            last_name: "Clarinet"
-          }
+          first_name: "Mister",
+          last_name: "Clarinet"
+        }
       ],
       published_year: 2002,
       id: 4,
@@ -103,13 +103,13 @@ export const STORE = {
           text: "it was pretty good"
         },
         {
-            user: {
-              full_name: "joe joe"
-            },
-            rating: 5,
-            id: 1,
-            text: "amazing!"
-          }
+          user: {
+            full_name: "joe joe"
+          },
+          rating: 5,
+          id: 1,
+          text: "amazing!"
+        }
       ]
     }
   ]

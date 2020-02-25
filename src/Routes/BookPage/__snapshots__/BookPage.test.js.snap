@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BookPage component renders a BookPage by default 1`] = `
+<Fragment>
+  <ReviewSuccessModal
+    bookId={true}
+    handleClose={[Function]}
+    show={false}
+  />
+  <ErrorModal
+    handleClose={[Function]}
+    show={false}
+  />
+</Fragment>
+`;

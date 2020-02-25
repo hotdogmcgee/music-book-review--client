@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage component renders a HomePage by default 1`] = `
+<section
+  className="HomePage"
+>
+  <Section
+    className="HomePage__display-area"
+  >
+    <div>
+      <Section>
+        <p
+          className="HomePage__hero"
+        >
+          The Music Book Reviews app helps you find the right book for a variety of instruments.
+          <br />
+          <br />
+          Add your own reviews to grow the project!
+        </p>
+      </Section>
+      <Section
+        className="HomePage__how-to"
+      >
+        <Button
+          className="show-how-to-button"
+          onClick={[Function]}
+        >
+          How do I use this app?
+        </Button>
+      </Section>
+      <h2>
+        Instrument select
+      </h2>
+      <CardList
+        instruments={Array []}
+      />
+    </div>
+  </Section>
+</section>
+`;

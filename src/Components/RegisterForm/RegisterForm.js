@@ -182,7 +182,6 @@ export default class RegisterForm extends React.Component {
   validateEmail(fieldValue) {
     const fieldErrors = { ...this.state.validationMessages };
     let hasError = false;
-    // const focusElement = () => document.getElementById('RegisterForm__email').focus()
 
     fieldValue = fieldValue.trim();
     if (fieldValue.length === 0) {
@@ -370,7 +369,9 @@ export default class RegisterForm extends React.Component {
           >
             Register
           </Button>
-          <Button onClick={this.props.handleClose} type="button">Close</Button>
+          <Button onClick={this.props.handleClose} type="button">
+            Close
+          </Button>
         </section>
       </form>
     );
