@@ -1,7 +1,7 @@
 Music Book Reviews App
 
 ## Live Link
-https://music-book-review-app.now.sh/
+https://music-book-review-client.now.sh/
 
 ## Summary
 An app for reviewing music books intended for students, teachers, and parents.  Trying to find just the right book?  This app should help you on your way.
